@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مجمع ملاك الرحمة الطبي | V3 Professional</title>
-  <meta name="description" content="نسخة V3 بروفيشنال لموقع مجمع ملاك الرحمة الطبي مع واجهة احترافية وبوابة إدارة ومستخدم وحجوزات ولوحات تحكم." />
+  <title>مجمع ملاك الرحمة الطبي | V2 Ultimate</title>
+  <meta name="description" content="نسخة V2 احترافية لمجمع ملاك الرحمة الطبي مع لوحة تحكم متقدمة ونظام مستخدم وإدارة وحجوزات وخدمات وأطباء." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900;1000&display=swap" rel="stylesheet">
@@ -25,14 +25,14 @@
       --warning:#f59e0b;
       --info:#3b82f6;
       --success:#10b981;
-      --dark:#09131a;
+      --dark:#0f172a;
       --shadow:0 18px 50px rgba(2,23,32,.10);
       --shadow-soft:0 10px 28px rgba(2,23,32,.08);
       --radius:24px;
       --radius-sm:18px;
       --grad:linear-gradient(135deg,#0f766e 0%, #14b8a6 50%, #22c55e 100%);
       --grad-soft:linear-gradient(135deg, rgba(15,118,110,.10), rgba(20,184,166,.10), rgba(34,197,94,.10));
-      --container:1320px;
+      --container:1280px;
     }
 
     body.dark{
@@ -55,6 +55,10 @@
       scroll-behavior:smooth;
     }
 
+    html,body{
+      overflow-x:hidden;
+    }
+
     body{
       font-family:'Cairo',sans-serif;
       background:
@@ -62,14 +66,13 @@
         radial-gradient(circle at 0% 100%, rgba(34,197,94,.08), transparent 35%),
         var(--bg);
       color:var(--text);
-      overflow-x:hidden;
-      transition:.25s;
+      transition:background .25s ease, color .25s ease;
     }
 
     a{ text-decoration:none; color:inherit; }
-    img{ max-width:100%; display:block; }
-    button,input,select,textarea{ font-family:'Cairo',sans-serif; }
     ul{ list-style:none; }
+    img{ max-width:100%; display:block; }
+    button, input, textarea, select{ font-family:'Cairo',sans-serif; }
 
     .container{
       width:min(92%, var(--container));
@@ -82,10 +85,10 @@
 
     .section-title{
       text-align:center;
-      font-size:clamp(2rem,3vw,3.2rem);
+      font-size:clamp(2rem, 3vw, 3.2rem);
       font-weight:1000;
-      margin-bottom:14px;
       color:var(--text);
+      margin-bottom:14px;
       line-height:1.2;
     }
 
@@ -112,7 +115,9 @@
       font-size:.95rem;
     }
 
-    .btn:hover{ transform:translateY(-3px); }
+    .btn:hover{
+      transform:translateY(-3px);
+    }
 
     .btn-primary{
       background:var(--grad);
@@ -132,29 +137,14 @@
       color:var(--bg);
     }
 
-    .btn-danger{ background:var(--danger); color:#fff; }
-    .btn-warning{ background:var(--warning); color:#fff; }
-
-    .icon-btn{
-      width:48px;
-      height:48px;
-      border:none;
-      border-radius:16px;
-      background:var(--card);
-      color:var(--text);
-      border:1px solid var(--line);
-      display:grid;
-      place-items:center;
-      font-size:1.15rem;
-      cursor:pointer;
-      box-shadow:var(--shadow-soft);
+    .btn-danger{
+      background:var(--danger);
+      color:#fff;
     }
 
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:26px;
-      box-shadow:var(--shadow-soft);
+    .btn-warning{
+      background:var(--warning);
+      color:#fff;
     }
 
     .chip{
@@ -176,6 +166,13 @@
       border-radius:50%;
       background:var(--accent);
       box-shadow:0 0 0 6px rgba(34,197,94,.14);
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
     }
 
     .topbar{
@@ -286,13 +283,11 @@
       transition:.22s;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active{
+    .nav-links a:hover{
       color:var(--primary);
     }
 
-    .nav-links a:hover::after,
-    .nav-links a.active::after{
+    .nav-links a:hover::after{
       width:100%;
     }
 
@@ -302,30 +297,41 @@
       gap:10px;
     }
 
-    .menu-btn{ display:none; }
+    .icon-btn{
+      width:48px;
+      height:48px;
+      border:none;
+      border-radius:16px;
+      background:var(--card);
+      color:var(--text);
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      font-size:1.15rem;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+    }
 
-    .page{
+    .menu-btn{
       display:none;
     }
 
-    .page.active{
-      display:block;
-    }
-
     .hero{
-      padding:42px 0 64px;
+      padding:78px 0 56px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .hero-grid{
+    .hero-wrap{
       display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:30px;
+      grid-template-columns:1.15fr .95fr;
+      gap:34px;
       align-items:center;
     }
 
     .hero h2{
-      font-size:clamp(2.4rem,4vw,4.8rem);
-      line-height:1.12;
+      font-size:clamp(2.3rem, 4vw, 4.6rem);
+      line-height:1.14;
       margin:18px 0 16px;
       font-weight:1000;
       color:var(--text);
@@ -350,7 +356,7 @@
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-bottom:24px;
+      margin-bottom:28px;
     }
 
     .hero-stats{
@@ -381,91 +387,42 @@
       font-size:.9rem;
     }
 
-    .hero-slider{
+    .hero-visual{
       position:relative;
       min-height:620px;
     }
 
-    .slider-shell{
+    .hero-main{
+      height:100%;
       background:var(--card);
       border:1px solid var(--line);
       border-radius:32px;
       padding:18px;
       box-shadow:var(--shadow);
-      height:100%;
     }
 
-    .slides{
-      position:relative;
+    .hero-image{
       min-height:580px;
       border-radius:26px;
+      background:
+        linear-gradient(135deg, rgba(15,118,110,.24), rgba(20,184,166,.14)),
+        url('https://images.unsplash.com/photo-1631217868264-e6b90bb7e133?auto=format&fit=crop&w=1400&q=80') center/cover;
+      position:relative;
       overflow:hidden;
     }
 
-    .slide{
+    .hero-image::after{
+      content:"Medical Experience • Dashboard • Smart Booking";
       position:absolute;
-      inset:0;
-      opacity:0;
-      transform:scale(1.02);
-      transition:opacity .6s ease, transform .6s ease;
-      background-size:cover;
-      background-position:center;
-    }
-
-    .slide.active{
-      opacity:1;
-      transform:scale(1);
-    }
-
-    .slide::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(9,19,26,.50), rgba(15,118,110,.22));
-    }
-
-    .slide-content{
-      position:absolute;
-      bottom:26px;
-      right:26px;
-      left:26px;
-      z-index:2;
-      color:#fff;
-    }
-
-    .slide-content h3{
-      font-size:1.65rem;
+      bottom:18px;
+      right:18px;
+      background:rgba(255,255,255,.92);
+      color:#0f766e;
+      padding:10px 16px;
+      border-radius:999px;
       font-weight:1000;
-      margin-bottom:8px;
-    }
-
-    .slide-content p{
-      max-width:520px;
-      line-height:1.9;
-      color:#e2e8f0;
-      margin:0;
-    }
-
-    .slider-controls{
-      position:absolute;
-      left:20px;
-      bottom:20px;
-      z-index:3;
-      display:flex;
-      gap:8px;
-    }
-
-    .slider-dot{
-      width:14px;
-      height:14px;
-      border-radius:50%;
-      border:none;
-      background:rgba(255,255,255,.40);
-      cursor:pointer;
-    }
-
-    .slider-dot.active{
-      background:#fff;
+      box-shadow:var(--shadow-soft);
+      font-size:.88rem;
     }
 
     .floating{
@@ -477,7 +434,6 @@
       box-shadow:var(--shadow-soft);
       min-width:220px;
       animation:float 4s ease-in-out infinite;
-      z-index:3;
     }
 
     .floating strong{
@@ -493,23 +449,56 @@
       font-weight:800;
     }
 
-    .floating.one{ top:18px; left:-8px; }
-    .floating.two{ bottom:24px; left:8px; animation-delay:1s; }
+    .floating.one{ top:24px; left:-10px; }
+    .floating.two{ bottom:28px; left:8px; animation-delay:1s; }
+    .floating.three{ top:112px; right:-8px; animation-delay:1.8s; }
 
     @keyframes float{
       0%,100%{ transform:translateY(0); }
       50%{ transform:translateY(-10px); }
     }
 
-    .grid-4, .grid-3, .grid-2{
+    .features-grid,
+    .services-grid,
+    .departments-grid,
+    .doctors-grid,
+    .portal-grid,
+    .testimonials-grid,
+    .stats-cards{
       display:grid;
       gap:22px;
     }
-    .grid-4{ grid-template-columns:repeat(4,1fr); }
-    .grid-3{ grid-template-columns:repeat(3,1fr); }
-    .grid-2{ grid-template-columns:repeat(2,1fr); }
 
-    .feature-card,.service-card,.doctor-card,.info-card,.testimonial,.portal-card{
+    .features-grid{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .services-grid{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .departments-grid{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .doctors-grid{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .portal-grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .testimonials-grid{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .feature-card,
+    .service-card,
+    .dept-card,
+    .doctor-card,
+    .portal-card,
+    .testimonial{
       background:var(--card);
       border:1px solid var(--line);
       border-radius:26px;
@@ -517,12 +506,21 @@
       transition:.28s;
     }
 
-    .feature-card:hover,.service-card:hover,.doctor-card:hover,.info-card:hover,.testimonial:hover,.portal-card:hover{
+    .feature-card:hover,
+    .service-card:hover,
+    .dept-card:hover,
+    .doctor-card:hover,
+    .portal-card:hover,
+    .testimonial:hover{
       transform:translateY(-8px);
       box-shadow:var(--shadow);
     }
 
-    .feature-card,.service-card,.info-card,.testimonial,.portal-card{
+    .feature-card,
+    .service-card,
+    .dept-card,
+    .portal-card,
+    .testimonial{
       padding:24px 22px;
     }
 
@@ -539,14 +537,20 @@
       margin-bottom:16px;
     }
 
-    .feature-card h3,.service-card h3,.info-card h3,.portal-card h3{
+    .feature-card h3,
+    .service-card h3,
+    .dept-card h3,
+    .portal-card h3{
       color:var(--text);
       font-size:1.1rem;
       font-weight:1000;
       margin-bottom:10px;
     }
 
-    .feature-card p,.service-card p,.info-card p,.portal-card p{
+    .feature-card p,
+    .service-card p,
+    .dept-card p,
+    .portal-card p{
       color:var(--muted);
       line-height:1.85;
       font-size:.94rem;
@@ -565,9 +569,7 @@
     }
 
     .stats-cards{
-      display:grid;
       grid-template-columns:repeat(4,1fr);
-      gap:18px;
       margin-bottom:22px;
     }
 
@@ -739,7 +741,9 @@
       gap:8px;
     }
 
-    .field.full{ grid-column:1/-1; }
+    .field.full{
+      grid-column:1/-1;
+    }
 
     .field label{
       font-weight:900;
@@ -769,47 +773,15 @@
       min-height:110px;
     }
 
-    .calendar{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:26px;
-      box-shadow:var(--shadow-soft);
-      padding:22px;
-    }
-
-    .calendar-grid{
-      display:grid;
-      grid-template-columns:repeat(7,1fr);
-      gap:8px;
-      margin-top:16px;
-    }
-
-    .calendar-head,.calendar-day{
-      text-align:center;
-      padding:12px 6px;
-      border-radius:14px;
-      font-weight:900;
-      font-size:.9rem;
-    }
-
-    .calendar-head{
-      background:var(--bg-soft);
-      color:var(--muted);
-    }
-
-    .calendar-day{
-      background:var(--card-2);
-      border:1px solid var(--line);
-      color:var(--text);
-      min-height:54px;
-      display:grid;
-      place-items:center;
-    }
-
-    .calendar-day.active{
-      background:var(--grad);
-      color:#fff;
-      border-color:transparent;
+    .portal-tag{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--grad-soft);
+      color:var(--primary);
+      font-size:.84rem;
+      font-weight:1000;
+      margin-bottom:14px;
     }
 
     .quote{
@@ -869,7 +841,6 @@
       padding-top:70px;
       position:relative;
       overflow:hidden;
-      margin-top:80px;
     }
 
     .footer-grid{
@@ -952,7 +923,9 @@
       flex-direction:column;
     }
 
-    .chat-widget.open{ display:flex; }
+    .chat-widget.open{
+      display:flex;
+    }
 
     .chat-header{
       background:var(--grad);
@@ -1076,7 +1049,9 @@
       padding:20px;
     }
 
-    .modal.open{ display:flex; }
+    .modal.open{
+      display:flex;
+    }
 
     .modal-box{
       width:min(1000px,100%);
@@ -1225,10 +1200,12 @@
       line-height:1.8;
     }
 
-    .hidden{ display:none !important; }
+    .hidden{
+      display:none !important;
+    }
 
     .dashboard-modal-box{
-      width:min(1380px,100%);
+      width:min(1360px, 100%);
     }
 
     .dashboard-wrap{
@@ -1296,7 +1273,8 @@
       transition:.22s;
     }
 
-    .side-link:hover,.side-link.active{
+    .side-link:hover,
+    .side-link.active{
       background:rgba(20,184,166,.16);
       color:#fff;
     }
@@ -1376,7 +1354,8 @@
       margin-bottom:20px;
     }
 
-    .table-card,.panel-card{
+    .table-card,
+    .panel-card{
       background:var(--card);
       border:1px solid var(--line);
       border-radius:24px;
@@ -1384,7 +1363,8 @@
       box-shadow:var(--shadow-soft);
     }
 
-    .table-card h4,.panel-card h4{
+    .table-card h4,
+    .panel-card h4{
       color:var(--text);
       font-size:1.05rem;
       font-weight:1000;
@@ -1396,7 +1376,8 @@
       border-collapse:collapse;
     }
 
-    .simple-table th,.simple-table td{
+    .simple-table th,
+    .simple-table td{
       text-align:right;
       padding:12px 10px;
       border-bottom:1px solid var(--line);
@@ -1418,9 +1399,20 @@
       font-weight:1000;
     }
 
-    .status.pending{ background:rgba(245,158,11,.14); color:#b45309; }
-    .status.confirmed{ background:rgba(16,185,129,.14); color:#047857; }
-    .status.cancelled{ background:rgba(239,68,68,.12); color:#b91c1c; }
+    .status.pending{
+      background:rgba(245,158,11,.14);
+      color:#b45309;
+    }
+
+    .status.confirmed{
+      background:rgba(16,185,129,.14);
+      color:#047857;
+    }
+
+    .status.cancelled{
+      background:rgba(239,68,68,.12);
+      color:#b91c1c;
+    }
 
     .list{
       display:grid;
@@ -1445,6 +1437,18 @@
       color:var(--muted);
       font-size:.9rem;
       font-weight:800;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
     }
 
     .empty{
@@ -1484,9 +1488,17 @@
       font-weight:900;
     }
 
-    .toast.error{ border-right-color:var(--danger); }
-    .toast.warning{ border-right-color:var(--warning); }
-    .toast.info{ border-right-color:var(--info); }
+    .toast.error{
+      border-right-color:var(--danger);
+    }
+
+    .toast.warning{
+      border-right-color:var(--warning);
+    }
+
+    .toast.info{
+      border-right-color:var(--info);
+    }
 
     @keyframes toastIn{
       from{ opacity:0; transform:translateY(-10px); }
@@ -1505,25 +1517,42 @@
     }
 
     @media (max-width:1180px){
-      .hero-grid,.appointment-wrap,.dash-grid{
+      .hero-wrap,
+      .appointment-wrap,
+      .dash-grid{
         grid-template-columns:1fr;
       }
 
-      .grid-4,.stats-cards,.dash-cards,.footer-grid{
+      .features-grid{
         grid-template-columns:repeat(2,1fr);
       }
 
-      .grid-3{
+      .services-grid{
+        grid-template-columns:repeat(3,1fr);
+      }
+
+      .doctors-grid{
         grid-template-columns:repeat(2,1fr);
       }
 
-      .auth-wrap,.dashboard-wrap{
+      .stats-cards,
+      .footer-grid,
+      .dash-cards{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .auth-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .dashboard-wrap{
         grid-template-columns:1fr;
       }
     }
 
     @media (max-width:860px){
-      .nav-links,.nav-actions .btn-outline{
+      .nav-links,
+      .nav-actions .btn-outline{
         display:none;
       }
 
@@ -1548,7 +1577,20 @@
         box-shadow:var(--shadow);
       }
 
-      .hero-stats,.grid-4,.grid-3,.grid-2,.stats-cards,.dash-cards,.footer-grid,.form-grid{
+      .hero-stats,
+      .features-grid,
+      .services-grid,
+      .departments-grid,
+      .portal-grid,
+      .testimonials-grid,
+      .footer-grid,
+      .dash-cards,
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+
+      .form-grid{
         grid-template-columns:1fr;
       }
 
@@ -1557,7 +1599,7 @@
         margin-top:14px;
       }
 
-      .hero-slider{
+      .hero-visual{
         min-height:auto;
         display:flex;
         flex-direction:column;
@@ -1566,14 +1608,41 @@
     }
 
     @media (max-width:600px){
-      .section{ padding:70px 0; }
-      .hero{ padding:30px 0 45px; }
-      .slides{ min-height:320px; }
-      .appointment-info,.form-card{ padding:22px; }
-      .modal-box{ border-radius:22px; }
-      .chat-widget{ left:12px; width:calc(100% - 24px); bottom:86px; }
-      .floating-action{ width:58px; height:58px; }
-      .stats-wrap{ padding:22px; }
+      .section{
+        padding:70px 0;
+      }
+
+      .hero{
+        padding:54px 0 40px;
+      }
+
+      .hero-image{
+        min-height:320px;
+      }
+
+      .appointment-info,
+      .form-card{
+        padding:22px;
+      }
+
+      .modal-box{
+        border-radius:22px;
+      }
+
+      .chat-widget{
+        left:12px;
+        width:calc(100% - 24px);
+        bottom:86px;
+      }
+
+      .floating-action{
+        width:58px;
+        height:58px;
+      }
+
+      .stats-wrap{
+        padding:22px;
+      }
     }
   </style>
 </head>
@@ -1596,450 +1665,386 @@
 
   <header>
     <div class="container nav">
-      <a href="#" class="logo" data-page-link="home">
+      <a href="#home" class="logo">
         <div class="logo-mark">✚</div>
         <div class="logo-text">
           <h1>مجمع ملاك الرحمة الطبي</h1>
-          <span>V3 Professional Edition</span>
+          <span>Ultimate V2 Dashboard Edition</span>
         </div>
       </a>
 
       <nav class="nav-links" id="navLinks">
-        <a href="#" data-page-link="home" class="active">الرئيسية</a>
-        <a href="#" data-page-link="services">الخدمات</a>
-        <a href="#" data-page-link="doctors">الأطباء</a>
-        <a href="#" data-page-link="about">عن المجمع</a>
-        <a href="#" data-page-link="appointment">الحجز</a>
-        <a href="#" data-page-link="contact">تواصل</a>
+        <a href="#home">الرئيسية</a>
+        <a href="#features">المميزات</a>
+        <a href="#services">الخدمات</a>
+        <a href="#departments">الأقسام</a>
+        <a href="#doctors">الأطباء</a>
+        <a href="#appointment">الحجز</a>
+        <a href="#portal">البوابة</a>
+        <a href="#contact">تواصل</a>
       </nav>
 
       <div class="nav-actions">
         <button class="icon-btn" id="themeToggle" title="تبديل الوضع">🌙</button>
         <button class="btn btn-outline" id="openAuthBtn">دخول / تسجيل</button>
-        <button class="btn btn-primary" data-page-btn="appointment">احجز الآن</button>
+        <a href="#appointment" class="btn btn-primary">احجز الآن</a>
         <button class="icon-btn menu-btn" id="menuBtn">☰</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- HOME PAGE -->
-    <section class="page active" id="page-home">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="reveal">
-            <div class="chip">
-              <span class="dot"></span>
-              V3 بروفيشنال — أقرب نسخة لمشروع حقيقي
-            </div>
+  <section class="hero" id="home">
+    <div class="container hero-wrap">
+      <div class="reveal">
+        <div class="chip">
+          <span class="dot"></span>
+          نسخة V2 أقوى لموقع مجمع عيادات احترافي جدًا
+        </div>
 
-            <h2>
-              موقع يرفع قيمة المجمع
-              <span class="highlight">قدام المريض والإدارة</span>
-            </h2>
+        <h2>
+          الموقع اللي يخلي المجمع يظهر
+          <span class="highlight">كأنه مؤسسة طبية ضخمة فعلًا</span>
+        </h2>
 
-            <p>
-              نسخة احترافية جدًا فيها Hero Slider، صفحات داخلية، بوابة إدارة ومستخدم، تقويم، رسوم بيانية، إدارة مواعيد وخدمات وأطباء، مع شكل فخم يليق بعرض قوي قدام أي عميل.
-            </p>
+        <p>
+          دي مش مجرد واجهة جميلة وبس. دي نسخة أقوى فيها Dashboard متقدم، User Portal، Admin Portal، Charts، فلترة وبحث، Notifications، Dark Mode، إدارة مواعيد، أطباء، خدمات، وتجربة استخدام محترمة جدًا على الموبايل والكمبيوتر.
+        </p>
 
-            <div class="hero-actions">
-              <button class="btn btn-primary" data-page-btn="appointment">ابدأ الحجز الآن</button>
-              <button class="btn btn-dark" id="openDashboardBtn">فتح البوابة الذكية</button>
-            </div>
+        <div class="hero-actions">
+          <a href="#appointment" class="btn btn-primary">ابدأ الحجز الآن</a>
+          <button class="btn btn-dark" id="openDashboardBtn">فتح البوابة الذكية</button>
+        </div>
 
-            <div class="hero-stats">
-              <div class="hero-stat">
-                <strong>5000+</strong>
-                <span>مريض تمت خدمته</span>
-              </div>
-              <div class="hero-stat">
-                <strong>10+</strong>
-                <span>أطباء متخصصون</span>
-              </div>
-              <div class="hero-stat">
-                <strong>18+</strong>
-                <span>خدمة طبية</span>
-              </div>
-              <div class="hero-stat">
-                <strong>98%</strong>
-                <span>رضا المرضى</span>
-              </div>
-            </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>5000+</strong>
+            <span>مريض تمت خدمته</span>
           </div>
-
-          <div class="hero-slider reveal">
-            <div class="slider-shell">
-              <div class="slides" id="slides">
-                <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1631217868264-e6b90bb7e133?auto=format&fit=crop&w=1400&q=80')">
-                  <div class="slide-content">
-                    <h3>رعاية صحية متكاملة</h3>
-                    <p>واجهة قوية تعكس الاحتراف والثقة من أول زيارة للموقع.</p>
-                  </div>
-                </div>
-                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=80')">
-                  <div class="slide-content">
-                    <h3>فريق طبي متميز</h3>
-                    <p>عرض منظم للأطباء والتخصصات والخدمات الطبية الرئيسية.</p>
-                  </div>
-                </div>
-                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1400&q=80')">
-                  <div class="slide-content">
-                    <h3>بوابة إدارة حديثة</h3>
-                    <p>إدارة المواعيد والخدمات والأطباء والمستخدمين في لوحة واحدة.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="slider-controls" id="sliderDots"></div>
-            </div>
-
-            <div class="floating one">
-              <strong>Admin Dashboard</strong>
-              <span>تحكم كامل في النظام والمواعيد والخدمات</span>
-            </div>
-
-            <div class="floating two">
-              <strong>User Portal</strong>
-              <span>متابعة الحجوزات والملف الشخصي بسهولة</span>
-            </div>
+          <div class="hero-stat">
+            <strong>10+</strong>
+            <span>أطباء متخصصون</span>
+          </div>
+          <div class="hero-stat">
+            <strong>18+</strong>
+            <span>خدمة طبية</span>
+          </div>
+          <div class="hero-stat">
+            <strong>98%</strong>
+            <span>رضا المرضى</span>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title reveal">ليه V3 مميز جدًا؟</h2>
-          <p class="section-subtitle reveal">
-            النسخة دي مش مجرد شكل حلو، دي عرض بروفيشنال يخليك تبين إنك فاهم تجربة المستخدم والتنظيم وأنظمة المجمعات الطبية.
+      <div class="hero-visual reveal">
+        <div class="hero-main">
+          <div class="hero-image"></div>
+        </div>
+
+        <div class="floating one">
+          <strong>Admin Dashboard</strong>
+          <span>تحكم كامل في الأطباء والخدمات والمواعيد والمستخدمين</span>
+        </div>
+
+        <div class="floating two">
+          <strong>User Portal</strong>
+          <span>متابعة المواعيد والملف الشخصي والحجوزات بسهولة</span>
+        </div>
+
+        <div class="floating three">
+          <strong>Dark Mode + Charts</strong>
+          <span>واجهة أقوى وتجربة أذكى وأفخم</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <h2 class="section-title reveal">ليه V2 أقوى من النسخة اللي قبلها؟</h2>
+      <p class="section-subtitle reveal">
+        لأن النسخة دي مش بس شكلها أفخم، لكن كمان فيها تنظيم أفضل وذكاء أكبر داخل البوابة ولوحة التحكم.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="icon-box">🎯</div>
+          <h3>واجهة أقوى</h3>
+          <p>تصميم أنضف، أقوى بصريًا، ويخلي المجمع يبان بشكل فخم وحديث جدًا.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="icon-box">📊</div>
+          <h3>إحصائيات ورسوم</h3>
+          <p>لوحة الإدارة فيها Charts وإحصائيات تساعد في فهم النظام بسرعة.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="icon-box">🌙</div>
+          <h3>Dark Mode</h3>
+          <p>تبديل فوري بين الوضع الفاتح والداكن بشكل احترافي ومريح.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="icon-box">🔎</div>
+          <h3>بحث وفلترة</h3>
+          <p>إدارة المواعيد والخدمات والأطباء بفلترة سريعة بدل الفوضى.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section-title reveal">الخدمات الطبية</h2>
+      <p class="section-subtitle reveal">
+        كل الخدمات الأساسية والاحترافية اللي تخلي أي مجمع عيادات يبان مكتمل وقوي.
+      </p>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="departments">
+    <div class="container">
+      <h2 class="section-title reveal">الأقسام والتخصصات</h2>
+      <p class="section-subtitle reveal">
+        عرض مرتب وواضح للتخصصات الرئيسية داخل المجمع.
+      </p>
+
+      <div class="departments-grid">
+        <div class="dept-card reveal">
+          <div class="icon-box">🩺</div>
+          <h3>الطب العام</h3>
+          <p>تشخيص أولي ومتابعة دقيقة للحالات العامة والمراجعين.</p>
+        </div>
+        <div class="dept-card reveal">
+          <div class="icon-box">🦷</div>
+          <h3>الأسنان</h3>
+          <p>تنظيف، علاج، تجميل، وحلول متقدمة لصحة الأسنان.</p>
+        </div>
+        <div class="dept-card reveal">
+          <div class="icon-box">👶</div>
+          <h3>الأطفال</h3>
+          <p>رعاية متكاملة للأطفال ومتابعة مستمرة للحالات المختلفة.</p>
+        </div>
+        <div class="dept-card reveal">
+          <div class="icon-box">🫀</div>
+          <h3>الباطنية</h3>
+          <p>تشخيص الأمراض المزمنة والحالات الباطنية والمتابعة الطبية.</p>
+        </div>
+        <div class="dept-card reveal">
+          <div class="icon-box">👩‍⚕️</div>
+          <h3>النساء والولادة</h3>
+          <p>متابعة صحية وعلاجية متخصصة لصحة المرأة.</p>
+        </div>
+        <div class="dept-card reveal">
+          <div class="icon-box">🧪</div>
+          <h3>المختبر والتحاليل</h3>
+          <p>نتائج سريعة ودقيقة لدعم القرار الطبي بشكل أقوى.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-wrap reveal">
+        <div class="stats-cards">
+          <div class="stat-card">
+            <h4 data-target="5000">0</h4>
+            <p>إجمالي المرضى</p>
+          </div>
+          <div class="stat-card">
+            <h4 data-target="10">0</h4>
+            <p>الأطباء</p>
+          </div>
+          <div class="stat-card">
+            <h4 data-target="18">0</h4>
+            <p>الخدمات</p>
+          </div>
+          <div class="stat-card">
+            <h4 data-target="98">0</h4>
+            <p>% رضا المرضى</p>
+          </div>
+        </div>
+
+        <div class="stats-chart">
+          <canvas id="publicChart" width="1000" height="240"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="doctors">
+    <div class="container">
+      <h2 class="section-title reveal">فريق الأطباء</h2>
+      <p class="section-subtitle reveal">
+        فريق طبي متخصص يظهر المجمع بشكل قوي ومقنع.
+      </p>
+      <div class="doctors-grid" id="doctorsGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="appointment">
+    <div class="container appointment-wrap">
+      <div class="appointment-info reveal">
+        <h3>احجز بسهولة في أقل من دقيقة</h3>
+        <p>
+          المريض يقدر يحجز من الموقع مباشرة، وبعدها تظهر البيانات في لوحة التحكم لمراجعتها وتأكيدها أو إلغائها.
+        </p>
+
+        <ul class="appointment-points">
+          <li>📅 اختيار القسم والخدمة والطبيب بسهولة</li>
+          <li>🧠 ربط الحجز بالمستخدم الحالي تلقائيًا</li>
+          <li>📋 ظهور الحجز في Dashboard الإدارة</li>
+          <li>📲 متابعة الحجز من لوحة المستخدم</li>
+        </ul>
+      </div>
+
+      <form class="form-card reveal" id="appointmentForm">
+        <div class="form-grid">
+          <div class="field">
+            <label>الاسم الكامل</label>
+            <input class="control" id="patientName" type="text" placeholder="اكتب الاسم الكامل" required>
+          </div>
+
+          <div class="field">
+            <label>رقم الجوال</label>
+            <input class="control" id="patientPhone" type="tel" placeholder="05xxxxxxxx" required>
+          </div>
+
+          <div class="field">
+            <label>القسم</label>
+            <select class="control" id="appointmentDepartment" required></select>
+          </div>
+
+          <div class="field">
+            <label>الخدمة</label>
+            <select class="control" id="appointmentService" required></select>
+          </div>
+
+          <div class="field">
+            <label>الطبيب</label>
+            <select class="control" id="appointmentDoctor" required></select>
+          </div>
+
+          <div class="field">
+            <label>التاريخ</label>
+            <input class="control" id="appointmentDate" type="date" required>
+          </div>
+
+          <div class="field full">
+            <label>ملاحظات إضافية</label>
+            <textarea class="control" id="appointmentNotes" placeholder="اكتب أي تفاصيل إضافية"></textarea>
+          </div>
+
+          <div class="field full">
+            <button class="btn btn-primary" style="width:100%;" type="submit">تأكيد طلب الحجز</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="portal">
+    <div class="container">
+      <h2 class="section-title reveal">البوابة الذكية</h2>
+      <p class="section-subtitle reveal">
+        حساب إدارة وحساب مستخدم عادي، وكل واحد له صلاحيات وواجهة مناسبة له.
+      </p>
+
+      <div class="portal-grid">
+        <div class="portal-card reveal">
+          <div class="portal-tag">Admin Portal</div>
+          <h3>لوحة الإدارة المتقدمة</h3>
+          <p>
+            إدارة الأطباء، إدارة الخدمات، مراجعة المواعيد، إدارة المستخدمين، رسوم بيانية، بحث وفلترة، وإعدادات النظام.
           </p>
-
-          <div class="grid-4">
-            <div class="feature-card reveal">
-              <div class="icon-box">🎯</div>
-              <h3>واجهة احترافية جدًا</h3>
-              <p>شكل حديث وفخم يخلي الموقع يبان قوي من أول ثانية.</p>
-            </div>
-
-            <div class="feature-card reveal">
-              <div class="icon-box">📊</div>
-              <h3>Charts وإحصائيات</h3>
-              <p>رسوم ومؤشرات سريعة داخل لوحة الإدارة لفهم النظام.</p>
-            </div>
-
-            <div class="feature-card reveal">
-              <div class="icon-box">🌙</div>
-              <h3>Dark Mode</h3>
-              <p>واجهة ليلية وواجهة نهارية باحتراف وتناغم بصري ممتاز.</p>
-            </div>
-
-            <div class="feature-card reveal">
-              <div class="icon-box">🧠</div>
-              <h3>SPA Navigation</h3>
-              <p>تنقل سريع بين الصفحات بدون تحميل فعلي مع إحساس حديث.</p>
-            </div>
-          </div>
+          <br>
+          <button class="btn btn-primary" id="openAdminFromPortal">فتح لوحة الإدارة</button>
         </div>
-      </section>
 
-      <section class="stats-band">
-        <div class="container">
-          <div class="stats-wrap reveal">
-            <div class="stats-cards">
-              <div class="stat-card">
-                <h4 data-target="5000">0</h4>
-                <p>إجمالي المرضى</p>
-              </div>
-              <div class="stat-card">
-                <h4 data-target="10">0</h4>
-                <p>الأطباء</p>
-              </div>
-              <div class="stat-card">
-                <h4 data-target="18">0</h4>
-                <p>الخدمات</p>
-              </div>
-              <div class="stat-card">
-                <h4 data-target="98">0</h4>
-                <p>% رضا المرضى</p>
-              </div>
-            </div>
-
-            <div class="stats-chart">
-              <canvas id="publicChart" width="1000" height="240"></canvas>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title reveal">بوابة ذكية للإدارة والمستخدم</h2>
-          <p class="section-subtitle reveal">
-            نظام دخول متكامل بواجهتين مختلفتين حسب نوع الحساب.
+        <div class="portal-card reveal">
+          <div class="portal-tag">User Portal</div>
+          <h3>لوحة المستخدم الذكية</h3>
+          <p>
+            متابعة المواعيد الخاصة، تعديل البيانات الشخصية، مشاهدة تاريخ الحجوزات، والانتقال السريع لنموذج الحجز.
           </p>
+          <br>
+          <button class="btn btn-dark" id="openUserFromPortal">فتح لوحة المستخدم</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="grid-2">
-            <div class="portal-card reveal">
-              <div class="icon-box">🛡️</div>
-              <h3>Admin Portal</h3>
-              <p>إدارة الأطباء والخدمات والمواعيد والمستخدمين والتحليلات والإعدادات.</p>
-              <br>
-              <button class="btn btn-primary" id="openAdminFromPortal">فتح لوحة الإدارة</button>
-            </div>
+  <section class="section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title reveal">آراء المرضى</h2>
+      <p class="section-subtitle reveal">
+        شكل قوي + تجربة منظمة = انطباع ممتاز من أول زيارة.
+      </p>
 
-            <div class="portal-card reveal">
-              <div class="icon-box">👤</div>
-              <h3>User Portal</h3>
-              <p>مواعيدي، ملفي الشخصي، الحجز السريع، ومتابعة كل الطلبات الخاصة بالمستخدم.</p>
-              <br>
-              <button class="btn btn-dark" id="openUserFromPortal">فتح لوحة المستخدم</button>
+      <div class="testimonials-grid">
+        <div class="testimonial reveal">
+          <div class="quote">“</div>
+          <p>الموقع شكله احترافي جدًا ويخلي الواحد يثق في المكان من أول ما يفتحه.</p>
+          <div class="patient">
+            <div class="avatar">م</div>
+            <div>
+              <strong>محمد علي</strong>
+              <span>مراجع بالمجمع</span>
             </div>
           </div>
         </div>
-      </section>
-    </section>
 
-    <!-- SERVICES PAGE -->
-    <section class="page" id="page-services">
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title reveal">الخدمات الطبية</h2>
-          <p class="section-subtitle reveal">
-            مجموعة خدمات أساسية واحترافية تمثل أساس أي مجمع عيادات حديث.
-          </p>
-          <div class="grid-4" id="servicesGrid"></div>
-        </div>
-      </section>
-    </section>
-
-    <!-- DOCTORS PAGE -->
-    <section class="page" id="page-doctors">
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title reveal">فريق الأطباء</h2>
-          <p class="section-subtitle reveal">
-            نخبة من الأطباء المتخصصين داخل مجمع ملاك الرحمة الطبي.
-          </p>
-          <div class="grid-4" id="doctorsGrid"></div>
-        </div>
-      </section>
-    </section>
-
-    <!-- ABOUT PAGE -->
-    <section class="page" id="page-about">
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title reveal">عن المجمع</h2>
-          <p class="section-subtitle reveal">
-            مجمع طبي يسعى لتقديم رعاية صحية متكاملة داخل بيئة احترافية وحديثة.
-          </p>
-
-          <div class="grid-3">
-            <div class="info-card reveal">
-              <div class="icon-box">🏥</div>
-              <h3>رؤية المجمع</h3>
-              <p>تقديم تجربة علاجية حديثة ومريحة تجمع بين الجودة الطبية والاهتمام الحقيقي بالمريض.</p>
-            </div>
-            <div class="info-card reveal">
-              <div class="icon-box">⚡</div>
-              <h3>رسالتنا</h3>
-              <p>تسهيل الوصول للخدمات الطبية وتقديم خدمة سريعة ومنظمة من أول تواصل وحتى المتابعة.</p>
-            </div>
-            <div class="info-card reveal">
-              <div class="icon-box">💚</div>
-              <h3>قيمنا</h3>
-              <p>الرحمة، الدقة، السرعة، الثقة، والاحترام في كل نقطة تواصل مع المراجع.</p>
-            </div>
-          </div>
-
-          <div class="grid-2" style="margin-top:22px;">
-            <div class="testimonial reveal">
-              <div class="quote">“</div>
-              <p>الموقع القوي مش مجرد شكل، ده بيعكس مستوى التنظيم والاحتراف اللي المريض هيشوفه جوا المجمع.</p>
-              <div class="patient">
-                <div class="avatar">م</div>
-                <div>
-                  <strong>رؤية رقمية</strong>
-                  <span>Smart Branding</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial reveal">
-              <div class="quote">“</div>
-              <p>كل جزء هنا معمول عشان يخلي المجمع يبان قوي قدام الإدارة والعميل، ويكون قابل للتطوير لاحقًا لنظام كامل.</p>
-              <div class="patient">
-                <div class="avatar">ع</div>
-                <div>
-                  <strong>نسخة عرض احترافية</strong>
-                  <span>Professional Showcase</span>
-                </div>
-              </div>
+        <div class="testimonial reveal">
+          <div class="quote">“</div>
+          <p>الحجز واضح جدًا وسريع، والموقع فعلاً مظهره يدي إحساس إن المجمع منظم وحديث.</p>
+          <div class="patient">
+            <div class="avatar">س</div>
+            <div>
+              <strong>سارة أحمد</strong>
+              <span>مراجعة بالمجمع</span>
             </div>
           </div>
         </div>
-      </section>
-    </section>
 
-    <!-- APPOINTMENT PAGE -->
-    <section class="page" id="page-appointment">
-      <section class="section">
-        <div class="container appointment-wrap">
-          <div class="appointment-info reveal">
-            <h3>احجز بسهولة في أقل من دقيقة</h3>
-            <p>
-              المريض يقدر يحجز مباشرة من الموقع، وبعدها يظهر الطلب داخل لوحة الإدارة للمراجعة والتأكيد.
-            </p>
-
-            <ul class="appointment-points">
-              <li>📅 اختيار القسم والخدمة والطبيب بسهولة</li>
-              <li>📋 حفظ الحجز وربطه بالحساب الحالي</li>
-              <li>🧠 متابعة الحجز من لوحة المستخدم</li>
-              <li>✅ الإدارة تقدر تؤكد أو تلغي الموعد</li>
-            </ul>
-          </div>
-
-          <div style="display:grid; gap:22px;">
-            <form class="form-card reveal" id="appointmentForm">
-              <div class="form-grid">
-                <div class="field">
-                  <label>الاسم الكامل</label>
-                  <input class="control" id="patientName" type="text" placeholder="اكتب الاسم الكامل" required>
-                </div>
-
-                <div class="field">
-                  <label>رقم الجوال</label>
-                  <input class="control" id="patientPhone" type="tel" placeholder="05xxxxxxxx" required>
-                </div>
-
-                <div class="field">
-                  <label>القسم</label>
-                  <select class="control" id="appointmentDepartment" required></select>
-                </div>
-
-                <div class="field">
-                  <label>الخدمة</label>
-                  <select class="control" id="appointmentService" required></select>
-                </div>
-
-                <div class="field">
-                  <label>الطبيب</label>
-                  <select class="control" id="appointmentDoctor" required></select>
-                </div>
-
-                <div class="field">
-                  <label>التاريخ</label>
-                  <input class="control" id="appointmentDate" type="date" required>
-                </div>
-
-                <div class="field full">
-                  <label>ملاحظات إضافية</label>
-                  <textarea class="control" id="appointmentNotes" placeholder="اكتب أي تفاصيل إضافية"></textarea>
-                </div>
-
-                <div class="field full">
-                  <button class="btn btn-primary" style="width:100%;" type="submit">تأكيد طلب الحجز</button>
-                </div>
-              </div>
-            </form>
-
-            <div class="calendar reveal">
-              <h3 style="font-size:1.15rem;font-weight:1000;color:var(--text);">تقويم سريع للمواعيد</h3>
-              <p style="color:var(--muted);margin-top:6px;">عرض شكلي بسيط يساعد في جعل الصفحة أقرب للأنظمة الاحترافية.</p>
-
-              <div class="calendar-grid" id="calendarGrid"></div>
+        <div class="testimonial reveal">
+          <div class="quote">“</div>
+          <p>لو الإدارة شافت النسخة دي هتحس إن المشروع جاهز يبقى نظام حقيقي كامل.</p>
+          <div class="patient">
+            <div class="avatar">ع</div>
+            <div>
+              <strong>عبدالله خالد</strong>
+              <span>زائر للموقع</span>
             </div>
           </div>
         </div>
-      </section>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- CONTACT PAGE -->
-    <section class="page" id="page-contact">
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title reveal">تواصل معنا</h2>
-          <p class="section-subtitle reveal">
-            كل طرق التواصل الأساسية متاحة بشكل واضح ومنظم.
-          </p>
-
-          <div class="grid-3">
-            <div class="info-card reveal">
-              <div class="icon-box">📍</div>
-              <h3>العنوان</h3>
-              <p>القويعية - المملكة العربية السعودية</p>
-            </div>
-            <div class="info-card reveal">
-              <div class="icon-box">📞</div>
-              <h3>الهاتف</h3>
-              <p>0554505243</p>
-            </div>
-            <div class="info-card reveal">
-              <div class="icon-box">✉️</div>
-              <h3>البريد الإلكتروني</h3>
-              <p>info@malakalrahma.com</p>
-            </div>
-          </div>
-
-          <div class="grid-2" style="margin-top:22px;">
-            <form class="form-card reveal" id="contactForm">
-              <div class="form-grid">
-                <div class="field">
-                  <label>الاسم</label>
-                  <input class="control" type="text" placeholder="اكتب اسمك" required>
-                </div>
-                <div class="field">
-                  <label>الجوال</label>
-                  <input class="control" type="tel" placeholder="05xxxxxxxx" required>
-                </div>
-                <div class="field full">
-                  <label>الرسالة</label>
-                  <textarea class="control" placeholder="اكتب رسالتك هنا" required></textarea>
-                </div>
-                <div class="field full">
-                  <button class="btn btn-primary" style="width:100%;" type="submit">إرسال الرسالة</button>
-                </div>
-              </div>
-            </form>
-
-            <div class="testimonial reveal">
-              <div class="quote">“</div>
-              <p>الموقع ده معمول عشان يبقى أداة إقناع قوية جدًا، سواء قدام إدارة المجمع أو قدام عميل عايز يشوف شغلك بشكل محترم.</p>
-              <div class="patient">
-                <div class="avatar">V3</div>
-                <div>
-                  <strong>نسخة بروفيشنال</strong>
-                  <span>Presentation Ready</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-  </main>
-
-  <footer>
+  <footer id="contact">
     <div class="container footer-grid">
       <div>
         <div class="logo">
           <div class="logo-mark">✚</div>
           <div class="logo-text">
             <h1 style="color:#fff;">مجمع ملاك الرحمة الطبي</h1>
-            <span>Professional V3</span>
+            <span>نسخة V2 الاحترافية</span>
           </div>
         </div>
         <p style="margin-top:14px;color:#94a3b8;line-height:1.9;">
-          موقع احترافي حديث بواجهة قوية جدًا، بوابة إدارة، بوابة مستخدم، حجوزات، تقويم، رسوم بيانية، وتنقل داخلي سريع.
+          موقع متكامل لمجمع طبي حديث بواجهة قوية جدًا، بوابة إدارة، بوابة مستخدم، حجوزات، بحث، فلترة، ورسوم بيانية.
         </p>
       </div>
 
       <div>
-        <h4 class="footer-title">الصفحات</h4>
+        <h4 class="footer-title">روابط مهمة</h4>
         <div class="footer-links">
-          <a href="#" data-page-link="home">الرئيسية</a>
-          <a href="#" data-page-link="services">الخدمات</a>
-          <a href="#" data-page-link="doctors">الأطباء</a>
-          <a href="#" data-page-link="contact">تواصل</a>
+          <a href="#home">الرئيسية</a>
+          <a href="#features">المميزات</a>
+          <a href="#services">الخدمات</a>
+          <a href="#doctors">الأطباء</a>
         </div>
       </div>
 
@@ -2059,7 +2064,7 @@
           <a href="tel:0554505243">0554505243</a>
           <a href="mailto:info@malakalrahma.com">info@malakalrahma.com</a>
           <a href="#">القويعية - السعودية</a>
-          <a href="#" data-page-link="appointment">احجز موعد</a>
+          <a href="#appointment">احجز موعد</a>
         </div>
       </div>
     </div>
@@ -2115,7 +2120,7 @@
         <div class="auth-side">
           <h4>نظام دخول للإدارة والمستخدم</h4>
           <p>
-            تقدر تدخل بحساب الإدارة، أو حساب المستخدم، أو تنشئ مستخدم جديد وتبدأ تستخدم لوحة المستخدم فورًا.
+            تقدر تدخل بحساب الإدارة، أو حساب المستخدم، أو تعمل حساب مستخدم جديد وتبدأ تستخدم لوحة المستخدم فورًا.
           </p>
 
           <div class="demo-users">
@@ -2225,12 +2230,12 @@
 
   <script>
     const STORAGE_KEYS = {
-      users: 'malak_v3_users',
-      currentUser: 'malak_v3_current_user',
-      doctors: 'malak_v3_doctors',
-      services: 'malak_v3_services',
-      appointments: 'malak_v3_appointments',
-      theme: 'malak_v3_theme'
+      users: 'malak_v2_users',
+      currentUser: 'malak_v2_current_user',
+      doctors: 'malak_v2_doctors',
+      services: 'malak_v2_services',
+      appointments: 'malak_v2_appointments',
+      theme: 'malak_v2_theme'
     };
 
     const defaultUsers = [
@@ -2380,9 +2385,6 @@
       if(user){
         document.getElementById('patientName').value = user.name || '';
         document.getElementById('patientPhone').value = user.phone || '';
-      } else {
-        document.getElementById('patientName').value = '';
-        document.getElementById('patientPhone').value = '';
       }
     }
 
@@ -2408,7 +2410,7 @@
           createdAt: new Date().toISOString()
         };
 
-        if(!item.patientName || !item.patientPhone || !item.department || !item.service || !item.doctor || !item.date){
+        if(!item.department || !item.service || !item.doctor || !item.date){
           showToast('من فضلك أكمل بيانات الحجز', 'warning');
           return;
         }
@@ -2419,14 +2421,6 @@
         renderAppointmentSelectors();
         autoFillAppointmentForm();
         showToast('تم إرسال طلب الحجز بنجاح ✅');
-      });
-    }
-
-    function handleContactForm(){
-      document.getElementById('contactForm').addEventListener('submit', function(e){
-        e.preventDefault();
-        this.reset();
-        showToast('تم إرسال الرسالة بنجاح');
       });
     }
 
@@ -2562,75 +2556,16 @@
       });
     }
 
-    function renderCalendar(){
-      const grid = document.getElementById('calendarGrid');
-      const days = ['س','ح','ن','ث','ر','خ','ج'];
-      let html = days.map(day => `<div class="calendar-head">${day}</div>`).join('');
-      for(let i=1; i<=30; i++){
-        const active = i === new Date().getDate() ? 'active' : '';
-        html += `<div class="calendar-day ${active}">${i}</div>`;
-      }
-      grid.innerHTML = html;
-    }
-
-    // SPA Navigation
-    function showPage(page){
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      const target = document.getElementById(`page-${page}`);
-      if(target) target.classList.add('active');
-
-      document.querySelectorAll('[data-page-link]').forEach(link => {
-        link.classList.toggle('active', link.dataset.pageLink === page);
-      });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      activateReveal();
-    }
-
-    document.querySelectorAll('[data-page-link]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        showPage(link.dataset.pageLink);
-        navLinks.classList.remove('mobile-open');
-      });
-    });
-
-    document.querySelectorAll('[data-page-btn]').forEach(btn => {
-      btn.addEventListener('click', () => showPage(btn.dataset.pageBtn));
-    });
-
     // Menu
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('mobile-open'));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
+    });
 
     // Theme
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-
-    // Slider
-    let currentSlide = 0;
-    function initSlider(){
-      const slides = [...document.querySelectorAll('.slide')];
-      const dotsWrap = document.getElementById('sliderDots');
-      dotsWrap.innerHTML = slides.map((_,i)=>`<button class="slider-dot ${i===0?'active':''}" data-slide="${i}"></button>`).join('');
-
-      const dots = [...document.querySelectorAll('.slider-dot')];
-
-      function goSlide(index){
-        currentSlide = index;
-        slides.forEach((s,i)=>s.classList.toggle('active', i===index));
-        dots.forEach((d,i)=>d.classList.toggle('active', i===index));
-      }
-
-      dots.forEach(dot=>{
-        dot.addEventListener('click', ()=>goSlide(+dot.dataset.slide));
-      });
-
-      setInterval(()=>{
-        currentSlide = (currentSlide + 1) % slides.length;
-        goSlide(currentSlide);
-      }, 4500);
-    }
 
     // Chat
     const chatToggle = document.getElementById('chatToggle');
@@ -2656,15 +2591,15 @@
       let reply = 'شكرًا لتواصلك معنا 💙 سيتم الرد عليك في أقرب وقت.';
 
       if(value.includes('حجز') || value.includes('موعد')){
-        reply = 'يمكنك الحجز من صفحة <strong>الحجز</strong> داخل الموقع، أو تسجيل الدخول ثم متابعة المواعيد من لوحة المستخدم.';
+        reply = 'يمكنك الحجز من قسم <strong>الحجز</strong> في الموقع، أو تسجيل الدخول ثم متابعة مواعيدك من لوحة المستخدم.';
       }else if(value.includes('الخدمات') || value.includes('تخصص')){
         reply = 'لدينا خدمات متعددة مثل: <strong>الطب العام، الأسنان، الأطفال، الباطنية، النساء والولادة، المختبر، الأشعة، التأمين الطبي</strong>.';
       }else if(value.includes('العمل') || value.includes('مواعيد')){
         reply = 'مواعيد العمل لدينا يوميًا من <strong>8:00 صباحًا</strong> إلى <strong>11:00 مساءً</strong>.';
       }else if(value.includes('دكتور') || value.includes('طبيب')){
-        reply = 'يمكنك مشاهدة الأطباء في صفحة <strong>الأطباء</strong>، كما يمكن للإدارة إضافة أطباء جدد من لوحة التحكم.';
+        reply = 'يمكنك مشاهدة الأطباء في قسم <strong>فريق الأطباء</strong>، كما يمكن للإدارة إضافة أطباء جدد من لوحة التحكم.';
       }else if(value.includes('تأمين')){
-        reply = 'نعم، يوجد دعم لخدمة <strong>التأمين الطبي</strong> لتسهيل الإجراءات والموافقات.';
+        reply = 'نعم، يوجد دعم لخدمة <strong>التأمين الطبي</strong> داخل المجمع لتسهيل الإجراءات والموافقات.';
       }
 
       setTimeout(() => addChatMessage(reply, 'bot'), 450);
@@ -2829,7 +2764,7 @@
 
       openModal(dashboardModal);
       const role = forceRole || user.role;
-      dashboardTitle.textContent = role === 'admin' ? 'لوحة الإدارة الاحترافية V3' : 'لوحة المستخدم';
+      dashboardTitle.textContent = role === 'admin' ? 'لوحة الإدارة المتقدمة V2' : 'لوحة المستخدم';
       sidebarUserName.textContent = user.name;
       sidebarUserRole.textContent = role === 'admin' ? 'Administrator' : 'Normal User';
 
@@ -3492,7 +3427,7 @@
 
       if(view === 'bookNow'){
         closeModal(dashboardModal);
-        showPage('appointment');
+        document.getElementById('appointment').scrollIntoView({ behavior:'smooth' });
         showToast('يمكنك الآن تعبئة نموذج الحجز');
       }
     }
@@ -3565,13 +3500,10 @@
     renderDoctors();
     renderAppointmentSelectors();
     handleAppointmentForm();
-    handleContactForm();
     activateReveal();
     animateCounters();
     autoFillAppointmentForm();
     drawPublicChart();
-    renderCalendar();
-    initSlider();
 
     const dateInput = document.getElementById('appointmentDate');
     dateInput.min = new Date().toISOString().split('T')[0];
