@@ -3,102 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مجمع طبي</title>
+<title>Medical V5 Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:Tahoma;background:#0b132b;color:#fff}
-section{padding:60px 20px;text-align:center}
-h1,h2{margin-bottom:15px}
-.btn{padding:12px 20px;background:#22c55e;color:#fff;border:none;border-radius:10px;cursor:pointer}
-input{padding:10px;border-radius:8px;border:none;width:200px;margin:5px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{background:#f6fbfd;color:#222}
 
-/* hero */
-.hero{background:linear-gradient(135deg,#1e3a8a,#0ea5e9)}
-.cards{display:flex;gap:15px;flex-wrap:wrap;justify-content:center}
-.card{background:#1e293b;padding:20px;border-radius:15px;width:200px}
+/* HERO */
+.hero{
+background:linear-gradient(135deg,#0ea5e9,#22c55e);
+color:#fff;
+padding:100px 20px;
+text-align:center;
+}
+.hero h1{font-size:3rem}
+.hero p{margin:15px 0}
+.btn{padding:12px 25px;border:none;border-radius:30px;cursor:pointer}
+.btn-primary{background:#fff;color:#0ea5e9;font-weight:bold}
 
-/* hidden */
+/* CARDS */
+.section{padding:60px 20px;text-align:center}
+.cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.card{
+background:#fff;
+padding:20px;
+border-radius:20px;
+width:220px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+transition:.3s;
+}
+.card:hover{transform:translateY(-10px)}
+
+/* doctors */
+#doctors{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+
+/* booking */
+input{
+padding:12px;
+margin:5px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+/* login */
+.login{
+max-width:350px;
+margin:100px auto;
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+text-align:center;
+}
 .hidden{display:none}
 
 /* dashboard */
 .dashboard{display:flex}
-.sidebar{width:200px;background:#020617;height:100vh;padding:20px}
+.sidebar{
+width:220px;
+background:#0f172a;
+color:#fff;
+height:100vh;
+padding:20px;
+}
+.sidebar button{
+display:block;
+width:100%;
+margin:10px 0;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#1e293b;
+color:#fff;
+cursor:pointer;
+}
 .content{flex:1;padding:20px}
-.item{background:#1e293b;margin:10px;padding:10px;border-radius:10px}
+.item{background:#eee;padding:10px;margin:10px;border-radius:10px}
 
-/* login */
-.login{max-width:300px;margin:100px auto;background:#1e293b;padding:20px;border-radius:20px}
 </style>
 </head>
 
 <body>
 
-<!-- 🌍 الموقع -->
+<!-- 🌍 SITE -->
 <div id="site">
 
-<section class="hero">
-  <h1>مجمع ملاك الرحمة الطبي</h1>
-  <p>أفضل رعاية طبية في مكان واحد</p>
-  <button class="btn" onclick="goLogin()">دخول الإدارة</button>
-</section>
+<div class="hero">
+<h1>مجمع ملاك الرحمة الطبي</h1>
+<p>رعاية طبية متكاملة بأحدث التقنيات</p>
+<button class="btn btn-primary" onclick="goLogin()">دخول الإدارة</button>
+</div>
 
-<section>
-  <h2>الخدمات</h2>
-  <div class="cards">
-    <div class="card">طب عام</div>
-    <div class="card">أسنان</div>
-    <div class="card">أطفال</div>
-    <div class="card">تحاليل</div>
-  </div>
-</section>
+<div class="section">
+<h2>الخدمات</h2>
+<div class="cards">
+<div class="card">طب عام</div>
+<div class="card">أسنان</div>
+<div class="card">أطفال</div>
+<div class="card">تحاليل</div>
+</div>
+</div>
 
-<section>
-  <h2>الأطباء</h2>
-  <div id="doctorsView"></div>
-</section>
+<div class="section">
+<h2>الأطباء</h2>
+<div id="doctors"></div>
+</div>
 
-<section>
-  <h2>حجز موعد</h2>
-  <input id="pname" placeholder="اسمك">
-  <input id="pdoc" placeholder="الدكتور">
-  <button class="btn" onclick="book()">حجز</button>
-</section>
+<div class="section">
+<h2>حجز موعد</h2>
+<input id="name" placeholder="اسمك">
+<input id="doc" placeholder="الدكتور">
+<button class="btn btn-primary" onclick="book()">حجز</button>
+</div>
 
 </div>
 
-<!-- 🔐 login -->
+<!-- LOGIN -->
 <div id="login" class="hidden">
-  <div class="login">
-    <h2>تسجيل الدخول</h2>
-    <input id="user"><br>
-    <input id="pass" type="password"><br>
-    <button class="btn" onclick="login()">دخول</button>
-    <p>admin / 1234</p>
-  </div>
+<div class="login">
+<h2>تسجيل الدخول</h2>
+<input id="user"><br>
+<input id="pass" type="password"><br><br>
+<button class="btn btn-primary" onclick="login()">دخول</button>
+<p>admin / 1234</p>
+</div>
 </div>
 
-<!-- 📊 dashboard -->
+<!-- DASHBOARD -->
 <div id="dash" class="hidden dashboard">
 
 <div class="sidebar">
-  <h3>Dashboard</h3>
-  <button onclick="show('home')">الرئيسية</button>
-  <button onclick="show('doc')">الأطباء</button>
-  <button onclick="show('app')">الحجوزات</button>
-  <button onclick="logout()">خروج</button>
+<h3>Dashboard</h3>
+<button onclick="show('home')">الرئيسية</button>
+<button onclick="show('doc')">الأطباء</button>
+<button onclick="show('app')">الحجوزات</button>
+<button onclick="logout()">خروج</button>
 </div>
 
 <div class="content">
 
 <div id="home">
 <h2>احصائيات</h2>
-<p>أطباء: <span id="dc"></span></p>
-<p>حجوزات: <span id="ac"></span></p>
+<p>عدد الأطباء: <span id="dc"></span></p>
+<p>عدد الحجوزات: <span id="ac"></span></p>
 </div>
 
 <div id="doc" class="hidden">
 <h2>الأطباء</h2>
-<input id="dname" placeholder="اسم">
+<input id="dname">
 <button onclick="addDoc()">إضافة</button>
 <div id="docList"></div>
 </div>
@@ -112,7 +166,6 @@ input{padding:10px;border-radius:8px;border:none;width:200px;margin:5px}
 </div>
 
 <script>
-
 let doctors=JSON.parse(localStorage.getItem("docs"))||["د. أحمد","د. سارة"]
 let apps=JSON.parse(localStorage.getItem("apps"))||[]
 
@@ -126,61 +179,45 @@ function load(){
 document.getElementById("dc").innerText=doctors.length
 document.getElementById("ac").innerText=apps.length
 
-// doctors
 let dhtml=""
 doctors.forEach((d,i)=>{
 dhtml+=`<div class="item">${d} <button onclick="delDoc(${i})">حذف</button></div>`
 })
 document.getElementById("docList").innerHTML=dhtml
 
-// apps
-let ahtml=""
-apps.forEach((a,i)=>{
-ahtml+=`<div class="item">${a.name} مع ${a.doc}</div>`
-})
-document.getElementById("appList").innerHTML=ahtml
-
-// view
 let view=""
 doctors.forEach(d=>view+=`<div class="card">${d}</div>`)
-document.getElementById("doctorsView").innerHTML=view
+document.getElementById("doctors").innerHTML=view
+
+let ahtml=""
+apps.forEach(a=>ahtml+=`<div class="item">${a.name} - ${a.doc}</div>`)
+document.getElementById("appList").innerHTML=ahtml
 }
 
-// login
 function goLogin(){
 document.getElementById("site").classList.add("hidden")
 document.getElementById("login").classList.remove("hidden")
 }
 
 function login(){
-let u=document.getElementById("user").value
-let p=document.getElementById("pass").value
-
-if(u=="admin" && p=="1234"){
-document.getElementById("login").classList.add("hidden")
-document.getElementById("dash").classList.remove("hidden")
+if(user.value=="admin" && pass.value=="1234"){
+loginDiv.classList.add("hidden")
+dash.classList.remove("hidden")
 load()
-}else{
-alert("خطأ")
-}
+}else alert("خطأ")
 }
 
-function logout(){
-location.reload()
-}
+function logout(){location.reload()}
 
-// nav
 function show(p){
-document.getElementById("home").classList.add("hidden")
-document.getElementById("doc").classList.add("hidden")
-document.getElementById("app").classList.add("hidden")
+home.classList.add("hidden")
+doc.classList.add("hidden")
+app.classList.add("hidden")
 document.getElementById(p).classList.remove("hidden")
 }
 
-// doctors
 function addDoc(){
-let n=document.getElementById("dname").value
-doctors.push(n)
+doctors.push(dname.value)
 save()
 }
 
@@ -189,17 +226,13 @@ doctors.splice(i,1)
 save()
 }
 
-// booking
 function book(){
-let n=document.getElementById("pname").value
-let d=document.getElementById("pdoc").value
-apps.push({name:n,doc:d})
+apps.push({name:name.value,doc:doc.value})
 save()
 alert("تم الحجز")
 }
 
 load()
-
 </script>
 
 </body>
