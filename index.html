@@ -1,176 +1,644 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medical Ultra System V4</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مجمع طبي - نسخة سهلة</title>
+  <style>
+    :root{
+      --bg:#0b132b;
+      --card:#1c2541;
+      --card2:#24304f;
+      --primary:#22c55e;
+      --danger:#ef4444;
+      --text:#ffffff;
+      --muted:#cbd5e1;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 20px 50px rgba(0,0,0,.25);
+      --radius:22px;
+    }
 
-<style>
-body{font-family:Arial;background:#0f172a;color:#fff;margin:0}
-.screen{display:none;padding:20px}
-.active{display:block}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Tahoma, Arial, sans-serif;
+    }
 
-/* Login */
-.login-box{max-width:400px;margin:100px auto;background:#1e293b;padding:30px;border-radius:20px}
-input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none}
-button{padding:12px 20px;border:none;border-radius:10px;background:#22c55e;color:#fff;cursor:pointer}
+    body{
+      background:linear-gradient(135deg,#071127,#0b132b 55%,#0f1d3d);
+      color:var(--text);
+      min-height:100vh;
+    }
 
-/* Dashboard */
-.sidebar{position:fixed;right:0;top:0;width:220px;height:100%;background:#020617;padding:20px}
-.sidebar button{width:100%;margin:10px 0;background:#334155}
-.content{margin-right:240px;padding:20px}
+    .hidden{display:none!important;}
 
-/* Cards */
-.card{background:#1e293b;padding:20px;border-radius:15px;margin:10px 0}
-</style>
+    .login-screen{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .login-box{
+      width:100%;
+      max-width:480px;
+      background:rgba(28,37,65,.95);
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:34px 28px;
+      box-shadow:var(--shadow);
+    }
+
+    .login-box h1{
+      font-size:2rem;
+      margin-bottom:10px;
+      text-align:center;
+    }
+
+    .login-box p{
+      color:var(--muted);
+      text-align:center;
+      margin-bottom:24px;
+      line-height:1.8;
+    }
+
+    .field{
+      margin-bottom:16px;
+    }
+
+    .field label{
+      display:block;
+      margin-bottom:8px;
+      font-size:.95rem;
+      color:#e2e8f0;
+    }
+
+    .input{
+      width:100%;
+      padding:14px 16px;
+      border:none;
+      outline:none;
+      border-radius:16px;
+      background:#f8fafc;
+      color:#111827;
+      font-size:1rem;
+    }
+
+    .btn{
+      border:none;
+      border-radius:16px;
+      padding:14px 18px;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:bold;
+      transition:.2s;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+      width:100%;
+      margin-top:6px;
+    }
+
+    .demo{
+      margin-top:18px;
+      text-align:center;
+      color:#dbeafe;
+      font-size:.95rem;
+      line-height:1.8;
+    }
+
+    .error-box{
+      background:rgba(239,68,68,.15);
+      color:#fecaca;
+      border:1px solid rgba(239,68,68,.3);
+      padding:12px 14px;
+      border-radius:14px;
+      margin-bottom:14px;
+      display:none;
+    }
+
+    .dashboard{
+      min-height:100vh;
+      display:flex;
+    }
+
+    .sidebar{
+      width:260px;
+      background:#08101f;
+      border-left:1px solid var(--border);
+      padding:24px 18px;
+    }
+
+    .brand{
+      font-size:1.3rem;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+
+    .role{
+      color:var(--muted);
+      margin-bottom:24px;
+      font-size:.95rem;
+    }
+
+    .menu{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .menu button{
+      text-align:right;
+      background:var(--card);
+      color:#fff;
+      border:1px solid var(--border);
+      padding:14px 16px;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:1rem;
+    }
+
+    .menu button.active{
+      background:var(--primary);
+      border-color:transparent;
+    }
+
+    .logout-btn{
+      margin-top:18px;
+      background:var(--danger)!important;
+    }
+
+    .content{
+      flex:1;
+      padding:26px;
+    }
+
+    .top-title{
+      font-size:1.8rem;
+      margin-bottom:6px;
+    }
+
+    .top-sub{
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-bottom:22px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .card small{
+      color:var(--muted);
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .card strong{
+      font-size:2rem;
+    }
+
+    .panel{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:20px;
+      margin-bottom:18px;
+    }
+
+    .panel h3{
+      margin-bottom:16px;
+      font-size:1.2rem;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr auto;
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .table-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .item{
+      background:var(--card2);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .item-info{
+      line-height:1.8;
+    }
+
+    .item-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .btn-sm{
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:.9rem;
+    }
+
+    .btn-green{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .btn-red{
+      background:var(--danger);
+      color:#fff;
+    }
+
+    .status{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      font-weight:bold;
+      margin-top:6px;
+    }
+
+    .pending{background:#f59e0b;color:#fff;}
+    .confirmed{background:#22c55e;color:#fff;}
+    .cancelled{background:#ef4444;color:#fff;}
+
+    .welcome{
+      background:linear-gradient(135deg,#22c55e,#16a34a);
+      color:#fff;
+    }
+
+    @media (max-width: 900px){
+      .dashboard{
+        flex-direction:column;
+      }
+
+      .sidebar{
+        width:100%;
+        border-left:none;
+        border-bottom:1px solid var(--border);
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .row{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- LOGIN -->
-<div id="login" class="screen active">
-  <div class="login-box">
-    <h2>تسجيل الدخول</h2>
-    <input id="user" placeholder="username">
-    <input id="pass" type="password" placeholder="password">
-    <button onclick="login()">دخول</button>
-    <p>admin / 1234 | user / 1234</p>
-  </div>
-</div>
+  <!-- Login -->
+  <section id="loginScreen" class="login-screen">
+    <div class="login-box">
+      <h1>تسجيل الدخول</h1>
+      <p>نسخة سهلة وبسيطة وشيك لموقع المجمع الطبي</p>
 
-<!-- DASHBOARD -->
-<div id="dashboard" class="screen">
-  <div class="sidebar">
-    <h3>لوحة التحكم</h3>
-    <button onclick="show('home')">الرئيسية</button>
-    <button onclick="show('doctors')">الأطباء</button>
-    <button onclick="show('appointments')">الحجوزات</button>
-    <button onclick="logout()">خروج</button>
-  </div>
+      <div id="errorBox" class="error-box"></div>
 
-  <div class="content">
-    
-    <div id="home" class="page">
-      <h2>📊 الاحصائيات</h2>
-      <div class="card">عدد الأطباء: <span id="docCount"></span></div>
-      <div class="card">عدد الحجوزات: <span id="appCount"></span></div>
+      <div class="field">
+        <label>اسم المستخدم</label>
+        <input id="username" class="input" type="text" placeholder="اكتب اسم المستخدم" autocomplete="username">
+      </div>
+
+      <div class="field">
+        <label>كلمة المرور</label>
+        <input id="password" class="input" type="password" placeholder="اكتب كلمة المرور" autocomplete="current-password">
+      </div>
+
+      <button class="btn btn-primary" onclick="login()">دخول</button>
+
+      <div class="demo">
+        <div><strong>Admin:</strong> admin / 1234</div>
+        <div><strong>User:</strong> user / 1234</div>
+      </div>
     </div>
+  </section>
 
-    <div id="doctors" class="page" style="display:none">
-      <h2>👨‍⚕️ إدارة الأطباء</h2>
-      <input id="docName" placeholder="اسم الدكتور">
-      <button onclick="addDoctor()">إضافة</button>
-      <div id="docList"></div>
-    </div>
+  <!-- Dashboard -->
+  <section id="dashboardScreen" class="dashboard hidden">
+    <aside class="sidebar">
+      <div class="brand">مجمع طبي</div>
+      <div id="userRole" class="role">---</div>
 
-    <div id="appointments" class="page" style="display:none">
-      <h2>📅 الحجوزات</h2>
-      <input id="appName" placeholder="اسم المريض">
-      <button onclick="addApp()">إضافة</button>
-      <div id="appList"></div>
-    </div>
+      <div class="menu">
+        <button id="menuHome" class="active" onclick="showPage('home')">الرئيسية</button>
+        <button id="menuDoctors" onclick="showPage('doctors')">الأطباء</button>
+        <button id="menuAppointments" onclick="showPage('appointments')">الحجوزات</button>
+        <button class="logout-btn" onclick="logout()">تسجيل خروج</button>
+      </div>
+    </aside>
 
-  </div>
-</div>
+    <main class="content">
+      <!-- Home -->
+      <div id="pageHome">
+        <div class="top-title">لوحة التحكم</div>
+        <div class="top-sub">نظام بسيط وسهل الاستخدام</div>
 
-<script>
-const users = {
-  admin: { pass: "1234", role: "admin" },
-  user: { pass: "1234", role: "user" }
-};
+        <div class="cards">
+          <div class="card welcome">
+            <small>المستخدم الحالي</small>
+            <strong id="currentUserName">-</strong>
+          </div>
+          <div class="card">
+            <small>عدد الأطباء</small>
+            <strong id="doctorCount">0</strong>
+          </div>
+          <div class="card">
+            <small>عدد الحجوزات</small>
+            <strong id="appointmentCount">0</strong>
+          </div>
+        </div>
+      </div>
 
-let currentUser = null;
+      <!-- Doctors -->
+      <div id="pageDoctors" class="hidden">
+        <div class="top-title">إدارة الأطباء</div>
+        <div class="top-sub">أضف أو احذف الأطباء بسهولة</div>
 
-function login() {
-  let u = document.getElementById("user").value.trim().toLowerCase();
-  let p = document.getElementById("pass").value.trim();
+        <div class="panel">
+          <h3>إضافة دكتور</h3>
+          <div class="row">
+            <input id="doctorNameInput" class="input" type="text" placeholder="اسم الدكتور">
+            <input id="doctorSpecInput" class="input" type="text" placeholder="التخصص">
+            <button class="btn btn-primary" onclick="addDoctor()">إضافة</button>
+          </div>
+        </div>
 
-  if (!u || !p) {
-    alert("من فضلك اكتب اسم المستخدم وكلمة المرور");
-    return;
-  }
+        <div class="panel">
+          <h3>قائمة الأطباء</h3>
+          <div id="doctorsList" class="table-list"></div>
+        </div>
+      </div>
 
-  if (users[u] && users[u].pass === p) {
-    currentUser = users[u];
-    document.getElementById("login").classList.remove("active");
-    document.getElementById("dashboard").classList.add("active");
-    loadData();
-  } else {
-    alert("خطأ في البيانات");
-  }
-}
+      <!-- Appointments -->
+      <div id="pageAppointments" class="hidden">
+        <div class="top-title">إدارة الحجوزات</div>
+        <div class="top-sub">أضف الحجز وغيّر حالته بسهولة</div>
 
-function logout() {
-  currentUser = null;
-  document.getElementById("dashboard").classList.remove("active");
-  document.getElementById("login").classList.add("active");
-  document.getElementById("user").value = "";
-  document.getElementById("pass").value = "";
-}
+        <div class="panel">
+          <h3>إضافة حجز</h3>
+          <div class="row">
+            <input id="patientNameInput" class="input" type="text" placeholder="اسم المريض">
+            <input id="patientDoctorInput" class="input" type="text" placeholder="اسم الدكتور">
+            <button class="btn btn-primary" onclick="addAppointment()">إضافة</button>
+          </div>
+        </div>
 
-function show(page) {
-  document.querySelectorAll(".page").forEach(p => p.style.display = "none");
-  document.getElementById(page).style.display = "block";
-}
+        <div class="panel">
+          <h3>قائمة الحجوزات</h3>
+          <div id="appointmentsList" class="table-list"></div>
+        </div>
+      </div>
+    </main>
+  </section>
 
-let doctors = JSON.parse(localStorage.getItem("doctors")) || [];
-let apps = JSON.parse(localStorage.getItem("apps")) || [];
+  <script>
+    const users = {
+      admin: { password: "1234", role: "أدمن" },
+      user: { password: "1234", role: "مستخدم" }
+    };
 
-function save() {
-  localStorage.setItem("doctors", JSON.stringify(doctors));
-  localStorage.setItem("apps", JSON.stringify(apps));
-  loadData();
-}
+    let currentUser = null;
 
-function addDoctor() {
-  let name = document.getElementById("docName").value.trim();
-  if (!name) return;
-  doctors.push(name);
-  document.getElementById("docName").value = "";
-  save();
-}
+    let doctors = JSON.parse(localStorage.getItem("simple_doctors")) || [
+      { id: 1, name: "د. أحمد خالد", specialty: "طب عام" },
+      { id: 2, name: "د. سارة محمد", specialty: "أسنان" }
+    ];
 
-function deleteDoctor(i) {
-  doctors.splice(i, 1);
-  save();
-}
+    let appointments = JSON.parse(localStorage.getItem("simple_appointments")) || [
+      { id: 1, patient: "محمد علي", doctor: "د. أحمد خالد", status: "pending" },
+      { id: 2, patient: "سارة أحمد", doctor: "د. سارة محمد", status: "confirmed" }
+    ];
 
-function addApp() {
-  let name = document.getElementById("appName").value.trim();
-  if (!name) return;
-  apps.push(name);
-  document.getElementById("appName").value = "";
-  save();
-}
+    function saveData() {
+      localStorage.setItem("simple_doctors", JSON.stringify(doctors));
+      localStorage.setItem("simple_appointments", JSON.stringify(appointments));
+    }
 
-function deleteApp(i) {
-  apps.splice(i, 1);
-  save();
-}
+    function showError(message) {
+      const box = document.getElementById("errorBox");
+      box.style.display = "block";
+      box.textContent = message;
+    }
 
-function loadData() {
-  document.getElementById("docCount").innerText = doctors.length;
-  document.getElementById("appCount").innerText = apps.length;
+    function hideError() {
+      const box = document.getElementById("errorBox");
+      box.style.display = "none";
+      box.textContent = "";
+    }
 
-  let docHTML = "";
-  doctors.forEach((d, i) => {
-    docHTML += `<div class="card">${d} <button onclick="deleteDoctor(${i})">حذف</button></div>`;
-  });
-  document.getElementById("docList").innerHTML = docHTML;
+    function login() {
+      const username = document.getElementById("username").value.trim().toLowerCase();
+      const password = document.getElementById("password").value.trim();
 
-  let appHTML = "";
-  apps.forEach((a, i) => {
-    appHTML += `<div class="card">${a} <button onclick="deleteApp(${i})">حذف</button></div>`;
-  });
-  document.getElementById("appList").innerHTML = appHTML;
-}
+      hideError();
 
-document.getElementById("pass").addEventListener("keydown", function(e) {
-  if (e.key === "Enter") {
-    login();
-  }
-});
-</script>
+      if (!username || !password) {
+        showError("من فضلك اكتب اسم المستخدم وكلمة المرور");
+        return;
+      }
 
+      if (users[username] && users[username].password === password) {
+        currentUser = {
+          username,
+          role: users[username].role
+        };
+
+        document.getElementById("loginScreen").classList.add("hidden");
+        document.getElementById("dashboardScreen").classList.remove("hidden");
+
+        document.getElementById("currentUserName").textContent = username;
+        document.getElementById("userRole").textContent = "الصلاحية: " + users[username].role;
+
+        loadDashboard();
+      } else {
+        showError("خطأ في البيانات");
+      }
+    }
+
+    function logout() {
+      currentUser = null;
+      document.getElementById("dashboardScreen").classList.add("hidden");
+      document.getElementById("loginScreen").classList.remove("hidden");
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      hideError();
+    }
+
+    function setActiveMenu(menuId) {
+      document.querySelectorAll(".menu button").forEach(btn => btn.classList.remove("active"));
+      document.getElementById(menuId).classList.add("active");
+    }
+
+    function showPage(page) {
+      document.getElementById("pageHome").classList.add("hidden");
+      document.getElementById("pageDoctors").classList.add("hidden");
+      document.getElementById("pageAppointments").classList.add("hidden");
+
+      if (page === "home") {
+        document.getElementById("pageHome").classList.remove("hidden");
+        setActiveMenu("menuHome");
+      } else if (page === "doctors") {
+        document.getElementById("pageDoctors").classList.remove("hidden");
+        setActiveMenu("menuDoctors");
+      } else if (page === "appointments") {
+        document.getElementById("pageAppointments").classList.remove("hidden");
+        setActiveMenu("menuAppointments");
+      }
+    }
+
+    function loadDashboard() {
+      document.getElementById("doctorCount").textContent = doctors.length;
+      document.getElementById("appointmentCount").textContent = appointments.length;
+      renderDoctors();
+      renderAppointments();
+      showPage("home");
+    }
+
+    function addDoctor() {
+      const name = document.getElementById("doctorNameInput").value.trim();
+      const specialty = document.getElementById("doctorSpecInput").value.trim();
+
+      if (!name || !specialty) return;
+
+      doctors.push({
+        id: Date.now(),
+        name,
+        specialty
+      });
+
+      document.getElementById("doctorNameInput").value = "";
+      document.getElementById("doctorSpecInput").value = "";
+
+      saveData();
+      loadDashboard();
+    }
+
+    function deleteDoctor(id) {
+      doctors = doctors.filter(doc => doc.id !== id);
+      saveData();
+      loadDashboard();
+    }
+
+    function renderDoctors() {
+      const list = document.getElementById("doctorsList");
+
+      if (doctors.length === 0) {
+        list.innerHTML = `<div class="item"><div class="item-info">لا يوجد أطباء</div></div>`;
+        return;
+      }
+
+      list.innerHTML = doctors.map(doc => `
+        <div class="item">
+          <div class="item-info">
+            <strong>${doc.name}</strong><br>
+            <span>${doc.specialty}</span>
+          </div>
+          <div class="item-actions">
+            <button class="btn btn-sm btn-red" onclick="deleteDoctor(${doc.id})">حذف</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function addAppointment() {
+      const patient = document.getElementById("patientNameInput").value.trim();
+      const doctor = document.getElementById("patientDoctorInput").value.trim();
+
+      if (!patient || !doctor) return;
+
+      appointments.push({
+        id: Date.now(),
+        patient,
+        doctor,
+        status: "pending"
+      });
+
+      document.getElementById("patientNameInput").value = "";
+      document.getElementById("patientDoctorInput").value = "";
+
+      saveData();
+      loadDashboard();
+    }
+
+    function updateAppointmentStatus(id, status) {
+      const app = appointments.find(a => a.id === id);
+      if (app) {
+        app.status = status;
+        saveData();
+        loadDashboard();
+      }
+    }
+
+    function deleteAppointment(id) {
+      appointments = appointments.filter(app => app.id !== id);
+      saveData();
+      loadDashboard();
+    }
+
+    function renderAppointments() {
+      const list = document.getElementById("appointmentsList");
+
+      if (appointments.length === 0) {
+        list.innerHTML = `<div class="item"><div class="item-info">لا توجد حجوزات</div></div>`;
+        return;
+      }
+
+      list.innerHTML = appointments.map(app => `
+        <div class="item">
+          <div class="item-info">
+            <strong>${app.patient}</strong><br>
+            <span>الدكتور: ${app.doctor}</span><br>
+            <span class="status ${app.status}">
+              ${app.status === "pending" ? "قيد المراجعة" : app.status === "confirmed" ? "مؤكد" : "ملغي"}
+            </span>
+          </div>
+          <div class="item-actions">
+            <button class="btn btn-sm btn-green" onclick="updateAppointmentStatus(${app.id}, 'confirmed')">تأكيد</button>
+            <button class="btn btn-sm btn-red" onclick="updateAppointmentStatus(${app.id}, 'cancelled')">إلغاء</button>
+            <button class="btn btn-sm" onclick="deleteAppointment(${app.id})">حذف</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    document.getElementById("password").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") login();
+    });
+  </script>
 </body>
 </html>
