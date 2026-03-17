@@ -3,170 +3,277 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ملاك الرحمة | مجمع طبي متكامل</title>
-  <meta name="description" content="مجمع ملاك الرحمة الطبي - منصة رقمية متكاملة للحجز الإلكتروني، استعراض الخدمات الطبية، الأطباء، التأمين، التحاليل، الباقات الصحية، والتواصل مع المرضى عبر تجربة احترافية حديثة." />
+  <title>ملاك الرحمة | مجمع عيادات متكامل</title>
+  <meta name="description" content="مجمع ملاك الرحمة - مجمع عيادات متكامل بخدمات نقدية وتأمينية، حجز إلكتروني، تعريف بالأطباء، ومزايا رقمية حديثة." />
   <style>
     :root{
-      --bg:#04101d;
-      --bg2:#0a1b31;
-      --bg3:#0f2947;
+      --bg:#07111f;
+      --bg2:#0e2037;
       --card:rgba(255,255,255,.08);
-      --card2:rgba(255,255,255,.05);
-      --line:rgba(255,255,255,.11);
-      --text:#eef7ff;
-      --muted:#9eb7d1;
-      --primary:#1fd6cb;
-      --primary2:#3a84ff;
-      --accent:#8e7dff;
-      --success:#35d17e;
-      --warning:#f6b14d;
-      --danger:#ff6c8f;
-      --gold:#ffd86d;
-      --darkshadow:0 28px 70px rgba(0,0,0,.38);
-      --radius:26px;
+      --card-strong:rgba(255,255,255,.12);
+      --line:rgba(255,255,255,.12);
+      --text:#eef6ff;
+      --muted:#a9bfd8;
+      --primary:#19d3c5;
+      --primary2:#4b8dff;
+      --accent:#7d6bff;
+      --success:#31d17d;
+      --warning:#f3b34a;
+      --shadow:0 24px 60px rgba(0,0,0,.32);
+      --radius:24px;
+      --max:1360px;
     }
-    body.light{
-      --bg:#eef5fb;
-      --bg2:#e6f0fb;
-      --bg3:#dceafe;
-      --card:rgba(255,255,255,.78);
-      --card2:rgba(255,255,255,.62);
-      --line:rgba(10,33,66,.10);
-      --text:#0d2037;
-      --muted:#58708a;
-      --darkshadow:0 24px 55px rgba(34,61,91,.12);
-    }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:"Tahoma","Segoe UI",sans-serif;
+      font-family:"Segoe UI",Tahoma,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 8% 12%, rgba(31,214,203,.14), transparent 20%),
-        radial-gradient(circle at 88% 18%, rgba(58,132,255,.14), transparent 24%),
-        radial-gradient(circle at 48% 100%, rgba(142,125,255,.10), transparent 30%),
-        linear-gradient(135deg,var(--bg),var(--bg2) 50%,var(--bg3));
+        radial-gradient(circle at 10% 10%, rgba(25,211,197,.16), transparent 18%),
+        radial-gradient(circle at 90% 18%, rgba(75,141,255,.14), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(125,107,255,.12), transparent 24%),
+        linear-gradient(135deg,var(--bg),var(--bg2));
       overflow-x:hidden;
-      transition:background .3s,color .3s;
     }
     a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
+    img{max-width:100%;display:block}
     button,input,select,textarea{font-family:inherit}
-    .container{width:min(1400px,92%);margin:auto}
-    .glass{background:var(--card);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:var(--darkshadow)}
-    .btn{border:none;cursor:pointer;color:#fff;font-weight:800;padding:14px 20px;border-radius:16px;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 15px 32px rgba(31,214,203,.23);transition:.25s}
+    .container{width:min(var(--max),92%);margin:auto}
+    .glass{background:var(--card);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .section{padding:88px 0}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;flex-wrap:wrap;margin-bottom:28px}
+    .section-head h2{margin:0 0 10px;font-size:clamp(1.8rem,3vw,3rem)}
+    .section-head p{margin:0;color:var(--muted);line-height:1.9;max-width:760px}
+
+    .btn{
+      border:none;cursor:pointer;color:#fff;font-weight:800;
+      padding:14px 20px;border-radius:16px;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      box-shadow:0 14px 28px rgba(25,211,197,.22);
+      transition:.25s ease;
+    }
     .btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
     .btn.outline{background:transparent;border:1px solid rgba(255,255,255,.16);box-shadow:none;color:var(--text)}
-    body.light .btn.outline{border-color:rgba(13,32,55,.12)}
-    .btn.success{background:linear-gradient(135deg,#22ba72,#45de92)}
-    .btn.warning{background:linear-gradient(135deg,#ed9b1c,#ffc45e)}
-    .btn.danger{background:linear-gradient(135deg,#ff5d7d,#ff86a2)}
     .btn.small{padding:10px 14px;border-radius:12px;font-size:.92rem}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);font-size:.9rem}
-    body.light .pill{background:rgba(255,255,255,.8);border-color:rgba(13,32,55,.08)}
-    .icon-box{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(31,214,203,.17),rgba(58,132,255,.17));border:1px solid rgba(255,255,255,.10);font-size:1.45rem}
-    .grid{display:grid;gap:18px}
-    .reveal{opacity:0;transform:translateY(30px);transition:.75s ease}
-    .reveal.visible{opacity:1;transform:none}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);font-size:.9rem}
+    .icon-box{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:1.45rem;background:linear-gradient(135deg,rgba(25,211,197,.16),rgba(75,141,255,.16));border:1px solid rgba(255,255,255,.09)}
 
-    .bg-orbs{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
-    .orb{position:absolute;border-radius:50%;filter:blur(26px);opacity:.22;animation:float 18s ease-in-out infinite}
-    .orb.a{width:320px;height:320px;top:-80px;right:-80px;background:#1fd6cb}
-    .orb.b{width:260px;height:260px;bottom:-80px;left:-60px;background:#3a84ff;animation-delay:2s}
-    .orb.c{width:180px;height:180px;top:45%;left:22%;background:#8e7dff;animation-delay:4s}
-    @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-35px)}}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(53,209,126,.5)}70%{box-shadow:0 0 0 18px rgba(53,209,126,0)}100%{box-shadow:0 0 0 0 rgba(53,209,126,0)}}
-    @keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(180%)}}
-    @keyframes slideIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+    .bg-orbs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(28px);opacity:.22;animation:float 18s ease-in-out infinite}
+    .orb.one{width:330px;height:330px;top:-80px;right:-80px;background:#19d3c5}
+    .orb.two{width:280px;height:280px;bottom:-90px;left:-70px;background:#4b8dff;animation-delay:2s}
+    .orb.three{width:180px;height:180px;top:48%;left:20%;background:#7d6bff;animation-delay:4s}
+    @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(28px,-34px)}}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(49,209,125,.45)}70%{box-shadow:0 0 0 16px rgba(49,209,125,0)}100%{box-shadow:0 0 0 0 rgba(49,209,125,0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 
-    .navbar{position:sticky;top:0;z-index:1100;background:rgba(4,12,23,.72);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
-    body.light .navbar{background:rgba(255,255,255,.76)}
+    .navbar{
+      position:sticky;top:0;z-index:1100;
+      background:rgba(7,17,31,.72);backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
     .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:14px;min-width:0}
-    .logo{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));font-size:1.5rem;font-weight:900;box-shadow:0 14px 30px rgba(31,214,203,.28)}
-    .brand h2{margin:0;font-size:1.1rem}.brand small{color:var(--muted)}
-    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.nav-links a{color:var(--muted);font-weight:700}.nav-links a.active,.nav-links a:hover{color:var(--text)}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:56px;height:56px;border-radius:18px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));font-size:1.5rem;font-weight:900;
+      box-shadow:0 14px 28px rgba(25,211,197,.25)
+    }
+    .brand h2{margin:0;font-size:1.08rem}
+    .brand small{color:var(--muted)}
+    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .nav-links a{color:var(--muted);font-weight:700;transition:.2s}
+    .nav-links a:hover,.nav-links a.active{color:#fff}
     .nav-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
-    .hero{padding:28px 0 26px;min-height:100vh;display:flex;align-items:center}
-    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:20px;align-items:center}
-    .hero-panel{border-radius:32px;overflow:hidden;position:relative}
+    .hero{padding:34px 0 24px;min-height:100vh;display:flex;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:20px;align-items:center}
+    .hero-content,.hero-slider{border-radius:32px;overflow:hidden;position:relative}
     .hero-content{padding:34px}
-    .tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(31,214,203,.13);border:1px solid rgba(31,214,203,.22);color:#d4fffa;font-size:.92rem;margin-bottom:16px}
-    .hero h1{font-size:clamp(2.6rem,5vw,5.3rem);line-height:1.03;margin:0 0 14px;font-weight:900}
+    .tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(25,211,197,.12);border:1px solid rgba(25,211,197,.22);color:#d2fffb;font-size:.92rem;margin-bottom:18px}
+    .hero h1{font-size:clamp(2.3rem,5vw,5rem);line-height:1.05;margin:0 0 14px;font-weight:900}
     .hero p{color:var(--muted);line-height:1.95;font-size:1.04rem;margin:0 0 24px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
     .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     .hero-stat{padding:18px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);text-align:center}
-    .hero-stat strong{display:block;font-size:1.75rem;margin-bottom:6px}.hero-stat span{font-size:.9rem;color:var(--muted)}
+    .hero-stat strong{display:block;font-size:1.75rem;margin-bottom:6px}
+    .hero-stat span{font-size:.9rem;color:var(--muted)}
 
-    .slider{min-height:720px;border:1px solid rgba(255,255,255,.12);box-shadow:var(--darkshadow);position:relative;overflow:hidden}
+    .hero-slider{min-height:710px;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;background-size:cover;background-position:center}
     .slide.active{opacity:1}
-    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,9,18,.15), rgba(3,9,18,.72))}
-    .slide-content{position:absolute;right:24px;bottom:24px;left:24px;z-index:1;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end}
-    .slide-box{padding:22px;border-radius:24px;background:rgba(5,13,25,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12)}
-    .slide-controls{position:absolute;left:20px;bottom:20px;z-index:2;display:flex;gap:8px}
+    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,10,19,.16), rgba(3,10,19,.74))}
+    .slide-ui{position:absolute;z-index:2;right:22px;left:22px;bottom:22px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end}
+    .slide-box{padding:22px;border-radius:24px;background:rgba(8,18,31,.62);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)}
+    .live{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--success);animation:pulse 1.8s infinite;margin-right:6px}
+    .dots{position:absolute;left:20px;bottom:20px;z-index:3;display:flex;gap:8px}
     .dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}.dot.active{background:#fff}
-    .live{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--success);animation:pulse 1.7s infinite;margin-left:8px}
 
-    section{padding:84px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap;margin-bottom:26px}.section-head h2{margin:0 0 10px;font-size:clamp(1.9rem,3vw,3rem)}.section-head p{margin:0;color:var(--muted);line-height:1.9;max-width:760px}
-    .cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.cards-5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-    .card{border-radius:26px;padding:22px;position:relative;overflow:hidden}.card::after{content:"";position:absolute;top:0;right:-50%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.10),transparent);transform:translateX(-100%)}.card:hover::after{animation:shine 1.2s ease}.card h3{margin:14px 0 10px;font-size:1.12rem}.card p{margin:0;color:var(--muted);line-height:1.85;font-size:.96rem}
-    .feature-banner{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.feature-big{padding:30px;border-radius:30px;position:relative;overflow:hidden}.feature-big::before{content:"";position:absolute;inset:-25%;background:radial-gradient(circle, rgba(31,214,203,.16), transparent 40%)}.feature-big>*{position:relative;z-index:1}
+    .feature-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:18px}
+    .feature-big{padding:30px;border-radius:30px;position:relative;overflow:hidden}
+    .feature-big::before{content:"";position:absolute;inset:-25%;background:radial-gradient(circle, rgba(25,211,197,.14), transparent 42%)}
+    .feature-big > *{position:relative;z-index:1}
+    .mini-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .mini-panel{padding:18px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+    .feature-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 
-    .departments{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.department{padding:18px;text-align:center;border-radius:22px}.department strong{display:block;margin:12px 0 8px}.department span{color:var(--muted);font-size:.9rem}
-    .doctor-card img{width:100%;height:260px;object-fit:cover;border-radius:20px;border:1px solid rgba(255,255,255,.08);margin-bottom:16px}.doctor-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
-    .doctor-profile{display:none;padding:24px;border-radius:28px;margin-top:18px}.doctor-profile.active{display:block;animation:slideIn .5s ease}.doctor-profile-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.doctor-profile img{border-radius:24px;height:380px;width:100%;object-fit:cover}
+    .cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{padding:22px;border-radius:26px;position:relative;overflow:hidden}
+    .card h3{margin:14px 0 10px;font-size:1.12rem}
+    .card p{margin:0;color:var(--muted);line-height:1.85;font-size:.96rem}
+
+    .service-flag{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;color:var(--muted);font-size:.9rem}
+    .pay-chip{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08)}
+
+    .departments{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+    .department{padding:18px;border-radius:22px;text-align:center}
+    .department strong{display:block;margin:12px 0 8px}
+    .department span{color:var(--muted);font-size:.9rem}
+
+    .doctor-card img{width:100%;height:260px;object-fit:cover;border-radius:20px;border:1px solid rgba(255,255,255,.08);margin-bottom:16px}
+    .doctor-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+    .doctor-profile{display:none;padding:24px;border-radius:28px;margin-top:18px}
+    .doctor-profile.active{display:block;animation:fadeUp .45s ease}
+    .doctor-profile-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+    .doctor-profile img{width:100%;height:390px;object-fit:cover;border-radius:24px}
     .doctor-badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
 
-    .booking-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.booking-card{padding:24px;border-radius:28px}form{display:grid;gap:14px}.input,select,textarea{width:100%;padding:15px 16px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--text);outline:none}.input::placeholder,textarea::placeholder{color:#a5bbd3}textarea{min-height:120px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .timeline{display:grid;gap:12px}.step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.step-num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));font-weight:900;flex:0 0 36px}
+    .booking-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px}
+    .booking-card{padding:24px;border-radius:28px}
+    form{display:grid;gap:14px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .input,select,textarea{width:100%;padding:15px 16px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--text);outline:none}
+    .input::placeholder,textarea::placeholder{color:#a3bad5}
+    textarea{min-height:120px;resize:vertical}
+    .journey{display:grid;gap:12px}
+    .step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .step-num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));font-weight:900;flex:0 0 36px}
 
-    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.stat{padding:24px;border-radius:24px;text-align:center}.stat strong{display:block;font-size:2rem;margin-bottom:8px}.stat span{color:var(--muted)}
-    .plans .price{font-size:2rem;font-weight:900;margin:10px 0}.plans ul{margin:0;padding:0 18px 0 0;color:var(--muted);line-height:1.9}
-    .jobs .job-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-top:12px;flex-wrap:wrap}
-    .labs .result-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-top:12px;flex-wrap:wrap}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .stat{padding:24px;border-radius:24px;text-align:center}
+    .stat strong{display:block;font-size:2rem;margin-bottom:8px}
+    .stat span{color:var(--muted)}
+
+    .plans .price{font-size:2rem;font-weight:900;margin:10px 0}
+    .plans ul{margin:0;padding:0 18px 0 0;color:var(--muted);line-height:1.9}
+    .labs .result-row,.jobs .job-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-top:12px;flex-wrap:wrap}
     .faq-item{padding:16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
-    .contact-grid,.insurance-grid,.extra-grid,.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.review{min-height:220px}.stars{color:var(--gold);font-size:1.08rem;margin-bottom:10px}.review footer{margin-top:16px;color:#cde3fa;font-weight:800}
-    .cta{padding:30px;border-radius:30px;display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center}
-    footer{padding:30px 0 90px;border-top:1px solid rgba(255,255,255,.08)}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px}footer p,footer a{color:var(--muted);line-height:1.9}
+    .contact-grid,.insurance-grid,.extra-grid,.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .review{min-height:220px}.stars{color:#ffd86d;font-size:1.08rem;margin-bottom:10px}.review footer{margin-top:16px;color:#d0e5fb;font-weight:800}
+    .cta{padding:30px;border-radius:30px;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center}
 
-    .modal,.dashboard{position:fixed;inset:0;display:none;z-index:2200;background:rgba(0,0,0,.62);padding:18px}.modal.show,.dashboard.show{display:flex}.modal{align-items:center;justify-content:center}.modal-box{width:min(1120px,100%);border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#091626,#122a43);border:1px solid rgba(255,255,255,.12);box-shadow:var(--darkshadow)}.modal-side{position:relative;min-height:620px;padding:32px;background:linear-gradient(180deg, rgba(31,214,203,.18), rgba(58,132,255,.10)),url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop') center/cover}.modal-side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,18,32,.32), rgba(8,18,32,.72))}.modal-side-content{position:relative;z-index:1;max-width:360px}.modal-content{padding:28px}.close-btn{border:none;background:transparent;color:#fff;font-size:1.6rem;cursor:pointer;float:left}.tabs{display:flex;gap:10px;margin:14px 0 18px}.tab-btn{flex:1;padding:13px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:800;cursor:pointer}.tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary2));border-color:transparent}.tab-pane{display:none}.tab-pane.active{display:block}
+    footer{padding:30px 0 90px;border-top:1px solid rgba(255,255,255,.08)}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px}
+    footer p,footer a{color:var(--muted);line-height:1.9}
 
-    .chat-toggle{position:fixed;left:20px;bottom:20px;z-index:1700;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;border:none;color:#fff;font-size:1.5rem;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 20px 35px rgba(31,214,203,.28)}
-    .chatbot{position:fixed;left:20px;bottom:96px;width:min(410px,calc(100vw - 20px));height:610px;display:none;flex-direction:column;overflow:hidden;border-radius:26px;z-index:1700}.chatbot.show{display:flex}.chat-head{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center;background:linear-gradient(135deg,rgba(31,214,203,.22),rgba(58,132,255,.22));border-bottom:1px solid rgba(255,255,255,.08)}.chat-messages{flex:1;overflow:auto;padding:16px;background:rgba(5,14,25,.88);display:flex;flex-direction:column;gap:12px}.msg{max-width:86%;padding:12px 14px;border-radius:16px;line-height:1.8;font-size:.95rem}.msg.bot{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}.msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--primary),var(--primary2))}.chat-input{display:flex;gap:10px;padding:14px;background:#0e1c2e;border-top:1px solid rgba(255,255,255,.08)}.chat-input input{flex:1}
+    .modal,.dashboard{position:fixed;inset:0;display:none;z-index:2200;background:rgba(0,0,0,.64);padding:18px}
+    .modal.show,.dashboard.show{display:flex}
+    .modal{align-items:center;justify-content:center}
+    .modal-box{width:min(1120px,100%);border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#091626,#122a43);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
+    .modal-side{position:relative;min-height:620px;padding:32px;background:linear-gradient(180deg, rgba(25,211,197,.16), rgba(75,141,255,.10)),url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop') center/cover}
+    .modal-side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,18,32,.3), rgba(8,18,32,.72))}
+    .modal-side-content{position:relative;z-index:1;max-width:360px}
+    .modal-content{padding:28px}
+    .close-btn{border:none;background:transparent;color:#fff;font-size:1.6rem;cursor:pointer;float:left}
+    .tabs{display:flex;gap:10px;margin:14px 0 18px}
+    .tab-btn{flex:1;padding:13px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:800;cursor:pointer}
+    .tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary2));border-color:transparent}
+    .tab-pane{display:none}.tab-pane.active{display:block}
 
-    .dashboard{align-items:stretch;justify-content:center}.dash-shell{width:100%;height:100%;display:grid;grid-template-columns:300px 1fr;gap:16px}.dash-side,.dash-main{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}.dash-side{padding:22px;background:linear-gradient(180deg,#091727,#0f2439)}.dash-main{display:flex;flex-direction:column;min-height:0;background:linear-gradient(180deg,#091727,#10243a)}.dash-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}.dash-menu{display:grid;gap:10px}.dash-link{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:#d8edff;font-weight:800;cursor:pointer}.dash-link.active,.dash-link:hover{background:linear-gradient(135deg,rgba(31,214,203,.17),rgba(58,132,255,.17));border-color:rgba(31,214,203,.2)}.dash-top{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.dash-content{padding:20px;overflow:auto;min-height:0}.dash-panel{display:none}.dash-panel.active{display:block}.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.dash-card{padding:20px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}.dash-card strong{display:block;font-size:1.85rem;margin:10px 0 8px}.table-wrap{overflow:auto;border:1px solid rgba(255,255,255,.08);border-radius:22px;margin-top:18px}table{width:100%;min-width:900px;border-collapse:collapse;background:rgba(255,255,255,.03)}th,td{padding:14px 12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.06)}th{background:rgba(255,255,255,.05)}td{color:#d5e9ff}.inline{display:flex;gap:8px;flex-wrap:wrap}.badge{display:inline-block;padding:7px 10px;border-radius:999px;font-size:.8rem;font-weight:800}.badge.success{background:rgba(53,209,126,.14);color:#92ffc2}.badge.warning{background:rgba(246,177,77,.14);color:#ffd79a}.badge.danger{background:rgba(255,108,143,.14);color:#ffbfd0}.empty{padding:18px;border-radius:18px;border:1px dashed rgba(255,255,255,.12);background:rgba(255,255,255,.04);text-align:center;color:var(--muted)}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}.mini-panel{padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .chat-toggle{position:fixed;left:20px;bottom:20px;z-index:1700;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;border:none;color:#fff;font-size:1.5rem;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 18px 32px rgba(25,211,197,.24)}
+    .chatbot{position:fixed;left:20px;bottom:96px;width:min(410px,calc(100vw - 20px));height:610px;display:none;flex-direction:column;overflow:hidden;border-radius:26px;z-index:1700}
+    .chatbot.show{display:flex}
+    .chat-head{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center;background:linear-gradient(135deg,rgba(25,211,197,.2),rgba(75,141,255,.2));border-bottom:1px solid rgba(255,255,255,.08)}
+    .chat-messages{flex:1;overflow:auto;padding:16px;background:rgba(8,18,31,.9);display:flex;flex-direction:column;gap:12px}
+    .msg{max-width:86%;padding:12px 14px;border-radius:16px;line-height:1.8;font-size:.95rem}
+    .msg.bot{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
+    .msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--primary),var(--primary2))}
+    .chat-input{display:flex;gap:10px;padding:14px;background:#0e1c2e;border-top:1px solid rgba(255,255,255,.08)}
+    .chat-input input{flex:1}
 
-    @media (max-width:1200px){.hero-grid,.feature-banner,.booking-wrap,.cta,.footer-grid,.modal-box,.dash-shell,.doctor-profile-grid{grid-template-columns:1fr}.cards-4,.cards-3,.contact-grid,.insurance-grid,.extra-grid,.reviews-grid,.stats-grid,.departments,.dash-grid,.hero-stats,.cards-5,.kpis{grid-template-columns:repeat(2,1fr)}.dash-side{display:none}}
-    @media (max-width:760px){.nav-links{display:none}.cards-4,.cards-3,.contact-grid,.insurance-grid,.extra-grid,.reviews-grid,.stats-grid,.departments,.dash-grid,.hero-stats,.cards-5,.two,.kpis{grid-template-columns:1fr}.hero-content{padding:24px}.slider{min-height:430px}.chatbot{left:10px;right:10px;width:auto;height:72vh}.chat-toggle{left:12px;bottom:12px}.modal-side{min-height:260px}}
+    .dashboard{align-items:stretch;justify-content:center}
+    .dash-shell{width:100%;height:100%;display:grid;grid-template-columns:300px 1fr;gap:16px}
+    .dash-side,.dash-main{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .dash-side{padding:22px;background:linear-gradient(180deg,#091727,#0f2439)}
+    .dash-main{display:flex;flex-direction:column;min-height:0;background:linear-gradient(180deg,#091727,#10243a)}
+    .dash-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+    .dash-menu{display:grid;gap:10px}
+    .dash-link{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:#d8edff;font-weight:800;cursor:pointer}
+    .dash-link.active,.dash-link:hover{background:linear-gradient(135deg,rgba(25,211,197,.16),rgba(75,141,255,.16));border-color:rgba(25,211,197,.2)}
+    .dash-top{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+    .dash-content{padding:20px;overflow:auto;min-height:0}
+    .dash-panel{display:none}.dash-panel.active{display:block}
+    .dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .dash-card{padding:20px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+    .dash-card strong{display:block;font-size:1.85rem;margin:10px 0 8px}
+    .table-wrap{overflow:auto;border:1px solid rgba(255,255,255,.08);border-radius:22px;margin-top:18px}
+    table{width:100%;min-width:920px;border-collapse:collapse;background:rgba(255,255,255,.03)}
+    th,td{padding:14px 12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.06)}
+    th{background:rgba(255,255,255,.05)}
+    td{color:#d6e8fb}
+    .inline{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{display:inline-block;padding:7px 10px;border-radius:999px;font-size:.8rem;font-weight:800}
+    .badge.success{background:rgba(49,209,125,.14);color:#93ffc3}
+    .badge.warning{background:rgba(243,179,74,.14);color:#ffd89d}
+    .badge.danger{background:rgba(255,108,143,.14);color:#ffc0d0}
+    .empty{padding:18px;border-radius:18px;border:1px dashed rgba(255,255,255,.12);background:rgba(255,255,255,.04);text-align:center;color:var(--muted)}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
+
+    @media (max-width:1200px){
+      .hero-grid,.feature-grid,.booking-wrap,.cta,.footer-grid,.modal-box,.dash-shell,.doctor-profile-grid{grid-template-columns:1fr}
+      .cards-4,.cards-3,.cards-2,.contact-grid,.insurance-grid,.extra-grid,.reviews-grid,.stats-grid,.departments,.dash-grid,.hero-stats,.mini-kpis{grid-template-columns:repeat(2,1fr)}
+      .feature-cards{grid-template-columns:repeat(2,1fr)}
+      .dash-side{display:none}
+    }
+    @media (max-width:760px){
+      .nav-links{display:none}
+      .hero{padding-top:24px;min-height:auto}
+      .hero-content{padding:24px}
+      .cards-4,.cards-3,.cards-2,.contact-grid,.insurance-grid,.extra-grid,.reviews-grid,.stats-grid,.departments,.dash-grid,.hero-stats,.mini-kpis,.feature-cards,.two{grid-template-columns:1fr}
+      .hero-slider{min-height:430px}
+      .slide-ui{grid-template-columns:1fr;right:14px;left:14px;bottom:14px}
+      .section{padding:68px 0}
+      .chatbot{left:10px;right:10px;width:auto;height:72vh}
+      .chat-toggle{left:12px;bottom:12px}
+      .modal-side{min-height:260px}
+      .modal-content{padding:22px}
+      .brand h2{font-size:1rem}
+      .btn{padding:13px 16px}
+      .table-wrap{border-radius:18px}
+    }
   </style>
 </head>
 <body>
-  <div class="bg-orbs"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+  <div class="bg-orbs"><div class="orb one"></div><div class="orb two"></div><div class="orb three"></div></div>
 
   <header class="navbar">
     <div class="container nav-wrap">
       <div class="brand">
         <div class="logo">✚</div>
-        <div><h2>ملاك الرحمة</h2><small>مجمع طبي متكامل</small></div>
+        <div>
+          <h2>ملاك الرحمة</h2>
+          <small>مجمع عيادات متكامل</small>
+        </div>
       </div>
+
       <nav class="nav-links">
         <a href="#home" class="active">الرئيسية</a>
-        <a href="#services">الخدمات</a>
-        <a href="#departments">الأقسام</a>
+        <a href="#services">العيادات</a>
+        <a href="#departments">التخصصات</a>
         <a href="#doctors">الأطباء</a>
         <a href="#booking">الحجز</a>
         <a href="#plans">الباقات</a>
-        <a href="#labs">التحاليل</a>
-        <a href="#jobs">الوظائف</a>
+        <a href="#insurance">التأمين</a>
         <a href="#contact">تواصل</a>
       </nav>
+
       <div class="nav-actions">
-        <button class="btn outline small" id="themeBtn">Light / Dark</button>
-        <button class="btn outline small" id="openAuthBtn">تسجيل دخول / حساب جديد</button>
+        <button class="btn outline small" id="openAuthBtn">تسجيل دخول</button>
         <button class="btn small" onclick="openDashboardEntry()">لوحة التحكم</button>
       </div>
     </div>
@@ -175,183 +282,429 @@
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div class="hero-panel hero-content glass reveal">
-          <div class="tag">🏥 رعاية طبية متكاملة بمعايير حديثة</div>
-          <h1>رعاية صحية موثوقة<br>بتجربة رقمية متكاملة</h1>
-          <p>يقدّم مجمع ملاك الرحمة تجربة رقمية متطورة تجمع بين سهولة الحجز الإلكتروني، التعرّف على الأقسام الطبية، استعراض الأطباء، متابعة الخدمات المساندة، والوصول السريع إلى المعلومات التي يحتاجها المراجع قبل زيارته للمجمع.</p>
+        <div class="hero-content glass reveal">
+          <div class="tag">🏥 مجمع عيادات حديث يخدم المراجعين نقدًا وتأمينًا</div>
+          <h1>رعاية منظمة<br>وتجربة رقمية تليق بالثقة</h1>
+          <p>
+            يقدّم مجمع ملاك الرحمة خدمات عيادات متخصصة ضمن تجربة رقمية متكاملة، تتيح للمراجعين التعرف على التخصصات، استعراض الأطباء، الحجز الإلكتروني بسهولة، والاستفادة من الخدمات سواء كانت الزيارة نقدية أو عبر شركات التأمين المعتمدة.
+          </p>
           <div class="hero-actions">
             <a href="#booking" class="btn">احجز الآن</a>
-            <button class="btn outline" onclick="openAuthModal('register')">حساب جديد</button>
+            <a href="#doctors" class="btn outline">تعرّف على الأطباء</a>
             <button class="btn outline" onclick="toggleChat()">المساعد الذكي</button>
           </div>
           <div class="hero-stats">
-            <div class="hero-stat"><strong data-count="24">0</strong><span>قسم طبي</span></div>
-            <div class="hero-stat"><strong data-count="48">0</strong><span>طبيب واستشاري</span></div>
-            <div class="hero-stat"><strong data-count="12000">0</strong><span>مراجع نشط</span></div>
-            <div class="hero-stat"><strong data-count="98">0</strong><span>% رضا العملاء</span></div>
+            <div class="hero-stat"><strong data-count="18">0</strong><span>عيادة وتخصص</span></div>
+            <div class="hero-stat"><strong data-count="32">0</strong><span>طبيب وطبيبة</span></div>
+            <div class="hero-stat"><strong data-count="12000">0</strong><span>مراجع سنويًا</span></div>
+            <div class="hero-stat"><strong data-count="98">0</strong><span>% رضا المراجعين</span></div>
           </div>
         </div>
 
-        <div class="hero-panel slider reveal" id="heroSlider">
+        <div class="hero-slider reveal">
           <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=1400&auto=format&fit=crop')"></div>
           <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1400&auto=format&fit=crop')"></div>
           <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1580281657527-47f249e8f4df?q=80&w=1400&auto=format&fit=crop')"></div>
-          <div class="slide-content">
+          <div class="slide-ui">
             <div class="slide-box">
-              <strong style="font-size:1.15rem">خدمات رقمية متاحة <span class="live"></span></strong>
-              <p style="margin:10px 0 0;color:#d8ecff;line-height:1.85">منصة حديثة تتيح للزوار استعراض الخدمات الطبية والحجز الإلكتروني والتعرّف على الأطباء والأقسام بطريقة سهلة وواضحة.</p>
+              <strong style="font-size:1.12rem">خدمات رقمية متاحة <span class="live"></span></strong>
+              <p style="margin:10px 0 0;color:#d8ecff;line-height:1.85">واجهة حديثة توضح العيادات، الأطباء، آلية الحجز، وخيارات المراجعة النقدية أو التأمينية بشكل منظم وواضح.</p>
             </div>
             <div class="slide-box">
-              <strong>خدمة متكاملة</strong>
-              <p style="margin:10px 0 0;color:#d8ecff;line-height:1.85">تصميم احترافي يعكس جودة المجمع الطبي ويمنح الزائر تجربة مريحة على الجوال والكمبيوتر.</p>
+              <strong>تنظيم أوضح</strong>
+              <p style="margin:10px 0 0;color:#d8ecff;line-height:1.85">تجربة مريحة على الكمبيوتر والجوال مع عرض أقوى للخدمات الطبية.</p>
             </div>
           </div>
-          <div class="slide-controls" id="slideDots"></div>
+          <div class="dots" id="slideDots"></div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container feature-banner">
+    <section class="section">
+      <div class="container feature-grid">
         <div class="feature-big glass reveal">
-          <div class="pill">✨ خدمات رقمية حديثة</div>
-          <h2 style="margin:14px 0 12px;font-size:2.2rem">بوابة رقمية شاملة لخدمات المجمع</h2>
-          <p style="color:var(--muted);line-height:1.95;font-size:1.02rem">تم تصميم هذه المنصة لتكون الواجهة الرقمية الرسمية لمجمع ملاك الرحمة الطبي، بحيث تتيح للمرضى التعرف على الخدمات، الوصول إلى الأطباء، متابعة الباقات الصحية، الاطلاع على التحاليل، والتواصل مع المجمع بسهولة ووضوح.</p>
-          <div class="kpis">
-            <div class="mini-panel"><strong style="font-size:1.6rem">الأطباء</strong><div style="color:var(--muted)">ملفات تعريفية واضحة</div></div>
-            <div class="mini-panel"><strong style="font-size:1.6rem">الخدمات</strong><div style="color:var(--muted)">تنظيم رقمي حديث</div></div>
-            <div class="mini-panel"><strong style="font-size:1.6rem">التواصل</strong><div style="color:var(--muted)">وصول أسرع للمراجعين</div></div>
+          <div class="pill">✨ فكرة عرض مختلفة لمجمع العيادات</div>
+          <h2 style="margin:14px 0 12px;font-size:2.2rem">كل ما يحتاجه المراجع في مكان واحد</h2>
+          <p style="color:var(--muted);line-height:1.95;font-size:1.02rem">
+            صُممت هذه المنصة لتقديم صورة احترافية واضحة عن مجمع ملاك الرحمة، من خلال إبراز العيادات المتخصصة، التخصصات الطبية، الأطباء، الباقات الصحية، خدمات المختبر، وآلية المراجعة سواء كانت نقدية أو عبر التأمين الصحي.
+          </p>
+          <div class="mini-kpis">
+            <div class="mini-panel"><strong style="font-size:1.5rem">الأطباء</strong><div style="color:var(--muted);margin-top:8px">ملفات تعريفية واضحة</div></div>
+            <div class="mini-panel"><strong style="font-size:1.5rem">الدفع</strong><div style="color:var(--muted);margin-top:8px">نقدي وتأمين</div></div>
+            <div class="mini-panel"><strong style="font-size:1.5rem">الزيارة</strong><div style="color:var(--muted);margin-top:8px">حجز أسرع وتنظيم أفضل</div></div>
           </div>
         </div>
-        <div class="cards-3" style="grid-template-columns:repeat(2,1fr)">
-          <div class="card glass reveal"><div class="icon-box">🧠</div><h3>مساعد ذكي</h3><p>يختار التخصص المناسب، يشرح التأمين، ويقترح الحجز المناسب للمريض.</p></div>
-          <div class="card glass reveal"><div class="icon-box">📑</div><h3>فواتير تجريبية</h3><p>عرض مالي داخلي يعطي للنظام شكل احترافي قوي أمام الإدارة.</p></div>
-          <div class="card glass reveal"><div class="icon-box">🚨</div><h3>طوارئ وأولوية</h3><p>تمييز الحالات العاجلة والطارئة داخل الحجز واللوحة.</p></div>
-          <div class="card glass reveal"><div class="icon-box">🌗</div><h3>وضع ليلي ونهاري</h3><p>تبديل مباشر داخل الموقع لمظهر عالمي أكثر احترافية.</p></div>
+        <div class="feature-cards">
+          <div class="card glass reveal"><div class="icon-box">🧠</div><h3>مساعد ذكي</h3><p>يساعد الزائر على اختيار العيادة المناسبة، فهم خطوات الحجز، والتعرّف على الخدمات النقدية والتأمينية.</p></div>
+          <div class="card glass reveal"><div class="icon-box">💵</div><h3>خدمة نقدية</h3><p>عرض واضح للمراجعين الراغبين في الاستفادة من الخدمات النقدية داخل المجمع.</p></div>
+          <div class="card glass reveal"><div class="icon-box">🛡️</div><h3>خدمة تأمينية</h3><p>إبراز شركات التأمين المعتمدة وآلية تنظيم الزيارة للمراجعين المؤمن عليهم.</p></div>
+          <div class="card glass reveal"><div class="icon-box">📱</div><h3>موبايل منظم</h3><p>تصميم Responsive مضبوط جدًا ليظهر بشكل ممتاز على الجوال بدون فوضى أو تزاحم.</p></div>
         </div>
       </div>
     </section>
 
-    <section id="services"><div class="container"><div class="section-head reveal"><div><h2>الخدمات الأساسية</h2><p>كل خدمة يحتاجها أي مجمع طبي حديث موجودة بشكل راقٍ وقابل للإدارة من الداخل.</p></div></div><div class="cards-4" id="servicesGrid"></div></div></section>
-    <section id="departments"><div class="container"><div class="section-head reveal"><div><h2>الأقسام الطبية</h2><p>تقسيم واضح ومتنوع للأقسام الطبية الرئيسية داخل المجمع.</p></div></div><div class="departments" id="departmentsGrid"></div></div></section>
-
-    <section id="doctors">
+    <section class="section" id="services">
       <div class="container">
-        <div class="section-head reveal"><div><h2>الأطباء والاستشاريون</h2><p>عرض فخم للأطباء مع زر يفتح تفاصيل أكثر لكل طبيب داخل نفس الصفحة.</p></div></div>
+        <div class="section-head reveal">
+          <div>
+            <h2>العيادات والخدمات الطبية</h2>
+            <p>مجموعة متكاملة من العيادات والخدمات الطبية المساندة التي يحتاجها أي مجمع عيادات حديث، مع عرض واضح ومهني للمراجعين والزوار.</p>
+          </div>
+        </div>
+        <div class="cards-4" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="departments">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>العيادات المتخصصة</h2>
+            <p>تنظيم واضح للعيادات المتخصصة داخل مجمع ملاك الرحمة، ليسهّل على المراجع اختيار العيادة المناسبة والوصول إلى الخدمة المطلوبة بسرعة.</p>
+          </div>
+        </div>
+        <div class="departments" id="departmentsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="doctors">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>أطباء مجمع ملاك الرحمة</h2>
+            <p>تعرف على نخبة الأطباء والاستشاريين في مجمع ملاك الرحمة، مع عرض نبذة مختصرة عن كل طبيب وإمكانية الوصول السريع للحجز.</p>
+          </div>
+        </div>
         <div class="cards-4" id="doctorsGrid"></div>
         <div class="doctor-profile glass" id="doctorProfile"></div>
       </div>
     </section>
 
-    <section><div class="container"><div class="stats-grid"><div class="stat glass reveal"><strong data-count="24">0</strong><span>أقسام متخصصة</span></div><div class="stat glass reveal"><strong data-count="48">0</strong><span>طبيب واستشاري</span></div><div class="stat glass reveal"><strong data-count="365">0</strong><span>يوم خدمة سنويًا</span></div><div class="stat glass reveal"><strong data-count="12000">0</strong><span>زيارات سنوية</span></div></div></div></section>
-
-    <section id="booking">
-      <div class="container booking-wrap">
-        <div class="booking-card glass reveal">
-          <div class="section-head" style="margin-bottom:12px"><div><h2 style="font-size:2rem;margin:0 0 8px">احجز موعدك</h2><p>حجز متقدم ببيانات أكثر: التأمين، الأولوية، نوع الزيارة.</p></div></div>
-          <form id="appointmentForm">
-            <div class="two"><input class="input" id="apptName" type="text" placeholder="الاسم الكامل" required><input class="input" id="apptPhone" type="tel" placeholder="رقم الجوال" required></div>
-            <div class="two"><select id="apptDepartment" required></select><select id="apptDoctor" required></select></div>
-            <div class="two"><input class="input" id="apptDate" type="date" required><input class="input" id="apptTime" type="time" required></div>
-            <div class="two"><input class="input" id="apptInsurance" type="text" placeholder="شركة التأمين / نقدي"><select id="apptPriority"><option value="عادي">الأولوية: عادي</option><option value="مستعجل">الأولوية: مستعجل</option><option value="طارئ">الأولوية: طارئ</option></select></div>
-            <div class="two"><select id="apptVisitType"><option value="كشف جديد">نوع الزيارة: كشف جديد</option><option value="مراجعة">نوع الزيارة: مراجعة</option><option value="استشارة">نوع الزيارة: استشارة</option></select><input class="input" id="apptAmount" type="number" placeholder="المبلغ التقريبي"></div>
-            <textarea id="apptNotes" placeholder="اكتب الأعراض أو الملاحظات"></textarea>
-            <button class="btn" type="submit">تأكيد الحجز</button>
-          </form>
-        </div>
-        <div class="booking-card glass reveal">
-          <h3 style="margin-top:0;font-size:1.5rem">رحلة المريض داخل النظام</h3>
-          <div class="timeline">
-            <div class="step"><div class="step-num">1</div><div><strong>تسجيل حساب</strong><div style="color:var(--muted);line-height:1.8">المريض يدخل لمنطقته الخاصة ويحفظ بياناته وتأمينه.</div></div></div>
-            <div class="step"><div class="step-num">2</div><div><strong>حجز وتحديد أولوية</strong><div style="color:var(--muted);line-height:1.8">يختار القسم والطبيب ونوع الزيارة والأولوية.</div></div></div>
-            <div class="step"><div class="step-num">3</div><div><strong>مراجعة الإدارة</strong><div style="color:var(--muted);line-height:1.8">تأكيد أو إلغاء أو تحويل الموعد مع ظهور إشعار داخلي.</div></div></div>
-            <div class="step"><div class="step-num">4</div><div><strong>متابعة وفاتورة</strong><div style="color:var(--muted);line-height:1.8">المريض يرى الموعد وبياناته والفاتورة التجريبية وملفه الطبي.</div></div></div>
-          </div>
-          <div style="margin-top:18px;display:grid;gap:12px"><div class="pill">✅ نظام حسابات</div><div class="pill">✅ ملف طبي</div><div class="pill">✅ فواتير وإشعارات</div><div class="pill">✅ جاهز للعرض على العميل</div></div>
+    <section class="section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat glass reveal"><strong data-count="18">0</strong><span>عيادة متخصصة</span></div>
+          <div class="stat glass reveal"><strong data-count="32">0</strong><span>طبيب وطبيبة</span></div>
+          <div class="stat glass reveal"><strong data-count="8">0</strong><span>شركات تأمين</span></div>
+          <div class="stat glass reveal"><strong data-count="365">0</strong><span>خدمة طوال العام</span></div>
         </div>
       </div>
     </section>
 
-    <section id="plans" class="plans">
-      <div class="container"><div class="section-head reveal"><div><h2>الباقات الصحية</h2><p>باقات مصممة لتلبية احتياجات الأفراد والأسر من خلال برامج متابعة وفحوصات وخدمات صحية متنوعة.</p></div></div>
+    <section class="section" id="booking">
+      <div class="container booking-wrap">
+        <div class="booking-card glass reveal">
+          <div class="section-head" style="margin-bottom:12px">
+            <div>
+              <h2 style="font-size:2rem;margin:0 0 8px">احجز موعدك في العيادة المناسبة</h2>
+              <p>نظام حجز مرن يراعي احتياجات المراجعين، مع توضيح نوع الزيارة، أولوية الحالة، وطريقة المراجعة سواء نقدًا أو عبر التأمين.</p>
+            </div>
+          </div>
+          <form id="appointmentForm">
+            <div class="two">
+              <input class="input" id="apptName" type="text" placeholder="الاسم الكامل" required>
+              <input class="input" id="apptPhone" type="tel" placeholder="رقم الجوال" required>
+            </div>
+            <div class="two">
+              <select id="apptDepartment" required></select>
+              <select id="apptDoctor" required></select>
+            </div>
+            <div class="two">
+              <input class="input" id="apptDate" type="date" required>
+              <input class="input" id="apptTime" type="time" required>
+            </div>
+            <div class="two">
+              <input class="input" id="apptInsurance" type="text" placeholder="شركة التأمين / نقدي">
+              <select id="apptPriority">
+                <option value="عادي">الأولوية: عادي</option>
+                <option value="مستعجل">الأولوية: مستعجل</option>
+                <option value="طارئ">الأولوية: طارئ</option>
+              </select>
+            </div>
+            <div class="two">
+              <select id="apptVisitType">
+                <option value="كشف جديد">نوع الزيارة: كشف جديد</option>
+                <option value="مراجعة">نوع الزيارة: مراجعة</option>
+                <option value="استشارة">نوع الزيارة: استشارة</option>
+              </select>
+              <input class="input" id="apptAmount" type="number" placeholder="المبلغ التقريبي">
+            </div>
+            <textarea id="apptNotes" placeholder="اكتب الأعراض أو الملاحظات"></textarea>
+            <button class="btn" type="submit">تأكيد الحجز</button>
+          </form>
+        </div>
+
+        <div class="booking-card glass reveal">
+          <h3 style="margin-top:0;font-size:1.5rem">رحلة المراجع داخل المجمع</h3>
+          <div class="journey">
+            <div class="step"><div class="step-num">1</div><div><strong>اختيار العيادة</strong><div style="color:var(--muted);line-height:1.8">يستعرض المراجع التخصصات والعيادات المتاحة ويحدد العيادة المناسبة لحالته.</div></div></div>
+            <div class="step"><div class="step-num">2</div><div><strong>الحجز وتحديد نوع الزيارة</strong><div style="color:var(--muted);line-height:1.8">يمكن تحديد نوع الزيارة والأولوية والطبيب المناسب بمرونة وسهولة.</div></div></div>
+            <div class="step"><div class="step-num">3</div><div><strong>المراجعة نقدًا أو تأمينًا</strong><div style="color:var(--muted);line-height:1.8">يتم تنظيم الزيارة بحسب آلية المراجعة، سواء كانت نقدية أو عبر شركة التأمين المعتمدة.</div></div></div>
+            <div class="step"><div class="step-num">4</div><div><strong>متابعة أوضح</strong><div style="color:var(--muted);line-height:1.8">تظهر تفاصيل الموعد وحالة المتابعة داخل حساب المراجع ولوحة الإدارة بشكل منظم.</div></div></div>
+          </div>
+          <div style="margin-top:18px;display:grid;gap:12px">
+            <div class="pill">✅ حجوزات منظمة</div>
+            <div class="pill">✅ مراجعين نقدي وتأمين</div>
+            <div class="pill">✅ ملفات وحالات متابعة</div>
+            <div class="pill">✅ تجربة رقمية حديثة</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plans" id="plans">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>الباقات والخدمات المميزة</h2>
+            <p>باقات وخدمات مميزة صُممت لتناسب احتياجات الأفراد والأسر، وتمنح المجمع فرصة لعرض خدماته بصورة عصرية وجذابة.</p>
+          </div>
+        </div>
         <div class="cards-3">
-          <div class="card glass reveal"><div class="icon-box">👨‍👩‍👧</div><h3>باقة الأسرة</h3><div class="price">499 ر.س</div><ul><li>كشف عام لعدد 4 أفراد</li><li>خصم 20% على التحاليل</li><li>متابعة شهرية</li></ul><div style="margin-top:16px"><button class="btn small">احجز الباقة</button></div></div>
-          <div class="card glass reveal"><div class="icon-box">🦷</div><h3>باقة الأسنان</h3><div class="price">299 ر.س</div><ul><li>فحص شامل</li><li>تنظيف وتقييم</li><li>خصم على الإجراءات</li></ul><div style="margin-top:16px"><button class="btn small">احجز الباقة</button></div></div>
+          <div class="card glass reveal"><div class="icon-box">👨‍👩‍👧</div><h3>باقة الأسرة</h3><div class="price">499 ر.س</div><ul><li>كشف عام لعدد 4 أفراد</li><li>خصم على التحاليل</li><li>متابعة دورية</li></ul><div style="margin-top:16px"><button class="btn small">احجز الباقة</button></div></div>
+          <div class="card glass reveal"><div class="icon-box">🦷</div><h3>باقة الأسنان</h3><div class="price">299 ر.س</div><ul><li>فحص شامل</li><li>تنظيف وتقييم</li><li>خصومات على الإجراءات</li></ul><div style="margin-top:16px"><button class="btn small">احجز الباقة</button></div></div>
           <div class="card glass reveal"><div class="icon-box">🤰</div><h3>باقة الأمومة</h3><div class="price">799 ر.س</div><ul><li>متابعة حمل</li><li>تحاليل أساسية</li><li>استشارات دورية</li></ul><div style="margin-top:16px"><button class="btn small">احجز الباقة</button></div></div>
         </div>
       </div>
     </section>
 
-    <section id="labs" class="labs">
-      <div class="container"><div class="section-head reveal"><div><h2>خدمات المختبر والتحاليل</h2><p>واجهة مخصصة لخدمات المختبر تتيح للمراجعين الوصول إلى معلومات التحاليل والتقارير الطبية بطريقة منظمة.</p></div></div>
+    <section class="section labs" id="labs">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>المختبر والتحاليل الطبية</h2>
+            <p>واجهة مخصصة لخدمات المختبر والتحاليل الطبية، تتيح للمراجعين الوصول إلى معلومات الفحوصات والتقارير بطريقة منظمة وسهلة.</p>
+          </div>
+        </div>
         <div class="cards-3">
-          <div class="card glass reveal"><div class="icon-box">🧪</div><h3>البحث عن نتيجة</h3><p>أدخل رقم الملف أو رقم الهوية في النسخة الفعلية لعرض النتيجة بشكل مباشر.</p><div style="margin-top:16px"><input class="input" placeholder="رقم الملف أو الهوية"><button class="btn" style="margin-top:12px;width:100%">استعلام</button></div></div>
-          <div class="card glass reveal"><div class="icon-box">📄</div><h3>آخر النتائج</h3><div class="result-row"><span>CBC</span><span class="badge success">جاهز</span></div><div class="result-row"><span>Vitamin D</span><span class="badge warning">قيد المعالجة</span></div><div class="result-row"><span>Lipid Profile</span><span class="badge success">جاهز</span></div></div>
-          <div class="card glass reveal"><div class="icon-box">⬇️</div><h3>تنزيل التقرير</h3><p>في النسخة التجريبية يمكنك إظهار فكرة تنزيل النتائج والتقارير الطبية PDF.</p><div style="margin-top:16px"><button class="btn outline" onclick="fakeDownload('نتيجة التحاليل')">تجربة تنزيل PDF</button></div></div>
+          <div class="card glass reveal"><div class="icon-box">🧪</div><h3>الاستعلام عن نتيجة</h3><p>يمكن استخدام رقم الملف أو رقم الهوية للوصول إلى معلومات التحاليل والتقارير الطبية.</p><div style="margin-top:16px"><input class="input" placeholder="رقم الملف أو الهوية"><button class="btn" style="margin-top:12px;width:100%">استعلام</button></div></div>
+          <div class="card glass reveal"><div class="icon-box">📄</div><h3>آخر النتائج</h3><div class="result-row"><span>CBC</span><span class="badge success">جاهز</span></div><div class="result-row"><span>Vitamin D</span><span class="badge warning">قيد المراجعة</span></div><div class="result-row"><span>Lipid Profile</span><span class="badge success">جاهز</span></div></div>
+          <div class="card glass reveal"><div class="icon-box">⬇️</div><h3>تنزيل التقرير</h3><p>يمكن إظهار تنزيل التقرير الطبي أو نتيجة التحاليل بصيغة PDF كجزء من التجربة الرقمية للمراجع.</p><div style="margin-top:16px"><button class="btn outline" onclick="fakeDownload('نتيجة التحاليل')">تنزيل PDF</button></div></div>
         </div>
       </div>
     </section>
 
-    <section id="jobs" class="jobs">
-      <div class="container"><div class="section-head reveal"><div><h2>الانضمام إلى فريق العمل</h2><p>يحرص مجمع ملاك الرحمة على استقطاب الكفاءات الطبية والإدارية للمساهمة في تقديم تجربة صحية متميزة للمراجعين.</p></div></div>
+    <section class="section" id="insurance">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>التأمين المعتمد وطرق المراجعة</h2>
+            <p>إبراز شركات التأمين المعتمدة داخل المجمع، مع توضيح أن الخدمات متاحة أيضًا للمراجعين النقديين ضمن تنظيم واضح ومرن.</p>
+          </div>
+        </div>
+        <div class="insurance-grid" id="insuranceGrid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>خدمات مساندة داخل المجمع</h2>
+            <p>خدمات مساندة متكاملة مثل الصيدلية، المختبر، الأشعة، الاستقبال، وخدمة العملاء، بما يعكس شمولية مجمع العيادات وتنظيمه.</p>
+          </div>
+        </div>
+        <div class="extra-grid" id="extraGrid"></div>
+      </div>
+    </section>
+
+    <section class="section jobs" id="jobs">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>الكوادر والفرص الوظيفية</h2>
+            <p>يحرص مجمع ملاك الرحمة على استقطاب الكفاءات الطبية والإدارية للمساهمة في تقديم تجربة صحية متميزة للمراجعين.</p>
+          </div>
+        </div>
         <div class="card glass reveal">
           <div class="job-row"><div><strong>طبيب أسنان عام</strong><div style="color:var(--muted)">خبرة 3 سنوات فأكثر</div></div><button class="btn small">قدّم الآن</button></div>
-          <div class="job-row"><div><strong>أخصائي مختبر</strong><div style="color:var(--muted)">دوام كامل - نقل كفالة</div></div><button class="btn small">قدّم الآن</button></div>
+          <div class="job-row"><div><strong>أخصائي مختبر</strong><div style="color:var(--muted)">دوام كامل</div></div><button class="btn small">قدّم الآن</button></div>
           <div class="job-row"><div><strong>موظف استقبال وتأمين</strong><div style="color:var(--muted)">خبرة في الأنظمة الطبية</div></div><button class="btn small">قدّم الآن</button></div>
         </div>
       </div>
     </section>
 
-    <section id="insurance"><div class="container"><div class="section-head reveal"><div><h2>التأمين والشركاء</h2><p>عرض شركاء التأمين المعتمدين داخل المجمع.</p></div></div><div class="insurance-grid" id="insuranceGrid"></div></div></section>
-    <section><div class="container"><div class="section-head reveal"><div><h2>مرافق وخدمات إضافية</h2><p>صيدلية، أشعة، تقارير، طوارئ، استقبال، وكل ما يعزز قيمة المجمع.</p></div></div><div class="extra-grid" id="extraGrid"></div></div></section>
-    <section id="faq"><div class="container"><div class="section-head reveal"><div><h2>أسئلة شائعة</h2><p>إجابات واضحة لأكثر الأسئلة التي يحتاجها الزائر قبل الحجز أو زيارة المجمع.</p></div></div><div class="cards-3"><div class="faq-item glass reveal"><strong>هل الحجز متاح 24 ساعة؟</strong><p style="margin-top:10px;color:var(--muted)">نعم، الحجز الإلكتروني متاح طوال الوقت.</p></div><div class="faq-item glass reveal"><strong>هل أقدر أستخدم التأمين؟</strong><p style="margin-top:10px;color:var(--muted)">نعم، يمكن كتابة شركة التأمين أثناء الحجز ومراجعته من الإدارة.</p></div><div class="faq-item glass reveal"><strong>هل في ملف طبي للمريض؟</strong><p style="margin-top:10px;color:var(--muted)">نعم، يوجد ملف طبي وبوابة مواعيد داخل حساب المريض.</p></div></div></div></section>
-    <section id="reviews"><div class="container"><div class="section-head reveal"><div><h2>آراء وتجارب المرضى</h2><p>آراء المرضى تعكس جودة الخدمة والثقة التي يضعها المراجعون في مجمع ملاك الرحمة الطبي.</p></div></div><div class="reviews-grid"><div class="card glass review reveal"><div class="stars">★★★★★</div><p>الشكل فعلاً عالمي، تحس إنك داخل نظام مجمع كبير جدًا.</p><footer>سلمان القحطاني</footer></div><div class="card glass review reveal"><div class="stars">★★★★★</div><p>تفاصيل الأطباء والباقات خلت الموقع غني جدًا ومش فاضي أبدًا.</p><footer>ريم الدوسري</footer></div><div class="card glass review reveal"><div class="stars">★★★★★</div><p>الداش بورد ممتازة وتعطي انطباع احترافي قوي.</p><footer>محمد السبيعي</footer></div><div class="card glass review reveal"><div class="stars">★★★★★</div><p>الشات الذكي مع وضع Light/Dark زادوا قيمة الموقع جدًا.</p><footer>أميرة علي</footer></div></div></div></section>
-    <section id="contact"><div class="container contact-grid"><div class="card glass reveal"><div class="icon-box">📍</div><h3>العنوان</h3><p>القويعية - المملكة العربية السعودية<br>مجمع ملاك الرحمة الطبي</p></div><div class="card glass reveal"><div class="icon-box">📞</div><h3>الهاتف</h3><p>0550000000<br>متاح للاستفسارات والحجز</p></div><div class="card glass reveal"><div class="icon-box">🕒</div><h3>أوقات العمل</h3><p>يوميًا من 8 صباحًا حتى 12 مساءً<br>والحجز الإلكتروني 24/7</p></div><div class="card glass reveal"><div class="icon-box">✉️</div><h3>البريد</h3><p>info@malakrahma.com<br>support@malakrahma.com</p></div></div></section>
-    <section><div class="container"><div class="cta glass reveal"><div><h2>ملاك الرحمة نحو تجربة صحية أكثر تطورًا</h2><p>نطمح في مجمع ملاك الرحمة إلى تقديم تجربة صحية متكاملة تبدأ من الزيارة الأولى للموقع وتمتد إلى الحجز الإلكتروني والتواصل الفعال والوصول السريع إلى الخدمات الطبية المناسبة.</p></div><div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap"><button class="btn" onclick="openAuthModal('login')">ابدأ الآن</button><button class="btn outline" onclick="toggleChat()">جرب الشات الذكي</button></div></div></div></section>
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>معلومات تهم المراجعين</h2>
+            <p>إجابات واضحة لأكثر الأسئلة التي يحتاجها الزائر قبل الحجز أو زيارة المجمع.</p>
+          </div>
+        </div>
+        <div class="cards-3">
+          <div class="faq-item glass reveal"><strong>هل الحجز متاح إلكترونيًا؟</strong><p style="margin-top:10px;color:var(--muted)">نعم، يمكن حجز المواعيد إلكترونيًا بسهولة عبر الموقع.</p></div>
+          <div class="faq-item glass reveal"><strong>هل يمكن المراجعة عبر التأمين؟</strong><p style="margin-top:10px;color:var(--muted)">نعم، يمكن الاستفادة من شركات التأمين المعتمدة، كما تتوفر المراجعة النقدية كذلك.</p></div>
+          <div class="faq-item glass reveal"><strong>هل يوجد ملف للمراجع؟</strong><p style="margin-top:10px;color:var(--muted)">يمكن للمراجع متابعة مواعيده وبياناته الأساسية من خلال الحساب الشخصي.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>آراء وتجارب المراجعين</h2>
+            <p>آراء المراجعين تعكس جودة الخدمة والثقة التي يضعها الزوار في مجمع ملاك الرحمة.</p>
+          </div>
+        </div>
+        <div class="reviews-grid">
+          <div class="card glass review reveal"><div class="stars">★★★★★</div><p>الموقع منظم جدًا ويوضح العيادات والخدمات بطريقة مريحة وواضحة.</p><footer>سلمان القحطاني</footer></div>
+          <div class="card glass review reveal"><div class="stars">★★★★★</div><p>طريقة عرض الأطباء والباقات ممتازة وتعطي انطباعًا احترافيًا قويًا.</p><footer>ريم الدوسري</footer></div>
+          <div class="card glass review reveal"><div class="stars">★★★★★</div><p>الحجز واضح وسهل، والموقع مناسب جدًا على الجوال.</p><footer>محمد السبيعي</footer></div>
+          <div class="card glass review reveal"><div class="stars">★★★★★</div><p>وجود التأمين والخدمات النقدية بشكل واضح نقطة ممتازة جدًا.</p><footer>أميرة علي</footer></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="card glass reveal"><div class="icon-box">📍</div><h3>العنوان</h3><p>القويعية - المملكة العربية السعودية<br>مجمع ملاك الرحمة</p></div>
+        <div class="card glass reveal"><div class="icon-box">📞</div><h3>الهاتف</h3><p>0550000000<br>للاستفسارات والحجز</p></div>
+        <div class="card glass reveal"><div class="icon-box">🕒</div><h3>أوقات العمل</h3><p>يوميًا من 8 صباحًا حتى 12 مساءً<br>والحجز الإلكتروني متاح طوال اليوم</p></div>
+        <div class="card glass reveal"><div class="icon-box">✉️</div><h3>البريد الإلكتروني</h3><p>info@malakrahma.com<br>support@malakrahma.com</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta glass reveal">
+          <div>
+            <h2>ملاك الرحمة نحو تجربة عيادات أكثر تطورًا</h2>
+            <p>يعمل مجمع ملاك الرحمة على تقديم تجربة متطورة لمراجعيه تبدأ من التعرف على الخدمات عبر الموقع، ثم الحجز السهل، والوصول إلى العيادة المناسبة، والاستفادة من خدمات المجمع سواء للمراجعين النقديين أو عبر التأمين الصحي.</p>
+          </div>
+          <div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap">
+            <button class="btn" onclick="openAuthModal('login')">ابدأ الآن</button>
+            <button class="btn outline" onclick="toggleChat()">تحدث مع المساعد</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer><div class="container footer-grid"><div><div class="brand" style="margin-bottom:12px"><div class="logo">✚</div><div><h2 style="margin:0">ملاك الرحمة</h2><small>منصة الخدمات الطبية الرقمية</small></div></div><p>منصة رقمية حديثة لمجمع ملاك الرحمة الطبي تجمع بين سهولة الوصول إلى المعلومات الطبية، الحجز الإلكتروني، التعرف على الأطباء، واستعراض الخدمات الصحية ضمن تجربة استخدام احترافية.</p></div><div><h3>روابط</h3><p><a href="#services">الخدمات</a></p><p><a href="#departments">الأقسام</a></p><p><a href="#doctors">الأطباء</a></p></div><div><h3>النظام</h3><p><a href="javascript:void(0)" onclick="openAuthModal('login')">تسجيل الدخول</a></p><p><a href="javascript:void(0)" onclick="openDashboardEntry()">لوحة التحكم</a></p><p><a href="javascript:void(0)" onclick="toggleChat()">المساعد الذكي</a></p></div><div><h3>الدعم</h3><p>دعم الحجوزات</p><p>خدمة العملاء</p><p>متابعة التأمين</p></div></div></footer>
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:12px"><div class="logo">✚</div><div><h2 style="margin:0">ملاك الرحمة</h2><small>منصة خدمات مجمع العيادات الرقمية</small></div></div>
+        <p>منصة رقمية حديثة لمجمع ملاك الرحمة، صُممت لتكون الواجهة الرسمية لمجمع العيادات على الإنترنت، مع إبراز الخدمات الطبية، الأطباء، الحجز، التأمين، والخدمات النقدية ضمن تجربة استخدام احترافية ومتطورة.</p>
+      </div>
+      <div><h3>روابط</h3><p><a href="#services">العيادات</a></p><p><a href="#departments">التخصصات</a></p><p><a href="#doctors">الأطباء</a></p></div>
+      <div><h3>الخدمات</h3><p><a href="#booking">الحجز</a></p><p><a href="#insurance">التأمين</a></p><p><a href="#labs">التحاليل</a></p></div>
+      <div><h3>الدعم</h3><p>خدمة المراجعين</p><p>الاستفسارات العامة</p><p>متابعة التأمين</p></div>
+    </div>
+  </footer>
 
-  <div class="modal" id="authModal"><div class="modal-box"><div class="modal-side"><div class="modal-side-content"><div class="tag">بوابة المرضى والزوار</div><h2 style="font-size:2.1rem;margin:0 0 12px">أهلاً بك في ملاك الرحمة</h2><p style="line-height:1.9;color:#eaf6ff">يمكن للمرضى والزوار تسجيل الدخول للوصول إلى خدماتهم ومتابعة مواعيدهم والاستفادة من المزايا الرقمية التي يقدمها المجمع.</p><div class="pill" style="margin-top:18px">Admin + Patient + Smart Panels</div></div></div><div class="modal-content"><button class="close-btn" onclick="closeAuthModal()">×</button><h2 style="margin-top:8px">بوابة الحسابات</h2><p style="color:var(--muted)">ادخل كإدارة أو أنشئ حساب مريض جديد.</p><div class="tabs"><button class="tab-btn active" data-tab="loginPane">تسجيل الدخول</button><button class="tab-btn" data-tab="registerPane">حساب جديد</button></div><div class="tab-pane active" id="loginPane"><form id="loginForm"><input class="input" id="loginEmail" type="email" placeholder="البريد الإلكتروني" required><input class="input" id="loginPassword" type="password" placeholder="كلمة المرور" required><button class="btn" type="submit">دخول</button></form><div style="margin-top:14px;color:var(--muted);line-height:1.8">يمكن استخدام بيانات الدخول المخصصة لإدارة النظام خلال العرض التجريبي.</div></div><div class="tab-pane" id="registerPane"><form id="registerForm"><input class="input" id="regName" type="text" placeholder="الاسم الكامل" required><div class="two"><input class="input" id="regEmail" type="email" placeholder="البريد الإلكتروني" required><input class="input" id="regPhone" type="tel" placeholder="رقم الجوال" required></div><div class="two"><input class="input" id="regPassword" type="password" placeholder="كلمة المرور" required><select id="regGender" required><option value="">النوع</option><option value="ذكر">ذكر</option><option value="أنثى">أنثى</option></select></div><div class="two"><input class="input" id="regAge" type="number" placeholder="العمر"><input class="input" id="regInsurance" type="text" placeholder="شركة التأمين"></div><button class="btn success" type="submit">إنشاء حساب مريض</button></form></div></div></div></div>
+  <div class="modal" id="authModal">
+    <div class="modal-box">
+      <div class="modal-side">
+        <div class="modal-side-content">
+          <div class="tag">بوابة المرضى والزوار</div>
+          <h2 style="font-size:2.1rem;margin:0 0 12px">أهلاً بك في ملاك الرحمة</h2>
+          <p style="line-height:1.9;color:#eaf6ff">يمكن للمرضى والزوار تسجيل الدخول للوصول إلى خدماتهم ومتابعة مواعيدهم والاستفادة من المزايا الرقمية التي يقدمها المجمع.</p>
+          <div class="pill" style="margin-top:18px">إدارة + مراجعين + خدمات ذكية</div>
+        </div>
+      </div>
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeAuthModal()">×</button>
+        <h2 style="margin-top:8px">بوابة الحسابات</h2>
+        <p style="color:var(--muted)">تسجيل دخول للإدارة أو إنشاء حساب جديد للمراجع.</p>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="loginPane">تسجيل الدخول</button>
+          <button class="tab-btn" data-tab="registerPane">حساب جديد</button>
+        </div>
+        <div class="tab-pane active" id="loginPane">
+          <form id="loginForm">
+            <input class="input" id="loginEmail" type="email" placeholder="البريد الإلكتروني" required>
+            <input class="input" id="loginPassword" type="password" placeholder="كلمة المرور" required>
+            <button class="btn" type="submit">دخول</button>
+          </form>
+          <div style="margin-top:14px;color:var(--muted);line-height:1.8">يمكن استخدام بيانات الدخول المخصصة لإدارة النظام خلال العرض التجريبي.</div>
+        </div>
+        <div class="tab-pane" id="registerPane">
+          <form id="registerForm">
+            <input class="input" id="regName" type="text" placeholder="الاسم الكامل" required>
+            <div class="two">
+              <input class="input" id="regEmail" type="email" placeholder="البريد الإلكتروني" required>
+              <input class="input" id="regPhone" type="tel" placeholder="رقم الجوال" required>
+            </div>
+            <div class="two">
+              <input class="input" id="regPassword" type="password" placeholder="كلمة المرور" required>
+              <select id="regGender" required><option value="">النوع</option><option value="ذكر">ذكر</option><option value="أنثى">أنثى</option></select>
+            </div>
+            <div class="two">
+              <input class="input" id="regAge" type="number" placeholder="العمر">
+              <input class="input" id="regInsurance" type="text" placeholder="شركة التأمين">
+            </div>
+            <button class="btn" type="submit">إنشاء حساب مراجع</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <button class="chat-toggle" id="chatToggle">💬</button>
-  <div class="chatbot glass" id="chatbotBox"><div class="chat-head"><div><strong>مساعد ملاك الرحمة الذكي</strong><br><small style="color:var(--muted)">للاستفسارات الأولية عن الخدمات والحجز</small></div><button class="btn outline small" onclick="toggleChat()">إغلاق</button></div><div class="chat-messages" id="chatMessages"></div><div class="chat-input"><input class="input" id="chatInput" type="text" placeholder="اكتب رسالتك..."><button class="btn small" id="sendChatBtn">إرسال</button></div></div>
+  <div class="chatbot glass" id="chatbotBox">
+    <div class="chat-head">
+      <div><strong>مساعد ملاك الرحمة الذكي</strong><br><small style="color:var(--muted)">للاستفسارات الأولية عن العيادات والحجز والتأمين</small></div>
+      <button class="btn outline small" onclick="toggleChat()">إغلاق</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input class="input" id="chatInput" type="text" placeholder="اكتب رسالتك...">
+      <button class="btn small" id="sendChatBtn">إرسال</button>
+    </div>
+  </div>
 
   <div class="dashboard" id="dashboard">
     <div class="dash-shell">
-      <aside class="dash-side"><div class="dash-brand"><div class="logo">✚</div><div><strong>لوحة التحكم</strong><br><small id="dashRoleLabel" style="color:var(--muted)"></small></div></div><div class="dash-menu" id="dashMenu"></div><div style="margin-top:18px"><button class="btn outline" style="width:100%" onclick="closeDashboard()">إغلاق</button><button class="btn danger" style="width:100%;margin-top:10px" onclick="logout()">تسجيل خروج</button></div></aside>
-      <section class="dash-main"><div class="dash-top"><div><h3 id="dashWelcome" style="margin:0"></h3><small style="color:var(--muted)">إدارة تشغيلية متكاملة لخدمات المجمع الطبي</small></div><div class="inline"><button class="btn small" onclick="openPanel('overview')">الرئيسية</button><button class="btn outline small" onclick="scrollToSection('booking');closeDashboard()">حجز جديد</button></div></div><div class="dash-content">
-        <div class="dash-panel active" id="panel-overview"><div class="dash-grid" id="overviewCards"></div><div class="table-wrap"><table><thead><tr><th>النشاط</th><th>الوصف</th><th>الوقت</th></tr></thead><tbody id="activityTable"></tbody></table></div></div>
-        <div class="dash-panel" id="panel-appointments"><h2 style="margin-top:0">إدارة المواعيد</h2><div class="table-wrap"><table><thead><tr><th>الاسم</th><th>الجوال</th><th>القسم</th><th>الطبيب</th><th>التاريخ</th><th>الوقت</th><th>التأمين</th><th>الأولوية</th><th>الزيارة</th><th>المبلغ</th><th>الحالة</th><th>إجراءات</th></tr></thead><tbody id="appointmentsTable"></tbody></table></div></div>
-        <div class="dash-panel" id="panel-doctors"><h2 style="margin-top:0">إدارة الأطباء</h2><div class="card glass" style="margin-bottom:16px"><form id="doctorForm"><div class="two"><input class="input" id="doctorName" type="text" placeholder="اسم الطبيب" required><input class="input" id="doctorSpec" type="text" placeholder="التخصص" required></div><div class="two"><input class="input" id="doctorExp" type="text" placeholder="سنوات الخبرة" required><input class="input" id="doctorImage" type="text" placeholder="رابط صورة الطبيب"></div><button class="btn success" type="submit">إضافة طبيب</button></form></div><div class="table-wrap"><table><thead><tr><th>الاسم</th><th>التخصص</th><th>الخبرة</th><th>إجراءات</th></tr></thead><tbody id="doctorsAdminTable"></tbody></table></div></div>
-        <div class="dash-panel" id="panel-users"><h2 style="margin-top:0">المستخدمون</h2><div class="table-wrap"><table><thead><tr><th>الاسم</th><th>البريد</th><th>الجوال</th><th>العمر</th><th>التأمين</th><th>الدور</th></tr></thead><tbody id="usersTable"></tbody></table></div></div>
-        <div class="dash-panel" id="panel-reports"><h2 style="margin-top:0">التقارير</h2><div class="dash-grid" id="reportCards"></div><div class="table-wrap"><table><thead><tr><th>التقرير</th><th>القيمة</th><th>الوصف</th></tr></thead><tbody id="reportsTable"></tbody></table></div></div>
-        <div class="dash-panel" id="panel-bills"><h2 style="margin-top:0">الفواتير</h2><div class="table-wrap"><table><thead><tr><th>المريض</th><th>الخدمة</th><th>المبلغ</th><th>طريقة الدفع</th><th>الحالة</th></tr></thead><tbody id="billsTable"></tbody></table></div></div>
-        <div class="dash-panel" id="panel-notifications"><h2 style="margin-top:0">الإشعارات</h2><div id="notificationsBox"></div></div>
-        <div class="dash-panel" id="panel-profile"><h2 style="margin-top:0">الملف الشخصي</h2><div class="card glass"><div id="patientProfile"></div></div></div>
-        <div class="dash-panel" id="panel-myappointments"><h2 style="margin-top:0">مواعيدي</h2><div class="table-wrap"><table><thead><tr><th>القسم</th><th>الطبيب</th><th>التاريخ</th><th>الوقت</th><th>التأمين</th><th>الأولوية</th><th>الزيارة</th><th>المبلغ</th><th>الحالة</th><th>ملاحظات</th></tr></thead><tbody id="myAppointmentsTable"></tbody></table></div></div>
-        <div class="dash-panel" id="panel-medical"><h2 style="margin-top:0">ملفي الطبي</h2><div class="card glass"><div id="medicalProfile"></div></div></div>
-        <div class="dash-panel" id="panel-help"><h2 style="margin-top:0">المساعدة الذكية</h2><div class="card glass"><p style="color:var(--muted);line-height:1.9">المساعد الذكي يقدّم إرشادًا أوليًا للزوار حول الخدمات الطبية، الأقسام المناسبة، خطوات الحجز، ومعلومات التأمين.</p><button class="btn" onclick="toggleChat()">افتح المساعد الذكي</button></div></div>
-      </div></section>
+      <aside class="dash-side">
+        <div class="dash-brand"><div class="logo">✚</div><div><strong>لوحة التحكم</strong><br><small id="dashRoleLabel" style="color:var(--muted)"></small></div></div>
+        <div class="dash-menu" id="dashMenu"></div>
+        <div style="margin-top:18px"><button class="btn outline" style="width:100%" onclick="closeDashboard()">إغلاق</button><button class="btn small" style="width:100%;margin-top:10px" onclick="logout()">تسجيل خروج</button></div>
+      </aside>
+      <section class="dash-main">
+        <div class="dash-top">
+          <div><h3 id="dashWelcome" style="margin:0"></h3><small style="color:var(--muted)">إدارة تشغيلية متكاملة لخدمات مجمع العيادات</small></div>
+          <div class="inline"><button class="btn small" onclick="openPanel('overview')">الرئيسية</button><button class="btn outline small" onclick="scrollToSection('booking');closeDashboard()">حجز جديد</button></div>
+        </div>
+        <div class="dash-content">
+          <div class="dash-panel active" id="panel-overview"><div class="dash-grid" id="overviewCards"></div><div class="table-wrap"><table><thead><tr><th>النشاط</th><th>الوصف</th><th>الوقت</th></tr></thead><tbody id="activityTable"></tbody></table></div></div>
+          <div class="dash-panel" id="panel-appointments"><h2 style="margin-top:0">إدارة المواعيد</h2><div class="table-wrap"><table><thead><tr><th>الاسم</th><th>الجوال</th><th>العيادة</th><th>الطبيب</th><th>التاريخ</th><th>الوقت</th><th>طريقة المراجعة</th><th>الأولوية</th><th>الزيارة</th><th>المبلغ</th><th>الحالة</th><th>إجراءات</th></tr></thead><tbody id="appointmentsTable"></tbody></table></div></div>
+          <div class="dash-panel" id="panel-doctors"><h2 style="margin-top:0">إدارة الأطباء</h2><div class="card glass" style="margin-bottom:16px"><form id="doctorForm"><div class="two"><input class="input" id="doctorName" type="text" placeholder="اسم الطبيب" required><input class="input" id="doctorSpec" type="text" placeholder="التخصص" required></div><div class="two"><input class="input" id="doctorExp" type="text" placeholder="سنوات الخبرة" required><input class="input" id="doctorImage" type="text" placeholder="رابط صورة الطبيب"></div><button class="btn" type="submit">إضافة طبيب</button></form></div><div class="table-wrap"><table><thead><tr><th>الاسم</th><th>التخصص</th><th>الخبرة</th><th>إجراءات</th></tr></thead><tbody id="doctorsAdminTable"></tbody></table></div></div>
+          <div class="dash-panel" id="panel-users"><h2 style="margin-top:0">المستخدمون</h2><div class="table-wrap"><table><thead><tr><th>الاسم</th><th>البريد</th><th>الجوال</th><th>العمر</th><th>التأمين</th><th>الدور</th></tr></thead><tbody id="usersTable"></tbody></table></div></div>
+          <div class="dash-panel" id="panel-reports"><h2 style="margin-top:0">التقارير</h2><div class="dash-grid" id="reportCards"></div><div class="table-wrap"><table><thead><tr><th>التقرير</th><th>القيمة</th><th>الوصف</th></tr></thead><tbody id="reportsTable"></tbody></table></div></div>
+          <div class="dash-panel" id="panel-bills"><h2 style="margin-top:0">الفواتير</h2><div class="table-wrap"><table><thead><tr><th>المراجع</th><th>الخدمة</th><th>المبلغ</th><th>طريقة الدفع</th><th>الحالة</th></tr></thead><tbody id="billsTable"></tbody></table></div></div>
+          <div class="dash-panel" id="panel-notifications"><h2 style="margin-top:0">الإشعارات</h2><div id="notificationsBox"></div></div>
+          <div class="dash-panel" id="panel-profile"><h2 style="margin-top:0">الملف الشخصي</h2><div class="card glass"><div id="patientProfile"></div></div></div>
+          <div class="dash-panel" id="panel-myappointments"><h2 style="margin-top:0">مواعيدي</h2><div class="table-wrap"><table><thead><tr><th>العيادة</th><th>الطبيب</th><th>التاريخ</th><th>الوقت</th><th>طريقة المراجعة</th><th>الأولوية</th><th>الزيارة</th><th>المبلغ</th><th>الحالة</th><th>ملاحظات</th></tr></thead><tbody id="myAppointmentsTable"></tbody></table></div></div>
+          <div class="dash-panel" id="panel-medical"><h2 style="margin-top:0">ملفي الطبي</h2><div class="card glass"><div id="medicalProfile"></div></div></div>
+          <div class="dash-panel" id="panel-help"><h2 style="margin-top:0">المساعدة الذكية</h2><div class="card glass"><p style="color:var(--muted);line-height:1.9">المساعد الذكي يقدّم إرشادًا أوليًا للزوار حول العيادات المناسبة، خطوات الحجز، ومعلومات المراجعة النقدية أو التأمينية داخل المجمع.</p><button class="btn" onclick="toggleChat()">افتح المساعد الذكي</button></div></div>
+        </div>
+      </section>
     </div>
   </div>
 
   <script>
     const services = [
-      {icon:'🦷',title:'الأسنان',desc:'فحص وعلاج وتجميل وتقويم وحالات الطوارئ السنية.'},
-      {icon:'👶',title:'الأطفال',desc:'متابعة نمو وتطعيمات وكشف وعلاج الحالات العامة للأطفال.'},
-      {icon:'🫀',title:'الباطنية',desc:'متابعة الأمراض المزمنة والحالات العامة والجهاز الهضمي.'},
-      {icon:'👁️',title:'العيون',desc:'فحص نظر وتشخيص ومتابعة حالات العيون والعدسات.'},
-      {icon:'🧴',title:'الجلدية',desc:'أمراض جلدية وتجميل وعلاج بشرة وشعر وحساسية.'},
-      {icon:'🦴',title:'العظام',desc:'كسور وإصابات ومفاصل وآلام ظهر وعمود فقري.'},
-      {icon:'🤰',title:'النساء والولادة',desc:'متابعة حمل واستشارات نسائية وفحوصات دورية.'},
-      {icon:'🧠',title:'الأعصاب',desc:'صداع وأعصاب وتشخيص ومتابعة متقدمة.'},
-      {icon:'🩺',title:'القلب',desc:'فحوصات قلب أولية ومتابعة ضغط ونبض وحالات مزمنة.'},
-      {icon:'🧪',title:'التحاليل',desc:'تحاليل مخبرية وتقارير سريعة وربط بنتائج المريض.'},
-      {icon:'💊',title:'الصيدلية',desc:'صرف وصفات وإدارة أدوية وتذكير ومتابعة.'},
-      {icon:'🚑',title:'الطوارئ الأولية',desc:'استقبال الحالات المستعجلة وتحويل سريع.'}
+      {icon:'🦷',title:'عيادات الأسنان',desc:'فحوصات وعلاج وتجميل وتقويم الأسنان ضمن خدمات منظمة للمراجعين.',pay:'نقدي / تأمين'},
+      {icon:'👶',title:'عيادات الأطفال',desc:'متابعة النمو والتطعيمات والكشف العام للأطفال في بيئة مريحة.',pay:'نقدي / تأمين'},
+      {icon:'🫀',title:'العيادات الباطنية',desc:'متابعة الأمراض المزمنة والحالات العامة والجهاز الهضمي.',pay:'نقدي / تأمين'},
+      {icon:'🧴',title:'الجلدية والتجميل',desc:'خدمات البشرة والشعر والحساسية وبعض الإجراءات التجميلية.',pay:'نقدي / تأمين'},
+      {icon:'🦴',title:'عيادات العظام',desc:'إصابات وآلام مفاصل وظهر ومتابعات علاجية متخصصة.',pay:'نقدي / تأمين'},
+      {icon:'🤰',title:'النساء والولادة',desc:'متابعة الحمل والاستشارات النسائية والرعاية الدورية.',pay:'نقدي / تأمين'},
+      {icon:'👁️',title:'عيادات العيون',desc:'فحص نظر ومتابعة حالات العيون والعدسات الطبية.',pay:'نقدي / تأمين'},
+      {icon:'🧪',title:'المختبر والتحاليل',desc:'تحاليل مخبرية وتقارير واضحة وسهلة الوصول.',pay:'نقدي / تأمين'},
+      {icon:'💊',title:'الصيدلية',desc:'صرف الوصفات الدوائية وخدمات مساندة للمراجعين.',pay:'نقدي'},
+      {icon:'🚑',title:'الحالات المستعجلة',desc:'تنظيم أولويات الحالات وتسهيل الوصول للخدمة بسرعة.',pay:'نقدي / تأمين'},
+      {icon:'📷',title:'الأشعة والتشخيص',desc:'خدمات مساندة للتشخيص والمتابعة الطبية.',pay:'نقدي / تأمين'},
+      {icon:'🧠',title:'الأعصاب',desc:'استشارات وتشخيص ومتابعة لبعض الحالات العصبية.',pay:'نقدي / تأمين'}
     ];
-    const departments = [['الأسنان','5 عيادات'],['الأطفال','3 عيادات'],['الباطنية','4 عيادات'],['الجلدية','2 عيادات'],['العظام','2 عيادات'],['النساء والولادة','3 عيادات'],['العيون','2 عيادات'],['الأعصاب','1 عيادة'],['القلب','1 عيادة'],['التحاليل','مختبر مركزي']];
+
+    const departments = [
+      ['الأسنان','5 عيادات'],['الأطفال','3 عيادات'],['الباطنية','4 عيادات'],['الجلدية','2 عيادات'],['العظام','2 عيادات'],
+      ['النساء والولادة','3 عيادات'],['العيون','2 عيادات'],['الأعصاب','1 عيادة'],['المختبر','مختبر مركزي'],['الأشعة','وحدة تشخيص']
+    ];
+
     const defaultDoctors = [
       {id:uid(),name:'د. أحمد السبيعي',spec:'الباطنية',exp:'12 سنة',about:'استشاري باطنية بخبرة كبيرة في الأمراض المزمنة ومتابعة الحالات العامة.',image:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1000&auto=format&fit=crop'},
       {id:uid(),name:'د. ريم العتيبي',spec:'الأسنان',exp:'9 سنوات',about:'طبيبة أسنان متخصصة في التجميل والتنظيف والحشوات وعلاجات اللثة.',image:'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop'},
@@ -362,17 +715,26 @@
       {id:uid(),name:'د. فيصل الحربي',spec:'العيون',exp:'13 سنة',about:'استشاري عيون وفحص نظر ومتابعة العدسات والحالات المزمنة.',image:'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?q=80&w=1000&auto=format&fit=crop'},
       {id:uid(),name:'د. لينا العنزي',spec:'الأعصاب',exp:'7 سنوات',about:'أخصائية أعصاب وصداع وحالات الأعصاب الطرفية.',image:'https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1000&auto=format&fit=crop'}
     ];
+
     const insurancePartners = ['بوبا','التعاونية','ميدغلف','ملاذ','تكافل الراجحي','سلامة','أسيج','أمانة'];
+    const paymentHighlights = [
+      {icon:'💵',title:'خدمات نقدية',desc:'إمكانية الاستفادة من خدمات المجمع والدفع النقدي بسهولة ووضوح.'},
+      {icon:'🛡️',title:'خدمات تأمينية',desc:'التعامل مع شركات التأمين المعتمدة وفق السياسات والإجراءات المعتمدة.'},
+      {icon:'📋',title:'مراجعة أهلية التأمين',desc:'تنظيم أفضل لرحلة المراجع من الاستقبال حتى تأكيد الخدمة.'},
+      {icon:'🤝',title:'مرونة في الخدمة',desc:'تجربة مناسبة للمراجعين سواء كانت زيارتهم نقدية أو عبر التأمين الصحي.'}
+    ];
+
     const extraServices = [
       {icon:'💊',title:'صيدلية داخلية',desc:'واجهة خاصة بعرض خدمات الصيدلية وصرف الوصفات.'},
       {icon:'🧪',title:'مختبر وتحاليل',desc:'جزء مخصص لشرح التحاليل والتقارير الطبية.'},
       {icon:'📷',title:'أشعة وتشخيص',desc:'عرض خدمات الأشعة الأساسية والمتقدمة.'},
       {icon:'🚑',title:'خدمة الحالات المستعجلة',desc:'تنسيق سريع للحالات ذات الأولوية.'},
       {icon:'📄',title:'تقارير طبية',desc:'قسم يوضح استخراج التقارير والإجازات والتحويلات.'},
-      {icon:'🧾',title:'فواتير ومطالبات',desc:'جزء مالي وإداري مناسب لعرض قوة النظام.'},
+      {icon:'🧾',title:'فواتير ومطالبات',desc:'جزء مالي وإداري منظم للمراجعات النقدية والتأمينية.'},
       {icon:'📱',title:'إشعارات المواعيد',desc:'تجربة إشعارات مرئية داخل النظام.'},
-      {icon:'🧑‍💼',title:'استقبال وخدمة عملاء',desc:'تنظيم بيانات العملاء والزوار بشكل واضح.'}
+      {icon:'🧑‍💼',title:'استقبال وخدمة عملاء',desc:'تنظيم بيانات المراجعين والزوار بشكل واضح.'}
     ];
+
     const adminAccount = {id:'admin-fixed',name:'مدير النظام',email:'admin@malak.com',phone:'0500000000',password:'123456',role:'admin',gender:'-',age:'-',insurance:'-'};
 
     function uid(){return '_' + Math.random().toString(36).slice(2,10)}
@@ -380,32 +742,62 @@
     function writeLS(key,val){localStorage.setItem(key, JSON.stringify(val))}
     function formatDateTime(v){return new Intl.DateTimeFormat('ar-EG',{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(v))}
     function notify(text,type='success'){const div=document.createElement('div');div.textContent=text;div.style.cssText='position:fixed;top:18px;left:18px;z-index:5000;padding:14px 18px;border-radius:14px;color:#fff;font-weight:800;box-shadow:0 15px 30px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)';div.style.background=type==='error'?'linear-gradient(135deg,#ff5878,#ff81a1)':type==='warning'?'linear-gradient(135deg,#f09d1c,#ffc364)':'linear-gradient(135deg,#24d4c7,#2f8fff)';document.body.appendChild(div);setTimeout(()=>div.remove(),2600)}
-    function logActivity(action,description){const list=readLS('mr3_activity',[]);list.unshift({action,description,time:formatDateTime(new Date())});writeLS('mr3_activity',list.slice(0,25));const notes=readLS('mr3_notifications',[]);notes.unshift({title:action,desc:description,time:formatDateTime(new Date())});writeLS('mr3_notifications',notes.slice(0,20))}
+    function logActivity(action,description){const list=readLS('mr5_activity',[]);list.unshift({action,description,time:formatDateTime(new Date())});writeLS('mr5_activity',list.slice(0,25));const notes=readLS('mr5_notifications',[]);notes.unshift({title:action,desc:description,time:formatDateTime(new Date())});writeLS('mr5_notifications',notes.slice(0,20))}
     function badge(status){if(status==='confirmed') return '<span class="badge success">مؤكد</span>'; if(status==='cancelled') return '<span class="badge danger">ملغي</span>'; return '<span class="badge warning">مراجعة</span>'}
     function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-    function seed(){const users=readLS('mr3_users',[]);if(!users.some(u=>u.email===adminAccount.email)) writeLS('mr3_users',[adminAccount,...users]);if(!localStorage.getItem('mr3_doctors')) writeLS('mr3_doctors',defaultDoctors);if(!localStorage.getItem('mr3_appointments')) writeLS('mr3_appointments',[]);if(!localStorage.getItem('mr3_activity')) writeLS('mr3_activity',[{action:'تهيئة النظام',description:'تم تشغيل منصة مجمع ملاك الرحمة الطبية بنجاح',time:formatDateTime(new Date())}]);if(!localStorage.getItem('mr3_notifications')) writeLS('mr3_notifications',[{title:'مرحبًا',desc:'تم تجهيز المنصة الرقمية لمجمع ملاك الرحمة بنجاح',time:formatDateTime(new Date())}])}
-    seed();
-    let currentUser=readLS('mr3_current_user',null);
 
-    const servicesGrid=document.getElementById('servicesGrid'),departmentsGrid=document.getElementById('departmentsGrid'),doctorsGrid=document.getElementById('doctorsGrid'),insuranceGrid=document.getElementById('insuranceGrid'),extraGrid=document.getElementById('extraGrid'),doctorProfile=document.getElementById('doctorProfile');
-    const authModal=document.getElementById('authModal'),dashboard=document.getElementById('dashboard'),apptDepartment=document.getElementById('apptDepartment'),apptDoctor=document.getElementById('apptDoctor'),chatbotBox=document.getElementById('chatbotBox'),chatMessages=document.getElementById('chatMessages'),chatInput=document.getElementById('chatInput');
+    function seed(){
+      const users=readLS('mr5_users',[]);
+      if(!users.some(u=>u.email===adminAccount.email)) writeLS('mr5_users',[adminAccount,...users]);
+      if(!localStorage.getItem('mr5_doctors')) writeLS('mr5_doctors',defaultDoctors);
+      if(!localStorage.getItem('mr5_appointments')) writeLS('mr5_appointments',[]);
+      if(!localStorage.getItem('mr5_activity')) writeLS('mr5_activity',[{action:'تهيئة النظام',description:'تم تشغيل منصة مجمع ملاك الرحمة بنجاح',time:formatDateTime(new Date())}]);
+      if(!localStorage.getItem('mr5_notifications')) writeLS('mr5_notifications',[{title:'مرحبًا',desc:'تم تجهيز منصة مجمع ملاك الرحمة بنجاح',time:formatDateTime(new Date())}]);
+    }
+    seed();
+
+    let currentUser=readLS('mr5_current_user',null);
+
+    const servicesGrid=document.getElementById('servicesGrid');
+    const departmentsGrid=document.getElementById('departmentsGrid');
+    const doctorsGrid=document.getElementById('doctorsGrid');
+    const insuranceGrid=document.getElementById('insuranceGrid');
+    const extraGrid=document.getElementById('extraGrid');
+    const doctorProfile=document.getElementById('doctorProfile');
+    const authModal=document.getElementById('authModal');
+    const dashboard=document.getElementById('dashboard');
+    const chatbotBox=document.getElementById('chatbotBox');
+    const chatMessages=document.getElementById('chatMessages');
+    const chatInput=document.getElementById('chatInput');
+    const apptDepartment=document.getElementById('apptDepartment');
+    const apptDoctor=document.getElementById('apptDoctor');
 
     function renderHome(){
-      servicesGrid.innerHTML=services.map(s=>`<div class="card glass reveal"><div class="icon-box">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+      servicesGrid.innerHTML=services.map(s=>`<div class="card glass reveal"><div class="icon-box">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p><div class="service-flag"><span>نوع الخدمة</span><span class="pay-chip">${s.pay}</span></div></div>`).join('');
       departmentsGrid.innerHTML=departments.map(d=>`<div class="department glass reveal"><div class="icon-box" style="margin:0 auto 10px">🏥</div><strong>${d[0]}</strong><span>${d[1]}</span></div>`).join('');
-      const doctors=readLS('mr3_doctors',[]);
+      const doctors=readLS('mr5_doctors',[]);
       doctorsGrid.innerHTML=doctors.map(d=>`<div class="card glass doctor-card reveal"><img src="${d.image || 'https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=1000&auto=format&fit=crop'}" alt="${d.name}"><h3>${d.name}</h3><p>${d.spec}</p><div class="doctor-meta"><span class="pill">${d.exp} خبرة</span><div class="inline"><button class="btn small outline" onclick="showDoctor('${d.id}')">التفاصيل</button><button class="btn small" onclick="selectDoctor('${d.name}','${d.spec}')">احجز معه</button></div></div></div>`).join('');
-      insuranceGrid.innerHTML=insurancePartners.map(n=>`<div class="card glass reveal"><div class="icon-box">🛡️</div><h3>${n}</h3><p>شركة تأمين معروضة داخل النظام ويمكن ربط الحجوزات بها داخليًا.</p></div>`).join('');
+      insuranceGrid.innerHTML=[
+        ...insurancePartners.map(n=>`<div class="card glass reveal"><div class="icon-box">🛡️</div><h3>${n}</h3><p>إحدى جهات التأمين التي يمكن إبرازها ضمن شبكة التأمين المعتمدة في المجمع.</p></div>`),
+        ...paymentHighlights.map(item=>`<div class="card glass reveal"><div class="icon-box">${item.icon}</div><h3>${item.title}</h3><p>${item.desc}</p></div>`)
+      ].join('');
       extraGrid.innerHTML=extraServices.map(x=>`<div class="card glass reveal"><div class="icon-box">${x.icon}</div><h3>${x.title}</h3><p>${x.desc}</p></div>`).join('');
       fillSelects();refreshReveal();
     }
 
-    function showDoctor(id){const d=readLS('mr3_doctors',[]).find(x=>x.id===id);if(!d) return;doctorProfile.classList.add('active');doctorProfile.innerHTML=`<div class="doctor-profile-grid"><img src="${d.image}" alt="${d.name}"><div><div class="pill">ملف الطبيب</div><h2 style="margin:16px 0 10px">${d.name}</h2><p style="color:var(--muted);line-height:1.95">${d.about || 'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.'}</p><div class="doctor-badges"><span class="pill">${d.spec}</span><span class="pill">${d.exp}</span><span class="pill">متاح للحجز</span></div><div class="cards-3" style="grid-template-columns:repeat(3,1fr)"><div class="mini-panel">المؤهل<br><strong>استشاري</strong></div><div class="mini-panel">أيام العمل<br><strong>الأحد - الخميس</strong></div><div class="mini-panel">التقييم<br><strong>4.9 / 5</strong></div></div><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn" onclick="selectDoctor('${d.name}','${d.spec}')">احجز مع الطبيب</button><button class="btn outline" onclick="doctorProfile.classList.remove('active')">إغلاق</button></div></div></div>`;doctorProfile.scrollIntoView({behavior:'smooth',block:'center'})}
+    function showDoctor(id){
+      const d=readLS('mr5_doctors',[]).find(x=>x.id===id); if(!d) return;
+      doctorProfile.classList.add('active');
+      doctorProfile.innerHTML=`<div class="doctor-profile-grid"><img src="${d.image}" alt="${d.name}"><div><div class="pill">ملف الطبيب</div><h2 style="margin:16px 0 10px">${d.name}</h2><p style="color:var(--muted);line-height:1.95">${d.about || 'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.'}</p><div class="doctor-badges"><span class="pill">${d.spec}</span><span class="pill">${d.exp}</span><span class="pill">متاح للحجز</span></div><div class="cards-3" style="grid-template-columns:repeat(3,1fr)"><div class="mini-panel">المؤهل<br><strong>استشاري</strong></div><div class="mini-panel">أيام العمل<br><strong>الأحد - الخميس</strong></div><div class="mini-panel">التقييم<br><strong>4.9 / 5</strong></div></div><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn" onclick="selectDoctor('${d.name}','${d.spec}')">احجز مع الطبيب</button><button class="btn outline" onclick="doctorProfile.classList.remove('active')">إغلاق</button></div></div></div>`;
+      doctorProfile.scrollIntoView({behavior:'smooth',block:'center'});
+    }
 
-    function fillSelects(){apptDepartment.innerHTML='<option value="">اختر القسم</option>'+[...new Set(readLS('mr3_doctors',[]).map(d=>d.spec))].map(dep=>`<option value="${dep}">${dep}</option>`).join('');apptDoctor.innerHTML='<option value="">اختر الطبيب</option>'+readLS('mr3_doctors',[]).map(doc=>`<option value="${doc.name}">${doc.name} - ${doc.spec}</option>`).join('')}
+    function fillSelects(){
+      apptDepartment.innerHTML='<option value="">اختر العيادة</option>'+[...new Set(readLS('mr5_doctors',[]).map(d=>d.spec))].map(dep=>`<option value="${dep}">${dep}</option>`).join('');
+      apptDoctor.innerHTML='<option value="">اختر الطبيب</option>'+readLS('mr5_doctors',[]).map(doc=>`<option value="${doc.name}">${doc.name} - ${doc.spec}</option>`).join('');
+    }
     function selectDoctor(name,spec){scrollToSection('booking');setTimeout(()=>{apptDepartment.value=spec;apptDoctor.value=name},250)}
-
-    function fakeDownload(name){notify(`تم تجهيز ${name} للتنزيل`) }
+    function fakeDownload(name){notify(`تم تجهيز ${name} للتنزيل`)}
 
     function openAuthModal(tab='login'){authModal.classList.add('show');setAuthTab(tab==='register'?'registerPane':'loginPane')}
     function closeAuthModal(){authModal.classList.remove('show')}
@@ -413,53 +805,107 @@
     document.querySelectorAll('.tab-btn').forEach(btn=>btn.onclick=()=>setAuthTab(btn.dataset.tab));
     document.getElementById('openAuthBtn').onclick=()=>openAuthModal('login');
 
-    document.getElementById('registerForm').addEventListener('submit',e=>{e.preventDefault();const email=regEmail.value.trim().toLowerCase();const users=readLS('mr3_users',[]);if(users.some(u=>u.email===email)){notify('هذا البريد مسجل بالفعل','error');return}const user={id:uid(),role:'patient',name:regName.value.trim(),email,phone:regPhone.value.trim(),password:regPassword.value.trim(),gender:regGender.value,age:regAge.value||'-',insurance:regInsurance.value.trim()||'-'};users.push(user);writeLS('mr3_users',users);currentUser=user;writeLS('mr3_current_user',user);logActivity('مستخدم جديد',`تم إنشاء حساب جديد باسم ${user.name}`);closeAuthModal();notify('تم إنشاء الحساب بنجاح');prefillPatient();openDashboard();e.target.reset()});
-    document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const email=loginEmail.value.trim().toLowerCase();const password=loginPassword.value.trim();const user=readLS('mr3_users',[]).find(u=>u.email===email&&u.password===password);if(!user){notify('البريد أو كلمة المرور غير صحيحة','error');return}currentUser=user;writeLS('mr3_current_user',user);closeAuthModal();notify(`مرحبًا ${user.name}`);prefillPatient();openDashboard()});
+    document.getElementById('registerForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      const email=regEmail.value.trim().toLowerCase();
+      const users=readLS('mr5_users',[]);
+      if(users.some(u=>u.email===email)){notify('هذا البريد مسجل بالفعل','error');return}
+      const user={id:uid(),role:'patient',name:regName.value.trim(),email,phone:regPhone.value.trim(),password:regPassword.value.trim(),gender:regGender.value,age:regAge.value||'-',insurance:regInsurance.value.trim()||'-'};
+      users.push(user); writeLS('mr5_users',users); currentUser=user; writeLS('mr5_current_user',user); logActivity('مستخدم جديد',`تم إنشاء حساب جديد باسم ${user.name}`); closeAuthModal(); notify('تم إنشاء الحساب بنجاح'); prefillPatient(); openDashboard(); e.target.reset();
+    });
 
-    document.getElementById('appointmentForm').addEventListener('submit',e=>{e.preventDefault();const appointment={id:uid(),userId:currentUser?.role==='patient'?currentUser.id:null,name:apptName.value.trim(),phone:apptPhone.value.trim(),department:apptDepartment.value,doctor:apptDoctor.value,date:apptDate.value,time:apptTime.value,insurance:apptInsurance.value.trim()||(currentUser?.insurance||'نقدي'),priority:apptPriority.value,visitType:apptVisitType.value,amount:apptAmount.value||'0',notes:apptNotes.value.trim(),status:'pending',createdAt:new Date().toISOString()};if(!appointment.department||!appointment.doctor){notify('اختر القسم والطبيب أولاً','warning');return}const list=readLS('mr3_appointments',[]);list.unshift(appointment);writeLS('mr3_appointments',list);logActivity('حجز موعد',`تم تسجيل موعد باسم ${appointment.name} في قسم ${appointment.department}`);e.target.reset();prefillPatient();notify('تم تسجيل الموعد بنجاح');renderDashboard()});
+    document.getElementById('loginForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      const email=loginEmail.value.trim().toLowerCase();
+      const password=loginPassword.value.trim();
+      const user=readLS('mr5_users',[]).find(u=>u.email===email&&u.password===password);
+      if(!user){notify('البريد أو كلمة المرور غير صحيحة','error');return}
+      currentUser=user; writeLS('mr5_current_user',user); closeAuthModal(); notify(`مرحبًا ${user.name}`); prefillPatient(); openDashboard();
+    });
+
+    document.getElementById('appointmentForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      const appointment={
+        id:uid(), userId:currentUser?.role==='patient'?currentUser.id:null,
+        name:apptName.value.trim(), phone:apptPhone.value.trim(), department:apptDepartment.value, doctor:apptDoctor.value,
+        date:apptDate.value, time:apptTime.value,
+        insurance:apptInsurance.value.trim()||(currentUser?.insurance||'نقدي'),
+        priority:apptPriority.value, visitType:apptVisitType.value, amount:apptAmount.value||'0', notes:apptNotes.value.trim(), status:'pending', createdAt:new Date().toISOString()
+      };
+      if(!appointment.department||!appointment.doctor){notify('اختر العيادة والطبيب أولاً','warning');return}
+      const list=readLS('mr5_appointments',[]); list.unshift(appointment); writeLS('mr5_appointments',list); logActivity('حجز موعد',`تم تسجيل موعد باسم ${appointment.name} في عيادة ${appointment.department}`); e.target.reset(); prefillPatient(); notify('تم تسجيل الموعد بنجاح'); renderDashboard();
+    });
+
     function prefillPatient(){if(currentUser?.role==='patient'){apptName.value=currentUser.name||'';apptPhone.value=currentUser.phone||'';apptInsurance.value=currentUser.insurance&&currentUser.insurance!=='-'?currentUser.insurance:''}}
 
     function openDashboardEntry(){if(!currentUser) openAuthModal('login'); else openDashboard()}
     function openDashboard(){if(!currentUser){openAuthModal('login');return}dashboard.classList.add('show');renderDashboard()}
     function closeDashboard(){dashboard.classList.remove('show')}
-    function logout(){currentUser=null;localStorage.removeItem('mr3_current_user');closeDashboard();notify('تم تسجيل الخروج','warning')}
+    function logout(){currentUser=null;localStorage.removeItem('mr5_current_user');closeDashboard();notify('تم تسجيل الخروج','warning')}
     function menuByRole(role){return role==='admin'?[{id:'overview',label:'نظرة عامة'},{id:'appointments',label:'المواعيد'},{id:'doctors',label:'الأطباء'},{id:'users',label:'المستخدمون'},{id:'reports',label:'التقارير'},{id:'bills',label:'الفواتير'},{id:'notifications',label:'الإشعارات'}]:[{id:'overview',label:'الرئيسية'},{id:'profile',label:'الملف الشخصي'},{id:'myappointments',label:'مواعيدي'},{id:'medical',label:'ملفي الطبي'},{id:'help',label:'المساعدة الذكية'}]}
     function openPanel(id){document.querySelectorAll('.dash-panel').forEach(p=>p.classList.toggle('active',p.id===`panel-${id}`));document.querySelectorAll('.dash-link').forEach(l=>l.classList.toggle('active',l.dataset.panel===id))}
-    function renderDashboard(){if(!currentUser) return;dashRoleLabel.textContent=currentUser.role==='admin'?'حساب إدارة':'حساب مريض';dashWelcome.textContent=`مرحبًا، ${currentUser.name}`;const menu=menuByRole(currentUser.role);dashMenu.innerHTML=menu.map((m,i)=>`<div class="dash-link ${i===0?'active':''}" data-panel="${m.id}" onclick="openPanel('${m.id}')">${m.label}</div>`).join('');const allowed=menu.map(m=>m.id);document.querySelectorAll('.dash-panel').forEach(p=>{p.style.display=allowed.includes(p.id.replace('panel-',''))?'':'none'});renderOverview();renderActivity();renderAppointments();renderDoctorsAdmin();renderUsers();renderReports();renderBills();renderNotifications();renderProfile();renderMyAppointments();renderMedical();openPanel('overview')}
-    function renderOverview(){const appointments=readLS('mr3_appointments',[]),doctors=readLS('mr3_doctors',[]),users=readLS('mr3_users',[]).filter(u=>u.role==='patient');let cards=[];if(currentUser.role==='admin'){cards=[{icon:'📅',label:'إجمالي المواعيد',value:appointments.length},{icon:'🩺',label:'عدد الأطباء',value:doctors.length},{icon:'👥',label:'المرضى',value:users.length},{icon:'⏳',label:'مواعيد معلقة',value:appointments.filter(a=>a.status==='pending').length}]}else{const mine=appointments.filter(a=>a.userId===currentUser.id);cards=[{icon:'📅',label:'مواعيدي',value:mine.length},{icon:'✅',label:'مؤكد',value:mine.filter(a=>a.status==='confirmed').length},{icon:'🛡️',label:'التأمين',value:currentUser.insurance||'-'},{icon:'🩺',label:'الأطباء المتاحون',value:doctors.length}]}overviewCards.innerHTML=cards.map(c=>`<div class="dash-card"><div style="font-size:1.55rem">${c.icon}</div><strong>${c.value}</strong><span style="color:var(--muted)">${c.label}</span></div>`).join('')}
-    function renderActivity(){const rows=readLS('mr3_activity',[]).slice(0,10).map(a=>`<tr><td>${a.action}</td><td>${a.description}</td><td>${a.time}</td></tr>`).join('');activityTable.innerHTML=rows||`<tr><td colspan="3"><div class="empty">لا توجد أنشطة</div></td></tr>`}
-    function renderAppointments(){const body=appointmentsTable;if(!body) return;let list=readLS('mr3_appointments',[]);if(currentUser?.role==='patient') list=list.filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.phone}</td><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${currentUser?.role==='admin'?`<div class="inline"><button class="btn small success" onclick="setAppointmentStatus('${a.id}','confirmed')">تأكيد</button><button class="btn small warning" onclick="setAppointmentStatus('${a.id}','pending')">مراجعة</button><button class="btn small danger" onclick="setAppointmentStatus('${a.id}','cancelled')">إلغاء</button><button class="btn small outline" onclick="deleteAppointment('${a.id}')">حذف</button></div>`:`<span style="color:var(--muted)">متابعة فقط</span>`}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="12"><div class="empty">لا توجد مواعيد</div></td></tr>`}
-    function setAppointmentStatus(id,status){let list=readLS('mr3_appointments',[]);list=list.map(a=>a.id===id?{...a,status}:a);writeLS('mr3_appointments',list);logActivity('تحديث موعد',`تم تحديث حالة موعد إلى ${status}`);renderDashboard();notify('تم تحديث الحالة')}
-    function deleteAppointment(id){let list=readLS('mr3_appointments',[]).filter(a=>a.id!==id);writeLS('mr3_appointments',list);logActivity('حذف موعد','تم حذف موعد من النظام');renderDashboard();notify('تم حذف الموعد','warning')}
-    function renderDoctorsAdmin(){const body=doctorsAdminTable;if(!body) return;const list=readLS('mr3_doctors',[]);body.innerHTML=list.map(d=>`<tr><td>${d.name}</td><td>${d.spec}</td><td>${d.exp}</td><td><button class="btn small danger" onclick="deleteDoctor('${d.id}')">حذف</button></td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="4"><div class="empty">لا يوجد أطباء</div></td></tr>`}
-    doctorForm.addEventListener('submit',e=>{e.preventDefault();const doctor={id:uid(),name:doctorName.value.trim(),spec:doctorSpec.value.trim(),exp:doctorExp.value.trim(),about:'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.',image:doctorImage.value.trim()||'https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=1200&auto=format&fit=crop'};const list=readLS('mr3_doctors',[]);list.unshift(doctor);writeLS('mr3_doctors',list);logActivity('إضافة طبيب',`تمت إضافة الطبيب ${doctor.name}`);e.target.reset();renderHome();renderDashboard();notify('تمت إضافة الطبيب')})
-    function deleteDoctor(id){let list=readLS('mr3_doctors',[]).filter(d=>d.id!==id);writeLS('mr3_doctors',list);logActivity('حذف طبيب','تم حذف طبيب من النظام');renderHome();renderDashboard();notify('تم حذف الطبيب','warning')}
-    function renderUsers(){const body=usersTable;if(!body) return;const users=readLS('mr3_users',[]);body.innerHTML=users.map(u=>`<tr><td>${u.name}</td><td>${u.email}</td><td>${u.phone}</td><td>${u.age||'-'}</td><td>${u.insurance||'-'}</td><td>${u.role==='admin'?'إدارة':'مريض'}</td></tr>`).join('')}
-    function renderReports(){const appointments=readLS('mr3_appointments',[]);const reportCards=[{label:'المواعيد المؤكدة',value:appointments.filter(a=>a.status==='confirmed').length},{label:'المواعيد الملغية',value:appointments.filter(a=>a.status==='cancelled').length},{label:'حجوزات التأمين',value:appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length},{label:'الحالات الطارئة',value:appointments.filter(a=>a.priority==='طارئ').length}];reportCards && (document.getElementById('reportCards').innerHTML=reportCards.map(c=>`<div class="dash-card"><strong>${c.value}</strong><span style="color:var(--muted)">${c.label}</span></div>`).join(''));reportsTable.innerHTML=`<tr><td>إجمالي المواعيد</td><td>${appointments.length}</td><td>كل المواعيد المسجلة داخل النظام</td></tr><tr><td>المواعيد المؤكدة</td><td>${appointments.filter(a=>a.status==='confirmed').length}</td><td>تمت مراجعتها واعتمادها</td></tr><tr><td>المواعيد المعلقة</td><td>${appointments.filter(a=>a.status==='pending').length}</td><td>بانتظار متابعة الإدارة</td></tr><tr><td>المواعيد الملغية</td><td>${appointments.filter(a=>a.status==='cancelled').length}</td><td>تم إلغاؤها</td></tr><tr><td>حجوزات بجهة تأمين</td><td>${appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length}</td><td>مفيدة جدًا في عرض قوة النظام</td></tr>`}
-    function renderBills(){const body=billsTable;if(!body) return;const list=readLS('mr3_appointments',[]).slice(0,12);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.department}</td><td>${a.amount||0}</td><td>${a.insurance&&a.insurance!=='-'?a.insurance:'نقدي'}</td><td>${a.status==='confirmed'?'مدفوع / مؤكد':'بانتظار الإجراء'}</td></tr>`).join('')||`<tr><td colspan="5"><div class="empty">لا توجد فواتير بعد</div></td></tr>`}
-    function renderNotifications(){const box=notificationsBox;if(!box) return;const notes=readLS('mr3_notifications',[]);box.innerHTML=notes.map(n=>`<div class="mini-panel" style="margin-bottom:12px"><strong>${n.title}</strong><div style="color:var(--muted);line-height:1.8;margin-top:8px">${n.desc}</div><div style="color:var(--muted);font-size:.88rem;margin-top:8px">${n.time}</div></div>`).join('')||'<div class="empty">لا توجد إشعارات</div>'}
-    function renderProfile(){const box=patientProfile;if(!box||!currentUser) return;box.innerHTML=`<div class="kpis"><div class="mini-panel">الاسم<br><strong>${currentUser.name}</strong></div><div class="mini-panel">البريد<br><strong>${currentUser.email}</strong></div><div class="mini-panel">الجوال<br><strong>${currentUser.phone}</strong></div><div class="mini-panel">العمر<br><strong>${currentUser.age||'-'}</strong></div><div class="mini-panel">النوع<br><strong>${currentUser.gender||'-'}</strong></div><div class="mini-panel">التأمين<br><strong>${currentUser.insurance||'-'}</strong></div></div>`}
-    function renderMyAppointments(){const body=myAppointmentsTable;if(!body||!currentUser) return;const list=readLS('mr3_appointments',[]).filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${a.notes||'-'}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="10"><div class="empty">لا توجد مواعيد مرتبطة بحسابك</div></td></tr>`}
-    function renderMedical(){const box=medicalProfile;if(!box||!currentUser) return;const mine=readLS('mr3_appointments',[]).filter(a=>a.userId===currentUser.id);const last=mine[0];box.innerHTML=`<div class="kpis"><div class="mini-panel">عدد الزيارات<br><strong>${mine.length}</strong></div><div class="mini-panel">آخر قسم<br><strong>${last?.department||'-'}</strong></div><div class="mini-panel">آخر طبيب<br><strong>${last?.doctor||'-'}</strong></div></div><div class="mini-panel" style="margin-top:16px;line-height:1.9;color:var(--muted)">هذه مساحة تمثيلية للملف الطبي داخل النسخة الحالية، ويمكن لاحقًا تحويلها إلى ملف طبي كامل بتحاليل، أشعة، وصفات، تشخيص، وخطة علاج.</div><div style="margin-top:16px"><button class="btn outline" onclick="fakeDownload('التقرير الطبي')">تنزيل تقرير PDF تجريبي</button></div>`}
 
-    function toggleChat(){chatbotBox.classList.toggle('show');if(chatbotBox.classList.contains('show')&&!chatMessages.dataset.init){chatMessages.dataset.init='1';addBot('مرحبًا بك 👋 أنا مساعد ملاك الرحمة الذكي. اسألني عن القسم المناسب، الحجز، التأمين، أو حسابات الدخول.')}}
+    function renderDashboard(){
+      if(!currentUser) return;
+      dashRoleLabel.textContent=currentUser.role==='admin'?'حساب إدارة':'حساب مراجع';
+      dashWelcome.textContent=`مرحبًا، ${currentUser.name}`;
+      const menu=menuByRole(currentUser.role);
+      dashMenu.innerHTML=menu.map((m,i)=>`<div class="dash-link ${i===0?'active':''}" data-panel="${m.id}" onclick="openPanel('${m.id}')">${m.label}</div>`).join('');
+      const allowed=menu.map(m=>m.id);
+      document.querySelectorAll('.dash-panel').forEach(p=>{p.style.display=allowed.includes(p.id.replace('panel-',''))?'':'none'});
+      renderOverview(); renderActivity(); renderAppointments(); renderDoctorsAdmin(); renderUsers(); renderReports(); renderBills(); renderNotifications(); renderProfile(); renderMyAppointments(); renderMedical(); openPanel('overview');
+    }
+
+    function renderOverview(){
+      const appointments=readLS('mr5_appointments',[]), doctors=readLS('mr5_doctors',[]), users=readLS('mr5_users',[]).filter(u=>u.role==='patient');
+      let cards=[];
+      if(currentUser.role==='admin'){
+        cards=[{icon:'📅',label:'إجمالي المواعيد',value:appointments.length},{icon:'🩺',label:'عدد الأطباء',value:doctors.length},{icon:'👥',label:'عدد المراجعين',value:users.length},{icon:'⏳',label:'مواعيد معلقة',value:appointments.filter(a=>a.status==='pending').length}];
+      }else{
+        const mine=appointments.filter(a=>a.userId===currentUser.id);
+        cards=[{icon:'📅',label:'مواعيدي',value:mine.length},{icon:'✅',label:'مواعيد مؤكدة',value:mine.filter(a=>a.status==='confirmed').length},{icon:'🛡️',label:'التأمين',value:currentUser.insurance||'-'},{icon:'🏥',label:'العيادات المتاحة',value:doctors.length}];
+      }
+      overviewCards.innerHTML=cards.map(c=>`<div class="dash-card"><div style="font-size:1.55rem">${c.icon}</div><strong>${c.value}</strong><span style="color:var(--muted)">${c.label}</span></div>`).join('');
+    }
+    function renderActivity(){const rows=readLS('mr5_activity',[]).slice(0,10).map(a=>`<tr><td>${a.action}</td><td>${a.description}</td><td>${a.time}</td></tr>`).join('');activityTable.innerHTML=rows||`<tr><td colspan="3"><div class="empty">لا توجد أنشطة</div></td></tr>`}
+    function renderAppointments(){const body=appointmentsTable;if(!body) return;let list=readLS('mr5_appointments',[]);if(currentUser?.role==='patient') list=list.filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.phone}</td><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${currentUser?.role==='admin'?`<div class="inline"><button class="btn small" onclick="setAppointmentStatus('${a.id}','confirmed')">تأكيد</button><button class="btn small outline" onclick="setAppointmentStatus('${a.id}','pending')">مراجعة</button><button class="btn small outline" onclick="setAppointmentStatus('${a.id}','cancelled')">إلغاء</button><button class="btn small outline" onclick="deleteAppointment('${a.id}')">حذف</button></div>`:`<span style="color:var(--muted)">متابعة فقط</span>`}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="12"><div class="empty">لا توجد مواعيد</div></td></tr>`}
+    function setAppointmentStatus(id,status){let list=readLS('mr5_appointments',[]);list=list.map(a=>a.id===id?{...a,status}:a);writeLS('mr5_appointments',list);logActivity('تحديث موعد',`تم تحديث حالة موعد إلى ${status}`);renderDashboard();notify('تم تحديث الحالة')}
+    function deleteAppointment(id){let list=readLS('mr5_appointments',[]).filter(a=>a.id!==id);writeLS('mr5_appointments',list);logActivity('حذف موعد','تم حذف موعد من النظام');renderDashboard();notify('تم حذف الموعد','warning')}
+    function renderDoctorsAdmin(){const body=doctorsAdminTable;if(!body) return;const list=readLS('mr5_doctors',[]);body.innerHTML=list.map(d=>`<tr><td>${d.name}</td><td>${d.spec}</td><td>${d.exp}</td><td><button class="btn small outline" onclick="deleteDoctor('${d.id}')">حذف</button></td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="4"><div class="empty">لا يوجد أطباء</div></td></tr>`}
+    doctorForm.addEventListener('submit',e=>{e.preventDefault();const doctor={id:uid(),name:doctorName.value.trim(),spec:doctorSpec.value.trim(),exp:doctorExp.value.trim(),about:'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.',image:doctorImage.value.trim()||'https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=1200&auto=format&fit=crop'};const list=readLS('mr5_doctors',[]);list.unshift(doctor);writeLS('mr5_doctors',list);logActivity('إضافة طبيب',`تمت إضافة الطبيب ${doctor.name}`);e.target.reset();renderHome();renderDashboard();notify('تمت إضافة الطبيب')});
+    function deleteDoctor(id){let list=readLS('mr5_doctors',[]).filter(d=>d.id!==id);writeLS('mr5_doctors',list);logActivity('حذف طبيب','تم حذف طبيب من النظام');renderHome();renderDashboard();notify('تم حذف الطبيب','warning')}
+    function renderUsers(){const body=usersTable;if(!body) return;const users=readLS('mr5_users',[]);body.innerHTML=users.map(u=>`<tr><td>${u.name}</td><td>${u.email}</td><td>${u.phone}</td><td>${u.age||'-'}</td><td>${u.insurance||'-'}</td><td>${u.role==='admin'?'إدارة':'مراجع'}</td></tr>`).join('')}
+    function renderReports(){const appointments=readLS('mr5_appointments',[]);const reportCards=[{label:'المواعيد المؤكدة',value:appointments.filter(a=>a.status==='confirmed').length},{label:'المواعيد الملغية',value:appointments.filter(a=>a.status==='cancelled').length},{label:'مراجعات التأمين',value:appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length},{label:'حالات طارئة',value:appointments.filter(a=>a.priority==='طارئ').length}];document.getElementById('reportCards').innerHTML=reportCards.map(c=>`<div class="dash-card"><strong>${c.value}</strong><span style="color:var(--muted)">${c.label}</span></div>`).join('');reportsTable.innerHTML=`<tr><td>إجمالي المواعيد</td><td>${appointments.length}</td><td>كل المواعيد المسجلة داخل النظام</td></tr><tr><td>المواعيد المؤكدة</td><td>${appointments.filter(a=>a.status==='confirmed').length}</td><td>تمت مراجعتها واعتمادها</td></tr><tr><td>المواعيد المعلقة</td><td>${appointments.filter(a=>a.status==='pending').length}</td><td>بانتظار متابعة الإدارة</td></tr><tr><td>المراجعات التأمينية</td><td>${appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length}</td><td>مراجعون عبر شركات التأمين</td></tr><tr><td>المراجعات النقدية</td><td>${appointments.filter(a=>!a.insurance||a.insurance==='نقدي'||a.insurance==='-').length}</td><td>مراجعون بخدمة نقدية</td></tr>`}
+    function renderBills(){const body=billsTable;if(!body) return;const list=readLS('mr5_appointments',[]).slice(0,12);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.department}</td><td>${a.amount||0}</td><td>${a.insurance&&a.insurance!=='-'?a.insurance:'نقدي'}</td><td>${a.status==='confirmed'?'مؤكد':'بانتظار الإجراء'}</td></tr>`).join('')||`<tr><td colspan="5"><div class="empty">لا توجد فواتير بعد</div></td></tr>`}
+    function renderNotifications(){const box=notificationsBox;if(!box) return;const notes=readLS('mr5_notifications',[]);box.innerHTML=notes.map(n=>`<div class="mini-panel" style="margin-bottom:12px"><strong>${n.title}</strong><div style="color:var(--muted);line-height:1.8;margin-top:8px">${n.desc}</div><div style="color:var(--muted);font-size:.88rem;margin-top:8px">${n.time}</div></div>`).join('')||'<div class="empty">لا توجد إشعارات</div>'}
+    function renderProfile(){const box=patientProfile;if(!box||!currentUser) return;box.innerHTML=`<div class="cards-3"><div class="mini-panel">الاسم<br><strong>${currentUser.name}</strong></div><div class="mini-panel">البريد<br><strong>${currentUser.email}</strong></div><div class="mini-panel">الجوال<br><strong>${currentUser.phone}</strong></div><div class="mini-panel">العمر<br><strong>${currentUser.age||'-'}</strong></div><div class="mini-panel">النوع<br><strong>${currentUser.gender||'-'}</strong></div><div class="mini-panel">التأمين<br><strong>${currentUser.insurance||'-'}</strong></div></div>`}
+    function renderMyAppointments(){const body=myAppointmentsTable;if(!body||!currentUser) return;const list=readLS('mr5_appointments',[]).filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${a.notes||'-'}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="10"><div class="empty">لا توجد مواعيد مرتبطة بحسابك</div></td></tr>`}
+    function renderMedical(){const box=medicalProfile;if(!box||!currentUser) return;const mine=readLS('mr5_appointments',[]).filter(a=>a.userId===currentUser.id);const last=mine[0];box.innerHTML=`<div class="cards-3"><div class="mini-panel">عدد الزيارات<br><strong>${mine.length}</strong></div><div class="mini-panel">آخر عيادة<br><strong>${last?.department||'-'}</strong></div><div class="mini-panel">آخر طبيب<br><strong>${last?.doctor||'-'}</strong></div></div><div class="mini-panel" style="margin-top:16px;line-height:1.9;color:var(--muted)">يمكن استخدام هذه المساحة لعرض ملخص طبي منظم يشمل الزيارات السابقة، التقارير، والمعلومات الأساسية للمراجع.</div><div style="margin-top:16px"><button class="btn outline" onclick="fakeDownload('التقرير الطبي')">تنزيل التقرير</button></div>`}
+
+    function toggleChat(){chatbotBox.classList.toggle('show');if(chatbotBox.classList.contains('show')&&!chatMessages.dataset.init){chatMessages.dataset.init='1';addBot('مرحبًا بك 👋 أنا مساعد ملاك الرحمة الذكي. اسألني عن العيادات المناسبة، الحجز، التأمين، أو الخدمات النقدية داخل المجمع.')}}
     document.getElementById('chatToggle').onclick=toggleChat;document.getElementById('sendChatBtn').onclick=sendChat;chatInput.addEventListener('keydown',e=>{if(e.key==='Enter') sendChat()});
     function addUser(text){const d=document.createElement('div');d.className='msg user';d.textContent=text;chatMessages.appendChild(d);chatMessages.scrollTop=chatMessages.scrollHeight}
     function addBot(html){const d=document.createElement('div');d.className='msg bot';d.innerHTML=html;chatMessages.appendChild(d);chatMessages.scrollTop=chatMessages.scrollHeight}
-    function reply(msg){msg=msg.toLowerCase();if(msg.includes('حجز')||msg.includes('موعد')) return 'يمكنك الحجز من قسم <b>احجز موعدك</b> أو من خلال حساب المريض لربط الموعد بحسابك تلقائيًا.';if(msg.includes('اسنان')||msg.includes('الأسنان')) return 'قسم الأسنان مناسب للفحص، الحشوات، التنظيف، التجميل، وتقويم الأسنان.';if(msg.includes('جلدية')) return 'قسم الجلدية مناسب للبشرة، الحساسية، الشعر، والعلاجات التجميلية.';if(msg.includes('اطفال')||msg.includes('الأطفال')) return 'قسم الأطفال مخصص للكشف العام، التطعيمات، ومتابعة نمو الطفل.';if(msg.includes('نساء')||msg.includes('ولادة')) return 'قسم النساء والولادة يتابع الحمل والاستشارات النسائية والفحوصات الدورية.';if(msg.includes('عظام')) return 'قسم العظام يعالج الكسور وآلام المفاصل والظهر والإصابات.';if(msg.includes('تأمين')||msg.includes('شركة')) return 'يمكنك كتابة شركة التأمين أثناء الحجز، ويوجد عرض لشركاء التأمين داخل الصفحة ولوحة المريض.';if(msg.includes('اداره')||msg.includes('admin')||msg.includes('داش')) return 'يمكن لفريق الإدارة استخدام بيانات الدخول المخصصة للوصول إلى لوحة التحكم وإدارة الخدمات والمواعيد.';if(msg.includes('تحاليل')) return 'يوجد قسم خاص بنتائج التحاليل يعرض فكرة الاستعلام والتنزيل.';if(msg.includes('شكرا')||msg.includes('شكرًا')) return 'تحت أمرك دائمًا 💙';return 'أقدر أساعدك في اختيار التخصص، الحجز، التأمين، والتحاليل والباقات. اكتب سؤالك بشكل أقصر أو أوضح.'}
+    function reply(msg){msg=msg.toLowerCase();if(msg.includes('حجز')||msg.includes('موعد')) return 'يمكنك الحجز من قسم <b>احجز موعدك</b> أو من خلال حساب المراجع لربط الموعد بحسابك مباشرة.';if(msg.includes('اسنان')||msg.includes('الأسنان')) return 'عيادات الأسنان مناسبة للفحص، التنظيف، الحشوات، والتقييم العلاجي والتجميلي.';if(msg.includes('جلدية')) return 'عيادات الجلدية مناسبة لمشكلات البشرة والشعر والحساسية وبعض الإجراءات التجميلية.';if(msg.includes('اطفال')||msg.includes('الأطفال')) return 'عيادات الأطفال مخصصة للكشف العام، التطعيمات، ومتابعة نمو الطفل.';if(msg.includes('نساء')||msg.includes('ولادة')) return 'عيادات النساء والولادة تقدم متابعة الحمل والاستشارات النسائية والفحوصات الدورية.';if(msg.includes('عظام')) return 'عيادات العظام مناسبة للإصابات وآلام المفاصل والظهر والمتابعة العلاجية.';if(msg.includes('تأمين')||msg.includes('شركة')) return 'يتيح مجمع ملاك الرحمة خدمة المراجعة عبر شركات التأمين المعتمدة، كما تتوفر الخدمات النقدية للمراجعين وفق تنظيم واضح.';if(msg.includes('نقدي')||msg.includes('كاش')) return 'تتوفر الخدمات النقدية داخل المجمع، ويمكن توضيح طريقة المراجعة أثناء الحجز بسهولة.';if(msg.includes('اداره')||msg.includes('admin')||msg.includes('داش')) return 'يمكن لفريق الإدارة استخدام بيانات الدخول المخصصة للوصول إلى لوحة التحكم وإدارة العيادات والمواعيد والخدمات النقدية والتأمينية.';if(msg.includes('تحاليل')) return 'يوجد قسم خاص بخدمات المختبر والتحاليل يوضح الاستعلام عن النتائج وإمكانية تنزيل التقرير.';if(msg.includes('شكرا')||msg.includes('شكرًا')) return 'تحت أمرك دائمًا 💙';return 'أقدر أساعدك في اختيار العيادة المناسبة، الحجز، خدمات التأمين، والخدمات النقدية داخل المجمع. اكتب سؤالك بشكل أوضح وسأساعدك.'}
     function sendChat(){const text=chatInput.value.trim();if(!text) return;addUser(text);chatInput.value='';setTimeout(()=>addBot(reply(text)),400)}
 
     const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');if(entry.target.dataset.count&&!entry.target.dataset.done){entry.target.dataset.done='1';countUp(entry.target)}}})},{threshold:.12});
     function refreshReveal(){document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));document.querySelectorAll('[data-count]').forEach(el=>observer.observe(el))}
     function countUp(el){const target=+el.dataset.count;let cur=0;const inc=Math.max(1,Math.ceil(target/80));const t=setInterval(()=>{cur+=inc;if(cur>=target){cur=target;clearInterval(t)}el.textContent=target>=100?cur.toLocaleString('en-US'):cur},20)}
 
-    const slides=[...document.querySelectorAll('.slide')];const dotsBox=document.getElementById('slideDots');let slideIndex=0;function renderDots(){dotsBox.innerHTML=slides.map((_,i)=>`<div class="dot ${i===slideIndex?'active':''}" onclick="goSlide(${i})"></div>`).join('')}function goSlide(i){slideIndex=i;slides.forEach((s,idx)=>s.classList.toggle('active',idx===slideIndex));renderDots()}function autoSlide(){slideIndex=(slideIndex+1)%slides.length;goSlide(slideIndex)}renderDots();setInterval(autoSlide,4200);
+    const slides=[...document.querySelectorAll('.slide')]; const dotsBox=document.getElementById('slideDots'); let slideIndex=0;
+    function renderDots(){dotsBox.innerHTML=slides.map((_,i)=>`<div class="dot ${i===slideIndex?'active':''}" onclick="goSlide(${i})"></div>`).join('')}
+    function goSlide(i){slideIndex=i;slides.forEach((s,idx)=>s.classList.toggle('active',idx===slideIndex));renderDots()}
+    function autoSlide(){slideIndex=(slideIndex+1)%slides.length;goSlide(slideIndex)}
+    renderDots(); setInterval(autoSlide,4200);
 
-    document.querySelectorAll('main section[id]').forEach(sec=>observer.observe(sec));window.addEventListener('scroll',()=>{let current='home';document.querySelectorAll('main section[id]').forEach(sec=>{if(scrollY>=sec.offsetTop-120) current=sec.id});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current))});authModal.addEventListener('click',e=>{if(e.target===authModal) closeAuthModal()});dashboard.addEventListener('click',e=>{if(e.target===dashboard) closeDashboard()});
-    document.getElementById('themeBtn').onclick=()=>{document.body.classList.toggle('light');notify(document.body.classList.contains('light')?'تم تفعيل الوضع النهاري':'تم تفعيل الوضع الليلي')}
+    document.querySelectorAll('main section[id]').forEach(sec=>observer.observe(sec));
+    window.addEventListener('scroll',()=>{let current='home';document.querySelectorAll('main section[id]').forEach(sec=>{if(scrollY>=sec.offsetTop-120) current=sec.id});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current))});
+    authModal.addEventListener('click',e=>{if(e.target===authModal) closeAuthModal()});
+    dashboard.addEventListener('click',e=>{if(e.target===dashboard) closeDashboard()});
 
-    renderHome();refreshReveal();prefillPatient();if(currentUser) renderDashboard();
-    window.openAuthModal=openAuthModal;window.closeAuthModal=closeAuthModal;window.toggleChat=toggleChat;window.openDashboardEntry=openDashboardEntry;window.closeDashboard=closeDashboard;window.logout=logout;window.openPanel=openPanel;window.setAppointmentStatus=setAppointmentStatus;window.deleteAppointment=deleteAppointment;window.deleteDoctor=deleteDoctor;window.scrollToSection=scrollToSection;window.selectDoctor=selectDoctor;window.showDoctor=showDoctor;window.goSlide=goSlide;window.fakeDownload=fakeDownload;
+    renderHome(); refreshReveal(); prefillPatient(); if(currentUser) renderDashboard();
+    window.openAuthModal=openAuthModal; window.closeAuthModal=closeAuthModal; window.toggleChat=toggleChat; window.openDashboardEntry=openDashboardEntry; window.closeDashboard=closeDashboard; window.logout=logout; window.openPanel=openPanel; window.setAppointmentStatus=setAppointmentStatus; window.deleteAppointment=deleteAppointment; window.deleteDoctor=deleteDoctor; window.scrollToSection=scrollToSection; window.selectDoctor=selectDoctor; window.showDoctor=showDoctor; window.goSlide=goSlide; window.fakeDownload=fakeDownload;
   </script>
 </body>
 </html>
