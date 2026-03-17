@@ -3,236 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medical V5 Pro</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<title>Medical Ultra System V4</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
-body{background:#f6fbfd;color:#222}
+body{font-family:Arial;background:#0f172a;color:#fff;margin:0}
+.screen{display:none;padding:20px}
+.active{display:block}
 
-/* HERO */
-.hero{
-background:linear-gradient(135deg,#0ea5e9,#22c55e);
-color:#fff;
-padding:100px 20px;
-text-align:center;
-}
-.hero h1{font-size:3rem}
-.hero p{margin:15px 0}
-.btn{padding:12px 25px;border:none;border-radius:30px;cursor:pointer}
-.btn-primary{background:#fff;color:#0ea5e9;font-weight:bold}
+/* Login */
+.login-box{max-width:400px;margin:100px auto;background:#1e293b;padding:30px;border-radius:20px}
+input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none}
+button{padding:12px 20px;border:none;border-radius:10px;background:#22c55e;color:#fff;cursor:pointer}
 
-/* CARDS */
-.section{padding:60px 20px;text-align:center}
-.cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-.card{
-background:#fff;
-padding:20px;
-border-radius:20px;
-width:220px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-transition:.3s;
-}
-.card:hover{transform:translateY(-10px)}
+/* Dashboard */
+.sidebar{position:fixed;right:0;top:0;width:220px;height:100%;background:#020617;padding:20px}
+.sidebar button{width:100%;margin:10px 0;background:#334155}
+.content{margin-right:240px;padding:20px}
 
-/* doctors */
-#doctors{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-
-/* booking */
-input{
-padding:12px;
-margin:5px;
-border-radius:10px;
-border:1px solid #ccc;
-}
-
-/* login */
-.login{
-max-width:350px;
-margin:100px auto;
-background:#fff;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-text-align:center;
-}
-.hidden{display:none}
-
-/* dashboard */
-.dashboard{display:flex}
-.sidebar{
-width:220px;
-background:#0f172a;
-color:#fff;
-height:100vh;
-padding:20px;
-}
-.sidebar button{
-display:block;
-width:100%;
-margin:10px 0;
-padding:10px;
-border:none;
-border-radius:10px;
-background:#1e293b;
-color:#fff;
-cursor:pointer;
-}
-.content{flex:1;padding:20px}
-.item{background:#eee;padding:10px;margin:10px;border-radius:10px}
-
+/* Cards */
+.card{background:#1e293b;padding:20px;border-radius:15px;margin:10px 0}
 </style>
 </head>
 
 <body>
 
-<!-- 🌍 SITE -->
-<div id="site">
-
-<div class="hero">
-<h1>مجمع ملاك الرحمة الطبي</h1>
-<p>رعاية طبية متكاملة بأحدث التقنيات</p>
-<button class="btn btn-primary" onclick="goLogin()">دخول الإدارة</button>
-</div>
-
-<div class="section">
-<h2>الخدمات</h2>
-<div class="cards">
-<div class="card">طب عام</div>
-<div class="card">أسنان</div>
-<div class="card">أطفال</div>
-<div class="card">تحاليل</div>
-</div>
-</div>
-
-<div class="section">
-<h2>الأطباء</h2>
-<div id="doctors"></div>
-</div>
-
-<div class="section">
-<h2>حجز موعد</h2>
-<input id="name" placeholder="اسمك">
-<input id="doc" placeholder="الدكتور">
-<button class="btn btn-primary" onclick="book()">حجز</button>
-</div>
-
-</div>
-
 <!-- LOGIN -->
-<div id="login" class="hidden">
-<div class="login">
-<h2>تسجيل الدخول</h2>
-<input id="user"><br>
-<input id="pass" type="password"><br><br>
-<button class="btn btn-primary" onclick="login()">دخول</button>
-<p>admin / 1234</p>
-</div>
+<div id="login" class="screen active">
+  <div class="login-box">
+    <h2>تسجيل الدخول</h2>
+    <input id="user" placeholder="username">
+    <input id="pass" type="password" placeholder="password">
+    <button onclick="login()">دخول</button>
+    <p>admin / 1234 | user / 1234</p>
+  </div>
 </div>
 
 <!-- DASHBOARD -->
-<div id="dash" class="hidden dashboard">
+<div id="dashboard" class="screen">
+  <div class="sidebar">
+    <h3>لوحة التحكم</h3>
+    <button onclick="show('home')">الرئيسية</button>
+    <button onclick="show('doctors')">الأطباء</button>
+    <button onclick="show('appointments')">الحجوزات</button>
+    <button onclick="logout()">خروج</button>
+  </div>
 
-<div class="sidebar">
-<h3>Dashboard</h3>
-<button onclick="show('home')">الرئيسية</button>
-<button onclick="show('doc')">الأطباء</button>
-<button onclick="show('app')">الحجوزات</button>
-<button onclick="logout()">خروج</button>
-</div>
+  <div class="content">
+    
+    <div id="home" class="page">
+      <h2>📊 الاحصائيات</h2>
+      <div class="card">عدد الأطباء: <span id="docCount"></span></div>
+      <div class="card">عدد الحجوزات: <span id="appCount"></span></div>
+    </div>
 
-<div class="content">
+    <div id="doctors" class="page" style="display:none">
+      <h2>👨‍⚕️ إدارة الأطباء</h2>
+      <input id="docName" placeholder="اسم الدكتور">
+      <button onclick="addDoctor()">إضافة</button>
+      <div id="docList"></div>
+    </div>
 
-<div id="home">
-<h2>احصائيات</h2>
-<p>عدد الأطباء: <span id="dc"></span></p>
-<p>عدد الحجوزات: <span id="ac"></span></p>
-</div>
+    <div id="appointments" class="page" style="display:none">
+      <h2>📅 الحجوزات</h2>
+      <input id="appName" placeholder="اسم المريض">
+      <button onclick="addApp()">إضافة</button>
+      <div id="appList"></div>
+    </div>
 
-<div id="doc" class="hidden">
-<h2>الأطباء</h2>
-<input id="dname">
-<button onclick="addDoc()">إضافة</button>
-<div id="docList"></div>
-</div>
-
-<div id="app" class="hidden">
-<h2>الحجوزات</h2>
-<div id="appList"></div>
-</div>
-
-</div>
+  </div>
 </div>
 
 <script>
-let doctors=JSON.parse(localStorage.getItem("docs"))||["د. أحمد","د. سارة"]
-let apps=JSON.parse(localStorage.getItem("apps"))||[]
-
-function save(){
-localStorage.setItem("docs",JSON.stringify(doctors))
-localStorage.setItem("apps",JSON.stringify(apps))
-load()
+// Users
+const users = {
+  admin:{pass:"1234",role:"admin"},
+  user:{pass:"1234",role:"user"}
 }
 
-function load(){
-document.getElementById("dc").innerText=doctors.length
-document.getElementById("ac").innerText=apps.length
-
-let dhtml=""
-doctors.forEach((d,i)=>{
-dhtml+=`<div class="item">${d} <button onclick="delDoc(${i})">حذف</button></div>`
-})
-document.getElementById("docList").innerHTML=dhtml
-
-let view=""
-doctors.forEach(d=>view+=`<div class="card">${d}</div>`)
-document.getElementById("doctors").innerHTML=view
-
-let ahtml=""
-apps.forEach(a=>ahtml+=`<div class="item">${a.name} - ${a.doc}</div>`)
-document.getElementById("appList").innerHTML=ahtml
-}
-
-function goLogin(){
-document.getElementById("site").classList.add("hidden")
-document.getElementById("login").classList.remove("hidden")
-}
+let currentUser = null
 
 function login(){
-if(user.value=="admin" && pass.value=="1234"){
-loginDiv.classList.add("hidden")
-dash.classList.remove("hidden")
-load()
-}else alert("خطأ")
+  let u=document.getElementById("user").value
+  let p=document.getElementById("pass").value
+
+  if(users[u] && users[u].pass==p){
+    currentUser = users[u]
+    document.getElementById("login").classList.remove("active")
+    document.getElementById("dashboard").classList.add("active")
+    loadData()
+  }else{
+    alert("خطأ في البيانات")
+  }
 }
 
-function logout(){location.reload()}
-
-function show(p){
-home.classList.add("hidden")
-doc.classList.add("hidden")
-app.classList.add("hidden")
-document.getElementById(p).classList.remove("hidden")
+function logout(){
+  location.reload()
 }
 
-function addDoc(){
-doctors.push(dname.value)
-save()
+// Navigation
+function show(page){
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none")
+  document.getElementById(page).style.display="block"
 }
 
-function delDoc(i){
-doctors.splice(i,1)
-save()
+// Storage
+let doctors = JSON.parse(localStorage.getItem("doctors")) || []
+let apps = JSON.parse(localStorage.getItem("apps")) || []
+
+function save(){
+  localStorage.setItem("doctors",JSON.stringify(doctors))
+  localStorage.setItem("apps",JSON.stringify(apps))
+  loadData()
 }
 
-function book(){
-apps.push({name:name.value,doc:doc.value})
-save()
-alert("تم الحجز")
+// Doctors
+function addDoctor(){
+  let name=document.getElementById("docName").value
+  doctors.push(name)
+  save()
 }
 
-load()
+function deleteDoctor(i){
+  doctors.splice(i,1)
+  save()
+}
+
+// Appointments
+function addApp(){
+  let name=document.getElementById("appName").value
+  apps.push(name)
+  save()
+}
+
+function deleteApp(i){
+  apps.splice(i,1)
+  save()
+}
+
+// Load
+function loadData(){
+  document.getElementById("docCount").innerText = doctors.length
+  document.getElementById("appCount").innerText = apps.length
+
+  let docHTML=""
+  doctors.forEach((d,i)=>{
+    docHTML += `<div class="card">${d} <button onclick="deleteDoctor(${i})">حذف</button></div>`
+  })
+  document.getElementById("docList").innerHTML = docHTML
+
+  let appHTML=""
+  apps.forEach((a,i)=>{
+    appHTML += `<div class="card">${a} <button onclick="deleteApp(${i})">حذف</button></div>`
+  })
+  document.getElementById("appList").innerHTML = appHTML
+}
 </script>
 
 </body>
