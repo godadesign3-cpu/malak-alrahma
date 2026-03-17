@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ملاك الرحمة | مجمع عيادات متكامل</title>
-  <meta name="description" content="مجمع ملاك الرحمة - مجمع عيادات متكامل بخدمات نقدية وتأمينية، حجز إلكتروني، تعريف بالأطباء، ومزايا رقمية حديثة." />
+  <title>ملاك الرحمة الطبي | مجمع عيادات متكامل</title>
+  <meta name="description" content="مجمع ملاك الرحمة الطبي - مجمع عيادات متكامل بخدمات نقدية وتأمينية، حجز إلكتروني، تعريف بالأطباء، وبوابة رقمية حديثة للمراجعين." />
   <style>
     :root{
-      --bg:#07111f;
-      --bg2:#0e2037;
+      --bg:#07131f;
+      --bg2:#0d2340;
+      --bg3:#0a1c33;
       --card:rgba(255,255,255,.08);
-      --card-strong:rgba(255,255,255,.12);
+      --card-2:rgba(255,255,255,.12);
       --line:rgba(255,255,255,.12);
-      --text:#eef6ff;
-      --muted:#a9bfd8;
-      --primary:#19d3c5;
-      --primary2:#4b8dff;
-      --accent:#7d6bff;
-      --success:#31d17d;
+      --text:#eef7ff;
+      --muted:#a8c1d9;
+      --primary:#44c469;
+      --primary2:#1ca7a0;
+      --secondary:#2f7bff;
+      --secondary2:#204ea8;
+      --success:#35d17e;
       --warning:#f3b34a;
+      --danger:#ff6d8f;
+      --gold:#ffd86d;
       --shadow:0 24px 60px rgba(0,0,0,.32);
       --radius:24px;
-      --max:1360px;
+      --max:1380px;
     }
 
     *{box-sizing:border-box}
@@ -31,10 +35,10 @@
       font-family:"Segoe UI",Tahoma,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(25,211,197,.16), transparent 18%),
-        radial-gradient(circle at 90% 18%, rgba(75,141,255,.14), transparent 20%),
-        radial-gradient(circle at 50% 100%, rgba(125,107,255,.12), transparent 24%),
-        linear-gradient(135deg,var(--bg),var(--bg2));
+        radial-gradient(circle at 10% 10%, rgba(68,196,105,.15), transparent 18%),
+        radial-gradient(circle at 90% 18%, rgba(47,123,255,.14), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(28,167,160,.12), transparent 24%),
+        linear-gradient(135deg,var(--bg),var(--bg2) 58%,var(--bg3));
       overflow-x:hidden;
     }
     a{text-decoration:none;color:inherit}
@@ -47,73 +51,65 @@
     .section-head h2{margin:0 0 10px;font-size:clamp(1.8rem,3vw,3rem)}
     .section-head p{margin:0;color:var(--muted);line-height:1.9;max-width:760px}
 
-    .btn{
-      border:none;cursor:pointer;color:#fff;font-weight:800;
-      padding:14px 20px;border-radius:16px;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      box-shadow:0 14px 28px rgba(25,211,197,.22);
-      transition:.25s ease;
-    }
+    .btn{border:none;cursor:pointer;color:#fff;font-weight:800;padding:14px 20px;border-radius:16px;background:linear-gradient(135deg,var(--primary),var(--secondary));box-shadow:0 14px 28px rgba(28,167,160,.24);transition:.25s ease}
     .btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
     .btn.outline{background:transparent;border:1px solid rgba(255,255,255,.16);box-shadow:none;color:var(--text)}
     .btn.small{padding:10px 14px;border-radius:12px;font-size:.92rem}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);font-size:.9rem}
-    .icon-box{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:1.45rem;background:linear-gradient(135deg,rgba(25,211,197,.16),rgba(75,141,255,.16));border:1px solid rgba(255,255,255,.09)}
+    .icon-box{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:1.45rem;background:linear-gradient(135deg,rgba(68,196,105,.16),rgba(47,123,255,.16));border:1px solid rgba(255,255,255,.09)}
 
     .bg-orbs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-    .orb{position:absolute;border-radius:50%;filter:blur(28px);opacity:.22;animation:float 18s ease-in-out infinite}
-    .orb.one{width:330px;height:330px;top:-80px;right:-80px;background:#19d3c5}
-    .orb.two{width:280px;height:280px;bottom:-90px;left:-70px;background:#4b8dff;animation-delay:2s}
-    .orb.three{width:180px;height:180px;top:48%;left:20%;background:#7d6bff;animation-delay:4s}
+    .orb{position:absolute;border-radius:50%;filter:blur(30px);opacity:.22;animation:float 18s ease-in-out infinite}
+    .orb.one{width:340px;height:340px;top:-80px;right:-80px;background:#44c469}
+    .orb.two{width:280px;height:280px;bottom:-90px;left:-70px;background:#2f7bff;animation-delay:2s}
+    .orb.three{width:180px;height:180px;top:48%;left:20%;background:#1ca7a0;animation-delay:4s}
     @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(28px,-34px)}}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(49,209,125,.45)}70%{box-shadow:0 0 0 16px rgba(49,209,125,0)}100%{box-shadow:0 0 0 0 rgba(49,209,125,0)}}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(53,209,126,.45)}70%{box-shadow:0 0 0 16px rgba(53,209,126,0)}100%{box-shadow:0 0 0 0 rgba(53,209,126,0)}}
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+    @keyframes logoFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.02)}}
+    @keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(68,196,105,.0))}50%{filter:drop-shadow(0 0 14px rgba(68,196,105,.35))}}
+    @keyframes drawerIn{from{transform:translateX(100%)}to{transform:none}}
+    @keyframes typing{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-4px);opacity:1}}
 
-    .navbar{
-      position:sticky;top:0;z-index:1100;
-      background:rgba(7,17,31,.72);backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.08)
-    }
+    .navbar{position:sticky;top:0;z-index:1100;background:rgba(7,19,31,.74);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{
-      width:56px;height:56px;border-radius:18px;display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));font-size:1.5rem;font-weight:900;
-      box-shadow:0 14px 28px rgba(25,211,197,.25)
-    }
-    .brand h2{margin:0;font-size:1.08rem}
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}
+    .brand-logo{width:58px;height:58px;object-fit:contain;flex:0 0 58px;animation:logoFloat 3.8s ease-in-out infinite, logoGlow 4.2s ease-in-out infinite}
+    .brand h2{margin:0;font-size:1.08rem;white-space:nowrap}
     .brand small{color:var(--muted)}
     .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .nav-links a{color:var(--muted);font-weight:700;transition:.2s}
-    .nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-links a{color:var(--muted);font-weight:700;transition:.2s}.nav-links a:hover,.nav-links a.active{color:#fff}
     .nav-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .mobile-menu-btn{display:none;width:46px;height:46px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font-size:1.2rem;cursor:pointer}
+
+    .mobile-drawer{position:fixed;top:0;right:0;height:100vh;width:min(84vw,360px);background:linear-gradient(180deg,#0a1b30,#102947);border-left:1px solid rgba(255,255,255,.08);z-index:1500;transform:translateX(100%);transition:.3s ease;padding:18px;display:flex;flex-direction:column;gap:16px}
+    .mobile-drawer.show{transform:none;animation:drawerIn .28s ease}
+    .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1490;display:none}.drawer-overlay.show{display:block}
+    .drawer-links{display:grid;gap:10px}.drawer-links a{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);color:#d6ebff;font-weight:800}
 
     .hero{padding:34px 0 24px;min-height:100vh;display:flex;align-items:center}
     .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:20px;align-items:center}
     .hero-content,.hero-slider{border-radius:32px;overflow:hidden;position:relative}
     .hero-content{padding:34px}
-    .tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(25,211,197,.12);border:1px solid rgba(25,211,197,.22);color:#d2fffb;font-size:.92rem;margin-bottom:18px}
+    .tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(68,196,105,.12);border:1px solid rgba(68,196,105,.22);color:#d7ffe4;font-size:.92rem;margin-bottom:18px}
     .hero h1{font-size:clamp(2.3rem,5vw,5rem);line-height:1.05;margin:0 0 14px;font-weight:900}
     .hero p{color:var(--muted);line-height:1.95;font-size:1.04rem;margin:0 0 24px}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
     .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     .hero-stat{padding:18px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);text-align:center}
-    .hero-stat strong{display:block;font-size:1.75rem;margin-bottom:6px}
-    .hero-stat span{font-size:.9rem;color:var(--muted)}
+    .hero-stat strong{display:block;font-size:1.75rem;margin-bottom:6px}.hero-stat span{font-size:.9rem;color:var(--muted)}
 
     .hero-slider{min-height:710px;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;background-size:cover;background-position:center}
-    .slide.active{opacity:1}
-    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,10,19,.16), rgba(3,10,19,.74))}
+    .slide.active{opacity:1}.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,10,19,.16), rgba(3,10,19,.76))}
     .slide-ui{position:absolute;z-index:2;right:22px;left:22px;bottom:22px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end}
     .slide-box{padding:22px;border-radius:24px;background:rgba(8,18,31,.62);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)}
     .live{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--success);animation:pulse 1.8s infinite;margin-right:6px}
-    .dots{position:absolute;left:20px;bottom:20px;z-index:3;display:flex;gap:8px}
-    .dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}.dot.active{background:#fff}
+    .dots{position:absolute;left:20px;bottom:20px;z-index:3;display:flex;gap:8px}.dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}.dot.active{background:#fff}
 
     .feature-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:18px}
     .feature-big{padding:30px;border-radius:30px;position:relative;overflow:hidden}
-    .feature-big::before{content:"";position:absolute;inset:-25%;background:radial-gradient(circle, rgba(25,211,197,.14), transparent 42%)}
+    .feature-big::before{content:"";position:absolute;inset:-25%;background:radial-gradient(circle, rgba(68,196,105,.14), transparent 42%)}
     .feature-big > *{position:relative;z-index:1}
     .mini-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
     .mini-panel{padding:18px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
@@ -123,163 +119,120 @@
     .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{padding:22px;border-radius:26px;position:relative;overflow:hidden}
-    .card h3{margin:14px 0 10px;font-size:1.12rem}
-    .card p{margin:0;color:var(--muted);line-height:1.85;font-size:.96rem}
-
+    .card h3{margin:14px 0 10px;font-size:1.12rem}.card p{margin:0;color:var(--muted);line-height:1.85;font-size:.96rem}
     .service-flag{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;color:var(--muted);font-size:.9rem}
     .pay-chip{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08)}
 
     .departments{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-    .department{padding:18px;border-radius:22px;text-align:center}
-    .department strong{display:block;margin:12px 0 8px}
-    .department span{color:var(--muted);font-size:.9rem}
+    .department{padding:18px;border-radius:22px;text-align:center}.department strong{display:block;margin:12px 0 8px}.department span{color:var(--muted);font-size:.9rem}
 
     .doctor-card img{width:100%;height:260px;object-fit:cover;border-radius:20px;border:1px solid rgba(255,255,255,.08);margin-bottom:16px}
     .doctor-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
-    .doctor-profile{display:none;padding:24px;border-radius:28px;margin-top:18px}
-    .doctor-profile.active{display:block;animation:fadeUp .45s ease}
-    .doctor-profile-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
-    .doctor-profile img{width:100%;height:390px;object-fit:cover;border-radius:24px}
-    .doctor-badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+    .doctor-profile{display:none;padding:24px;border-radius:28px;margin-top:18px}.doctor-profile.active{display:block;animation:fadeUp .45s ease}
+    .doctor-profile-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.doctor-profile img{width:100%;height:390px;object-fit:cover;border-radius:24px}.doctor-badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+    .doctor-modal,.invoice-modal{position:fixed;inset:0;background:rgba(0,0,0,.68);display:none;align-items:center;justify-content:center;padding:18px;z-index:2300}
+    .doctor-modal.show,.invoice-modal.show{display:flex}
+    .doctor-page{width:min(1180px,100%);max-height:90vh;overflow:auto;border-radius:30px;padding:24px;background:linear-gradient(180deg,#091828,#102842);border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow)}
+    .doctor-page-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:18px}
+    .doctor-page img{width:100%;height:460px;object-fit:cover;border-radius:24px}
+    .doctor-timeline{display:grid;gap:12px;margin-top:14px}.doctor-timeline .mini-panel{line-height:1.8}
 
     .booking-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px}
-    .booking-card{padding:24px;border-radius:28px}
-    form{display:grid;gap:14px}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .input,select,textarea{width:100%;padding:15px 16px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--text);outline:none}
-    .input::placeholder,textarea::placeholder{color:#a3bad5}
-    textarea{min-height:120px;resize:vertical}
-    .journey{display:grid;gap:12px}
-    .step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
-    .step-num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));font-weight:900;flex:0 0 36px}
+    .booking-card{padding:24px;border-radius:28px}form{display:grid;gap:14px}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .input,select,textarea{width:100%;padding:15px 16px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--text);outline:none}.input::placeholder,textarea::placeholder{color:#a3bad5}textarea{min-height:120px;resize:vertical}
+    .journey{display:grid;gap:12px}.step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.step-num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--secondary));font-weight:900;flex:0 0 36px}
 
-    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .stat{padding:24px;border-radius:24px;text-align:center}
-    .stat strong{display:block;font-size:2rem;margin-bottom:8px}
-    .stat span{color:var(--muted)}
-
-    .plans .price{font-size:2rem;font-weight:900;margin:10px 0}
-    .plans ul{margin:0;padding:0 18px 0 0;color:var(--muted);line-height:1.9}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.stat{padding:24px;border-radius:24px;text-align:center}.stat strong{display:block;font-size:2rem;margin-bottom:8px}.stat span{color:var(--muted)}
+    .plans .price{font-size:2rem;font-weight:900;margin:10px 0}.plans ul{margin:0;padding:0 18px 0 0;color:var(--muted);line-height:1.9}
     .labs .result-row,.jobs .job-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-top:12px;flex-wrap:wrap}
     .faq-item{padding:16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
     .contact-grid,.insurance-grid,.extra-grid,.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .review{min-height:220px}.stars{color:#ffd86d;font-size:1.08rem;margin-bottom:10px}.review footer{margin-top:16px;color:#d0e5fb;font-weight:800}
+    .review{min-height:220px}.stars{color:var(--gold);font-size:1.08rem;margin-bottom:10px}.review footer{margin-top:16px;color:#d0e5fb;font-weight:800}
     .cta{padding:30px;border-radius:30px;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center}
 
-    footer{padding:30px 0 90px;border-top:1px solid rgba(255,255,255,.08)}
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px}
-    footer p,footer a{color:var(--muted);line-height:1.9}
+    .invoice-preview{margin-top:18px;padding:22px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.1)}
+    .invoice-header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:18px}
+    .invoice-lines{display:grid;gap:12px}.invoice-line{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.12)}
+    .invoice-total{display:flex;justify-content:space-between;gap:10px;padding-top:14px;font-size:1.1rem;font-weight:800}
 
-    .modal,.dashboard{position:fixed;inset:0;display:none;z-index:2200;background:rgba(0,0,0,.64);padding:18px}
-    .modal.show,.dashboard.show{display:flex}
-    .modal{align-items:center;justify-content:center}
+    footer{padding:30px 0 90px;border-top:1px solid rgba(255,255,255,.08)}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px}footer p,footer a{color:var(--muted);line-height:1.9}
+
+    .modal,.dashboard{position:fixed;inset:0;display:none;z-index:2200;background:rgba(0,0,0,.64);padding:18px}.modal.show,.dashboard.show{display:flex}.modal{align-items:center;justify-content:center}
     .modal-box{width:min(1120px,100%);border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#091626,#122a43);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
-    .modal-side{position:relative;min-height:620px;padding:32px;background:linear-gradient(180deg, rgba(25,211,197,.16), rgba(75,141,255,.10)),url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop') center/cover}
-    .modal-side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,18,32,.3), rgba(8,18,32,.72))}
-    .modal-side-content{position:relative;z-index:1;max-width:360px}
-    .modal-content{padding:28px}
-    .close-btn{border:none;background:transparent;color:#fff;font-size:1.6rem;cursor:pointer;float:left}
-    .tabs{display:flex;gap:10px;margin:14px 0 18px}
-    .tab-btn{flex:1;padding:13px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:800;cursor:pointer}
-    .tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary2));border-color:transparent}
-    .tab-pane{display:none}.tab-pane.active{display:block}
+    .modal-side{position:relative;min-height:620px;padding:32px;background:linear-gradient(180deg, rgba(68,196,105,.15), rgba(47,123,255,.1)),url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop') center/cover}.modal-side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,18,32,.3), rgba(8,18,32,.72))}.modal-side-content{position:relative;z-index:1;max-width:360px}.modal-content{padding:28px}.close-btn{border:none;background:transparent;color:#fff;font-size:1.6rem;cursor:pointer;float:left}
+    .tabs{display:flex;gap:10px;margin:14px 0 18px}.tab-btn{flex:1;padding:13px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:800;cursor:pointer}.tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--secondary));border-color:transparent}.tab-pane{display:none}.tab-pane.active{display:block}
 
-    .chat-toggle{position:fixed;left:20px;bottom:20px;z-index:1700;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;border:none;color:#fff;font-size:1.5rem;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 18px 32px rgba(25,211,197,.24)}
-    .chatbot{position:fixed;left:20px;bottom:96px;width:min(410px,calc(100vw - 20px));height:610px;display:none;flex-direction:column;overflow:hidden;border-radius:26px;z-index:1700}
-    .chatbot.show{display:flex}
-    .chat-head{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center;background:linear-gradient(135deg,rgba(25,211,197,.2),rgba(75,141,255,.2));border-bottom:1px solid rgba(255,255,255,.08)}
-    .chat-messages{flex:1;overflow:auto;padding:16px;background:rgba(8,18,31,.9);display:flex;flex-direction:column;gap:12px}
-    .msg{max-width:86%;padding:12px 14px;border-radius:16px;line-height:1.8;font-size:.95rem}
-    .msg.bot{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
-    .msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--primary),var(--primary2))}
-    .chat-input{display:flex;gap:10px;padding:14px;background:#0e1c2e;border-top:1px solid rgba(255,255,255,.08)}
-    .chat-input input{flex:1}
+    .chat-toggle{position:fixed;left:20px;bottom:20px;z-index:1700;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;border:none;color:#fff;font-size:1.5rem;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--secondary));box-shadow:0 18px 32px rgba(28,167,160,.24)}
+    .chatbot{position:fixed;left:20px;bottom:96px;width:min(420px,calc(100vw - 20px));height:620px;display:none;flex-direction:column;overflow:hidden;border-radius:26px;z-index:1700}.chatbot.show{display:flex}
+    .chat-head{padding:18px;display:flex;justify-content:space-between;gap:10px;align-items:center;background:linear-gradient(135deg,rgba(68,196,105,.18),rgba(47,123,255,.18));border-bottom:1px solid rgba(255,255,255,.08)}
+    .chat-messages{flex:1;overflow:auto;padding:16px;background:rgba(8,18,31,.92);display:flex;flex-direction:column;gap:12px}.msg{max-width:86%;padding:12px 14px;border-radius:16px;line-height:1.8;font-size:.95rem}.msg.bot{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}.msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--primary),var(--secondary))}
+    .chat-input{display:flex;gap:10px;padding:14px;background:#0e1c2e;border-top:1px solid rgba(255,255,255,.08)}.chat-input input{flex:1}
+    .chat-quick{display:flex;gap:8px;flex-wrap:wrap;padding:12px 14px;background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06)}.chat-quick button{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:#fff;cursor:pointer}
+    .typing{display:flex;gap:5px;align-items:center}.typing span{width:8px;height:8px;border-radius:50%;background:#cfe5ff;display:inline-block;animation:typing 1s infinite}.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
 
-    .dashboard{align-items:stretch;justify-content:center}
-    .dash-shell{width:100%;height:100%;display:grid;grid-template-columns:300px 1fr;gap:16px}
-    .dash-side,.dash-main{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-    .dash-side{padding:22px;background:linear-gradient(180deg,#091727,#0f2439)}
-    .dash-main{display:flex;flex-direction:column;min-height:0;background:linear-gradient(180deg,#091727,#10243a)}
-    .dash-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}
-    .dash-menu{display:grid;gap:10px}
-    .dash-link{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:#d8edff;font-weight:800;cursor:pointer}
-    .dash-link.active,.dash-link:hover{background:linear-gradient(135deg,rgba(25,211,197,.16),rgba(75,141,255,.16));border-color:rgba(25,211,197,.2)}
-    .dash-top{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-    .dash-content{padding:20px;overflow:auto;min-height:0}
-    .dash-panel{display:none}.dash-panel.active{display:block}
-    .dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .dash-card{padding:20px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
-    .dash-card strong{display:block;font-size:1.85rem;margin:10px 0 8px}
-    .table-wrap{overflow:auto;border:1px solid rgba(255,255,255,.08);border-radius:22px;margin-top:18px}
-    table{width:100%;min-width:920px;border-collapse:collapse;background:rgba(255,255,255,.03)}
-    th,td{padding:14px 12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.06)}
-    th{background:rgba(255,255,255,.05)}
-    td{color:#d6e8fb}
-    .inline{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{display:inline-block;padding:7px 10px;border-radius:999px;font-size:.8rem;font-weight:800}
-    .badge.success{background:rgba(49,209,125,.14);color:#93ffc3}
-    .badge.warning{background:rgba(243,179,74,.14);color:#ffd89d}
-    .badge.danger{background:rgba(255,108,143,.14);color:#ffc0d0}
+    .dashboard{align-items:stretch;justify-content:center}.dash-shell{width:100%;height:100%;display:grid;grid-template-columns:300px 1fr;gap:16px}.dash-side,.dash-main{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}.dash-side{padding:22px;background:linear-gradient(180deg,#091727,#0f2439)}.dash-main{display:flex;flex-direction:column;min-height:0;background:linear-gradient(180deg,#091727,#10243a)}
+    .dash-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}.dash-menu{display:grid;gap:10px}.dash-link{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:#d8edff;font-weight:800;cursor:pointer}.dash-link.active,.dash-link:hover{background:linear-gradient(135deg,rgba(68,196,105,.16),rgba(47,123,255,.16));border-color:rgba(68,196,105,.2)}
+    .dash-top{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.dash-content{padding:20px;overflow:auto;min-height:0}.dash-panel{display:none}.dash-panel.active{display:block}.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .dash-card{padding:20px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}.dash-card strong{display:block;font-size:1.85rem;margin:10px 0 8px}
+    .table-wrap{overflow:auto;border:1px solid rgba(255,255,255,.08);border-radius:22px;margin-top:18px}table{width:100%;min-width:920px;border-collapse:collapse;background:rgba(255,255,255,.03)}th,td{padding:14px 12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.06)}th{background:rgba(255,255,255,.05)}td{color:#d6e8fb}
+    .inline{display:flex;gap:8px;flex-wrap:wrap}.badge{display:inline-block;padding:7px 10px;border-radius:999px;font-size:.8rem;font-weight:800}.badge.success{background:rgba(53,209,126,.14);color:#93ffc3}.badge.warning{background:rgba(243,179,74,.14);color:#ffd89d}.badge.danger{background:rgba(255,108,143,.14);color:#ffc0d0}
     .empty{padding:18px;border-radius:18px;border:1px dashed rgba(255,255,255,.12);background:rgba(255,255,255,.04);text-align:center;color:var(--muted)}
 
     .reveal{opacity:0;transform:translateY(28px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
 
     @media (max-width:1200px){
-      .hero-grid,.feature-grid,.booking-wrap,.cta,.footer-grid,.modal-box,.dash-shell,.doctor-profile-grid{grid-template-columns:1fr}
+      .hero-grid,.feature-grid,.booking-wrap,.cta,.footer-grid,.modal-box,.dash-shell,.doctor-profile-grid,.doctor-page-grid{grid-template-columns:1fr}
       .cards-4,.cards-3,.cards-2,.contact-grid,.insurance-grid,.extra-grid,.reviews-grid,.stats-grid,.departments,.dash-grid,.hero-stats,.mini-kpis{grid-template-columns:repeat(2,1fr)}
       .feature-cards{grid-template-columns:repeat(2,1fr)}
       .dash-side{display:none}
     }
     @media (max-width:760px){
-      .nav-links{display:none}
-      .hero{padding-top:24px;min-height:auto}
-      .hero-content{padding:24px}
+      .nav-links,.nav-actions .btn.outline.small,.nav-actions .btn.small{display:none}
+      .mobile-menu-btn{display:grid}
+      .hero{padding-top:24px;min-height:auto}.hero-content{padding:24px}
       .cards-4,.cards-3,.cards-2,.contact-grid,.insurance-grid,.extra-grid,.reviews-grid,.stats-grid,.departments,.dash-grid,.hero-stats,.mini-kpis,.feature-cards,.two{grid-template-columns:1fr}
       .hero-slider{min-height:430px}
       .slide-ui{grid-template-columns:1fr;right:14px;left:14px;bottom:14px}
       .section{padding:68px 0}
       .chatbot{left:10px;right:10px;width:auto;height:72vh}
       .chat-toggle{left:12px;bottom:12px}
-      .modal-side{min-height:260px}
-      .modal-content{padding:22px}
-      .brand h2{font-size:1rem}
-      .btn{padding:13px 16px}
-      .table-wrap{border-radius:18px}
+      .modal-side{min-height:260px}.modal-content{padding:22px}
+      .brand h2{font-size:.98rem;white-space:normal;line-height:1.2}.brand small{font-size:.82rem}
+      .btn{padding:13px 16px}.table-wrap{border-radius:18px}
+      .brand-logo{width:48px;height:48px;flex-basis:48px}
+      .doctor-page{padding:18px}
+      .doctor-page img{height:280px}
     }
   </style>
 </head>
 <body>
   <div class="bg-orbs"><div class="orb one"></div><div class="orb two"></div><div class="orb three"></div></div>
 
-  <header class="navbar">
-    <div class="container nav-wrap">
-      <div class="brand">
-        <div class="logo"> + </div>
-        <div>
-          <div style="display:flex;align-items:center;gap:10px">
-          <img src="logo.png" 
-       style="width:42px;height:42px;object-fit:contain">
-  <h2 style="margin:0">ملاك الرحمة الطبي</h2>
-</div>
-          <small>مجمع عيادات متكامل</small>
-        </div>
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMobileMenu(false)"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="brand" style="padding:8px 4px 14px 4px;border-bottom:1px solid rgba(255,255,255,.08)">
+      <img class="brand-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAF5CAYAAAD+qX9WAAEAAElEQVR42uz9WbAl15UliK19znH3e++b95x9q6prb6mA4gBIEAIk2woJQhQlUlTFiZIlW7ZkW7Isx7GjOM5xHMeZ4zjOcbxjHMfJsu3YsmXLkm3JsiVbsiVbrmRLlixLsiXbki1bsiVbsmTrMclW3O8m1f0frq7q6q5z71nOeV7zDgQU4IYQ2l9V9hX8t1/8G4+7v/4iAAAAAABQm8n8AwAAAAAAALB0AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAAOgN9mNw8cKF6enp6d27d5f9rQAAAAAAAKC+4l9+8Yt79+7d4uLi0tLS0tLSL7/88l//+tdv3rx56tSpq1evfvzxx9vb2+fPn19eXn7vvffW1tYWFhZOmzbt0qVLJ06cWFlZeXh4+Mtf/vL8+fPnz5/fvHnzzJkzV65c+eCDDz7wwAPXr18fGxv7+Mc/vnXr1rVr106fPn3s2LEzZ8788MMPe/fuPf7442+++eYbb7zx2muvrV279vHHH3/yySc7duzYvXt3e3t7dXV1YWHh3Llz+/fv//zzzz/77LPbtm3bv39/TEzM1KlTP/vss3v27Hn11Vf37t1bW1v7wAMPfP3117/97W/fuHFjYGAgLy9v2rRpU6dO/fTTT58/f/7dd9/9wAMPfP7557t27Tp58uT1119/8skn79ixY2Vl5Q9/+MPp06c3bdq0a9eubdu2ffDBB8ePH3/wwQdf/epXb968+eijjz766KMTJ060t7dPnz69Y8eO6dOnj4yMvP/++8eOHfvcc89t3bp1cnKyf//+8fHxjRs3rly58sEHH3z//fefPn169+7dI0eOvPPOO7Nnz/bt23f58uVvvvlmTEzM888/v3Hjxn379m3btm3fvn0zZ8787Gc/e/3117/44ovjx4+fOHFi5MiRixcvnn322Y8//nj9+vVt27bNnDkzMjLy4IMP7t69e8eOHdOmTTt69Ojdd9995ZVX3n777W+++eaBAwe2bNnS1tZWV1ffcccdgwcP7t69+8Ybb5w9e/ajjz56/PHH3/nOd8aOHfvkk09u3rx57NixixcvfvDBB3/4wx+OHTv2jDPOaGtr+/DDD3fu3Llnz54rV67s2rVr/PjxU6dO/eY3v3n33XfX1taWlpYuXbr0wQcfLC8v79q1a3FxcXp6+uLFi6dPn56cnLx06dLrr79+9OjRRYsW7du379///sWLF6dPnz527NiQkJBnn312z549H3744XvvvfeZZ57Zu3fvzz//3LFjx/Tp0zt27DjzzDPffvvt7Ozsxx9/fP/99+fPn7d69Wpubu7YsWNjY2Pf/OY3n3322ccff3zx4sW9e/e2bdu2Z8+eO3fuHDly5MyZM1euXNm2bdvOnTtPnDhx4sSJCxcu3L59e2Vl5SeffHLr1q2LFy+ePn36f/7nf54+ffqNN96Ympq6du3ac889V1tb++Uvf3nlypXV1dU7dux4+OGH33777VOnTi0tLd2+fXt6evq5555r27Zt4sSJrVu3Hj9+/JtvvvnII4+8+uqrL1++vHfv3i1btnR0dNTU1Hz++eeHDx8+c+bMli1bdu3atW/fvn379g0ODr7yyitPPvnkqVOnZs6cefrpp5s2bVq+fPmrV6/OmDGjvb19xowZc+bM6dSp0zvvvHPTpk2tW7f+0Y9+tGDBgtHR0ddff/3AgQMlJSU7d+68++67lZWV4eHhW7ZsWb58+fTp0x999NGWLVvWrl07derUcePG7dq1a+7cucOHD+/YsWPHjh379u0bExNz9OjRjRs3Tp48ecCAAXfccYf+/fuXlpauXLny6quv5ubmPvnkk2XLll1//fV9+/bNnDlz8+bN6enpQ4cO3b1799ChQxMmTNiwYcPq1atbW1sDAwPr16/fvXt39OjR7du3t7W1f/nLX1ZXV0tLS1euXNm/f/+aNWsmTJiwY8eOW2655f333x86dOizzz57+PDhFStWjI2N/cY3vvHQQw+9/PLL33777fbt20+fPr1v3761tbWLFy9ubW19+umnL1y4sHHjxn/84x9Hjx59+eWX33777Zs3b96/f39xcXHbtm3z5s27cuXK+PHj+/fv37Jly5IlS5YvX77w4cPz58+fPXv2okWL7r333vr16z/88MPFxcVdunT5xS9+8eabb56ZmVm0aNGIESP+8Ic/fPvtt9u2bVuwYEFfX19TU9P8+fPf+c53Pv/888uXL69du/bMmTPr16/fu3dv586dY8eOjY2N3X333S+88MKePXvWrFnTuXPnxo0bq6urt2/fPnLkyJIlS06dOjUyMvLCCy+8/fbbV65c2bJlS2Vl5eWXX16/fv3p06fPmjXrggsuOHr06Hvvvbd+/frdu3dfuXLlyJEjn3zyyS1btmzduvXHH3/cv39/8+bN7e3tmzdvfvjhh2PGjOnWrVv16tUvvfTSr371q0uXLn3wwQdPP/30iRMnLly4cP78+TVr1jz77LPr16/ftGnTtWvX5s+ff+eddz744IOvv/76lClTdu/evW3btq1atWrfvn23b99+8sknr7zyysWLF99++22VlZXx8fF33333wIEDv/jFLxYXF0+dOvXOO+8cOHBg4cKF3/nOd+fPn9+yZcvOnTvj4+Nbtmy5fPny999//8KFCwMDA4ODg8nJyW+++eaNN95YtGjRtGnTvvzyyxs2bOjbt6+2tvbMM8/s3Lmzbt26rVu3Llmy5Pjx4+vWrdO2bdv27dtffPHFQ4cOzZ8/f/LkyXv27Lnuuuuenp7q6uoXX3xx3bp1ixYt+uCDDz788MNt27a1tbX37t3b1NR0+vTpQ4cObdiwYenSpc3NzR9++OG0adPS09OnT5/+61//unPnzt27d1dXV8+cOfPll1/eu3dvdXV1eHh4zZo1v/rVr3bs2DFlypSqqqqDBw8uWbKktbU1MTHx5ptvrl69emlp6dSpU1u2bPnwww+PHj36zDPPzJs3r1evXvPmzfvnP//5M88889///d/r1q27Zs2aH/zgB4MHD27YsOHkyZPnz58/ffr0M888s2PHjvXr1y9YsKChoWFxcTE2Nnby5MkTJ05ctGjRnj17vvzyy2PHjm3evPnYsWN33XVX//79v/3tb2+88cZf//rXq1ev3rlzZ2pq6qWXXnrhhRfefffdmzdvXrduXcuWLW+++eaJEydOnTr17bffPvnkk48++mi3bt0WLFiwc+fOt956a9euXStWrPjwww9/9KMfbdmy5b777nv66adf+MIXn3zyydWrV7/44ovvv/9+586dS5Ys2bJly1dffdXa2nr77bd37do1c+bM0aNHv/baa0eOHNmxY8fQ0NC2bdvefPPNbdu2HT58uHfv3i+//PL27dv79u2bPn36okWLjh49Onfu3OXLl3fv3r1nz57ly5eXl5ePHj0aGxt74YUXHn/88f3795eWlhYWFj7yyCPj4+OvvPLK8uXLf/rTn44dO7Znz55Tp06tX79+5cqV1dXV7du3v/zyy/nz5z/55JNVq1adPXv2jBkz+vXr9/DDD/ft27d27dpVq1YdOXJk6dKlF154Yf/+/X19fWvWrNm+fXthYeH69evfffddc3PzT3/609GjR5cvX97Y2Lhz58633367srIyPj7+zjvvnDhx4vPPP7djx44tW7a8//77P/7xj3v27Pn444+7du168sknV65cuW7duqlTp7755ptTp07du3fvxIkTu3fvPn78+FtvvXX16tWFhYWZM2cuXbr0wAMPHD16dMuWLf3799+6dev58+fvuOOO7du3r1u3bvLkyTfffPOLL76Ynp6+du3amDFj5syZs23btt27d9+7d29iYmLFihXbtm27cuXKsWPH1q1bt2jRok8++eTw4cP5+flvv/321KlTg4OD27Zt27Zt28yZM2fOnDlx4sTt27dXVVWdOnXqvffeu3r16jVr1sycObNr1664uLgNGzasW7du4sSJ/fv3r1u3bvv27Rs2bGhqavL29j7yyCP333//4MGD77///oMPPliwYEFhYeGjjz56+PDh9957b+nSpXv37m3YsGHixIkzZ86sWbPmzJkzhw4d+uabb4YOHXrttddmzJixbdu2KVOmXL9+fXh4+P7779+1a9f58+d/8IMfnD59etGiRQcOHJg0adLzzz//+eefnzx5csOGDQsWLJg/f/7AgQNf/vKXg4ODJ06c2L59+9SpU0uXLr344ovr169fv359TEzM4cOH165d29TUtH379gcffLBly5bJkyfPnj17xYoVX3zxRXJy8tKlS2fPnr1s2bJPPvnk8OHDM2fOXLly5aFDh2bPnn3VVVdNmDChvr4+MTHx+OOPf/7557/88ssffPDB2bNnly1b9oMf/OD111/fvXt3TEzMxo0bV61adfTo0f3792/durW4uPjTTz89c+bMpEmTzj777J49e3bs2LF79+6zZ8/ev39/bW1t9erV7du3v/rqq5cuXbp48eKRI0eGDh06ceLEe++99+KLL3bs2PHNN9/85Cc/6dWr17Zt2z744INdu3a9++67Dx48uH79+rq6upUrVy5atOjPf/7z3bt3j4yMnDlz5u233/7ee+/NmDFj165dP/nJT27fvr1x48aZM2eWLVv22muv7dix44knnnjvvfc+8cQTFy5cuHjx4vbt25cuXTp8+PCf/vSnrVu33nrrrR9++OEtt9zyzTffHDly5DPPPFO/fv0tW7a8+eabZ86cuf/++7/97W+XL18+fvz4rFmz4uPjlyxZcu7cuW3btj3++OM1NTXbt29fuHBhQ0PDhg0bkpOTu3fvXrdu3ezZs+vXr9+1a9fGjRtTU1M7duyYMWPGsmXLjh49+sUXX7z//vsbNmyYOnXqD37wg+eff/7gwYPr1q1btGjRtGnTtm7d+sc//vHgwYNPnDhx8uTJW7du3blz57Vr1+7cuXP06NH169f/4Q9/ePjhh3fu3Lly5cr7779/7dq1lZWVb7755p49e+68887t27evX79+zpw5BQUFPXr06Nmz5/333z99+vRdu3a9+OKL8+bNq6urv/zyyydPnjx69OjevXu7du26du3a3LlzT5w4cezYseHDh6dPn37ixIkPP/xw8eLFXbp0KSkp+e1vf3vlypWzZs3q2LFj3rx5c+bMufbaa5OTk9u3b5syZUrTpk0XLly4cuXKdu3aR44c+eCDD9566625c+f+/Oc/nz59esWKFbNmzbp+/frmzZu7d+9+9913mzdvXrFiRWpq6uTJk5cvXz5x4sTY2NjHH3+8Y8eOe+65Z2ho6P79+8ePH7/44ovNmzfXrVu3a9euS5cu7du3r6+vT548+fzzz2fOnJk1a9aDDz74zjvvXLBgQUNDAwAAAAAA4I/8D3n1P2h6QF3iAAAAAElFTkSuQmCC" alt="شعار ملاك الرحمة" />
+      <div>
+        <h2>ملاك الرحمة الطبي</h2>
+        <small>مجمع عيادات متكامل</small>
       </div>
+    </div>
 
-      <nav class="nav-links">
-        <a href="#home" class="active">الرئيسية</a>
-        <a href="#services">العيادات</a>
-        <a href="#departments">التخصصات</a>
-        <a href="#doctors">الأطباء</a>
-        <a href="#booking">الحجز</a>
-        <a href="#plans">الباقات</a>
-        <a href="#insurance">التأمين</a>
-        <a href="#contact">تواصل</a>
-      </nav>
+    <nav class="nav-links">
+      <a href="#home" class="active">الرئيسية</a>
+      <a href="#services">العيادات</a>
+      <a href="#departments">التخصصات</a>
+      <a href="#doctors">الأطباء</a>
+      <a href="#booking">الحجز</a>
+      <a href="#plans">الباقات</a>
+      <a href="#insurance">التأمين</a>
+      <a href="#contact">تواصل</a>
+    </nav>
 
-      <div class="nav-actions">
-        <button class="btn outline small" id="openAuthBtn">تسجيل دخول</button>
-        <button class="btn small" onclick="openDashboardEntry()">لوحة التحكم</button>
-      </div>
+    <div class="nav-actions">
+      <button class="btn outline small" id="openAuthBtn">تسجيل دخول</button>
+      <button class="btn small" onclick="openDashboardEntry()">لوحة التحكم</button>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu(true)">☰</button>
     </div>
   </header>
 
@@ -290,7 +243,7 @@
           <div class="tag">🏥 مجمع عيادات حديث يخدم المراجعين نقدًا وتأمينًا</div>
           <h1>رعاية منظمة<br>وتجربة رقمية تليق بالثقة</h1>
           <p>
-            يقدّم مجمع ملاك الرحمة خدمات عيادات متخصصة ضمن تجربة رقمية متكاملة، تتيح للمراجعين التعرف على التخصصات، استعراض الأطباء، الحجز الإلكتروني بسهولة، والاستفادة من الخدمات سواء كانت الزيارة نقدية أو عبر شركات التأمين المعتمدة.
+            يقدّم مجمع ملاك الرحمة الطبي خدمات عيادات متخصصة ضمن تجربة رقمية متكاملة، تتيح للمراجعين التعرف على التخصصات، استعراض الأطباء، الحجز الإلكتروني بسهولة، والاستفادة من الخدمات سواء كانت الزيارة نقدية أو عبر شركات التأمين المعتمدة.
           </p>
           <div class="hero-actions">
             <a href="#booking" class="btn">احجز الآن</a>
@@ -330,7 +283,7 @@
           <div class="pill">✨ فكرة عرض مختلفة لمجمع العيادات</div>
           <h2 style="margin:14px 0 12px;font-size:2.2rem">كل ما يحتاجه المراجع في مكان واحد</h2>
           <p style="color:var(--muted);line-height:1.95;font-size:1.02rem">
-            صُممت هذه المنصة لتقديم صورة احترافية واضحة عن مجمع ملاك الرحمة، من خلال إبراز العيادات المتخصصة، التخصصات الطبية، الأطباء، الباقات الصحية، خدمات المختبر، وآلية المراجعة سواء كانت نقدية أو عبر التأمين الصحي.
+            صُممت هذه المنصة لتقديم صورة احترافية واضحة عن مجمع ملاك الرحمة الطبي، من خلال إبراز العيادات المتخصصة، التخصصات الطبية، الأطباء، الباقات الصحية، خدمات المختبر، وآلية المراجعة سواء كانت نقدية أو عبر التأمين الصحي.
           </p>
           <div class="mini-kpis">
             <div class="mini-panel"><strong style="font-size:1.5rem">الأطباء</strong><div style="color:var(--muted);margin-top:8px">ملفات تعريفية واضحة</div></div>
@@ -375,8 +328,8 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <h2>أطباء مجمع ملاك الرحمة</h2>
-            <p>تعرف على نخبة الأطباء والاستشاريين في مجمع ملاك الرحمة، مع عرض نبذة مختصرة عن كل طبيب وإمكانية الوصول السريع للحجز.</p>
+            <h2>أطباء مجمع ملاك الرحمة الطبي</h2>
+            <p>تعرف على نخبة الأطباء والاستشاريين في مجمع ملاك الرحمة، مع عرض نبذة مختصرة عن كل طبيب وإمكانية الوصول السريع للحجز أو فتح صفحة تفصيلية للطبيب.</p>
           </div>
         </div>
         <div class="cards-4" id="doctorsGrid"></div>
@@ -446,11 +399,22 @@
             <div class="step"><div class="step-num">3</div><div><strong>المراجعة نقدًا أو تأمينًا</strong><div style="color:var(--muted);line-height:1.8">يتم تنظيم الزيارة بحسب آلية المراجعة، سواء كانت نقدية أو عبر شركة التأمين المعتمدة.</div></div></div>
             <div class="step"><div class="step-num">4</div><div><strong>متابعة أوضح</strong><div style="color:var(--muted);line-height:1.8">تظهر تفاصيل الموعد وحالة المتابعة داخل حساب المراجع ولوحة الإدارة بشكل منظم.</div></div></div>
           </div>
-          <div style="margin-top:18px;display:grid;gap:12px">
-            <div class="pill">✅ حجوزات منظمة</div>
-            <div class="pill">✅ مراجعين نقدي وتأمين</div>
-            <div class="pill">✅ ملفات وحالات متابعة</div>
-            <div class="pill">✅ تجربة رقمية حديثة</div>
+
+          <div class="invoice-preview">
+            <div class="invoice-header">
+              <div>
+                <div class="pill">🧾 نموذج فاتورة</div>
+                <h3 style="margin:14px 0 8px">فاتورة مراجعة أنيقة</h3>
+                <p style="color:var(--muted);line-height:1.85;margin:0">عرض شيك لهيئة الفاتورة النقدية أو التأمينية ضمن تجربة احترافية للمجمع.</p>
+              </div>
+              <button class="btn outline small" onclick="openInvoiceModal()">عرض الفاتورة</button>
+            </div>
+            <div class="invoice-lines">
+              <div class="invoice-line"><span>كشف أولي</span><strong>150 ر.س</strong></div>
+              <div class="invoice-line"><span>رسوم ملف</span><strong>50 ر.س</strong></div>
+              <div class="invoice-line"><span>نوع المراجعة</span><strong>نقدي / تأمين</strong></div>
+            </div>
+            <div class="invoice-total"><span>الإجمالي التقريبي</span><strong>200 ر.س</strong></div>
           </div>
         </div>
       </div>
@@ -563,7 +527,7 @@
 
     <section class="section" id="contact">
       <div class="container contact-grid">
-        <div class="card glass reveal"><div class="icon-box">📍</div><h3>العنوان</h3><p>القويعية - المملكة العربية السعودية<br>مجمع ملاك الرحمة</p></div>
+        <div class="card glass reveal"><div class="icon-box">📍</div><h3>العنوان</h3><p>القويعية - المملكة العربية السعودية<br>مجمع ملاك الرحمة الطبي</p></div>
         <div class="card glass reveal"><div class="icon-box">📞</div><h3>الهاتف</h3><p>0550000000<br>للاستفسارات والحجز</p></div>
         <div class="card glass reveal"><div class="icon-box">🕒</div><h3>أوقات العمل</h3><p>يوميًا من 8 صباحًا حتى 12 مساءً<br>والحجز الإلكتروني متاح طوال اليوم</p></div>
         <div class="card glass reveal"><div class="icon-box">✉️</div><h3>البريد الإلكتروني</h3><p>info@malakrahma.com<br>support@malakrahma.com</p></div>
@@ -574,7 +538,7 @@
       <div class="container">
         <div class="cta glass reveal">
           <div>
-            <h2>ملاك الرحمة نحو تجربة عيادات أكثر تطورًا</h2>
+            <h2>ملاك الرحمة الطبي نحو تجربة عيادات أكثر تطورًا</h2>
             <p>يعمل مجمع ملاك الرحمة على تقديم تجربة متطورة لمراجعيه تبدأ من التعرف على الخدمات عبر الموقع، ثم الحجز السهل، والوصول إلى العيادة المناسبة، والاستفادة من خدمات المجمع سواء للمراجعين النقديين أو عبر التأمين الصحي.</p>
           </div>
           <div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap">
@@ -589,8 +553,8 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <div class="brand" style="margin-bottom:12px"><div class="logo">✚</div><div><h2 style="margin:0">ملاك الرحمة</h2><small>منصة خدمات مجمع العيادات الرقمية</small></div></div>
-        <p>منصة رقمية حديثة لمجمع ملاك الرحمة، صُممت لتكون الواجهة الرسمية لمجمع العيادات على الإنترنت، مع إبراز الخدمات الطبية، الأطباء، الحجز، التأمين، والخدمات النقدية ضمن تجربة استخدام احترافية ومتطورة.</p>
+        <div class="brand" style="margin-bottom:12px"><img class="brand-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAF5CAYAAAD+qX9WAAEAAElEQVR42uz9WbAl15UliK19znH3e++b95x9q6prb6mA4gBIEAIk2woJQhQlUlTFiZIlW7ZkW7Isx7GjOM5xHMeZ4zjOcbxjHMfJsu3YsmXLkm3JsiVbsiVbrmRLlixLsiXbki1bsiVbsmTrMclW3O8m1f0frq7q6q5z71nOeV7zDgQU4IYQ2l9V9hX8t1/8G4+7v/4iAAAAAABQm8n8AwAAAAAAALB0AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAAOgN9mNw8cKF6enp6d27d5f9rQAAAAAAAKC+4l9+8Yt79+7d4uLi0tLS0tLSL7/88l//+tdv3rx56tSpq1evfvzxx9vb2+fPn19eXn7vvffW1tYWFhZOmzbt0qVLJ06cWFlZeXh4+Mtf/vL8+fPnz5/fvHnzzJkzV65c+eCDDz7wwAPXr18fGxv7+Mc/vnXr1rVr106fPn3s2LEzZ8788MMPe/fuPf7442+++eYbb7zx2muvrV279vHHH3/yySc7duzYvXt3e3t7dXV1YWHh3Llz+/fv//zzzz/77LPbtm3bv39/TEzM1KlTP/vss3v27Hn11Vf37t1bW1v7wAMPfP3117/97W/fuHFjYGAgLy9v2rRpU6dO/fTTT58/f/7dd9/9wAMPfP7557t27Tp58uT1119/8skn79ixY2Vl5Q9/+MPp06c3bdq0a9eubdu2ffDBB8ePH3/wwQdf/epXb968+eijjz766KMTJ060t7dPnz69Y8eO6dOnj4yMvP/++8eOHfvcc89t3bp1cnKyf//+8fHxjRs3rly58sEHH3z//fefPn169+7dI0eOvPPOO7Nnz/bt23f58uVvvvlmTEzM888/v3Hjxn379m3btm3fvn0zZ8787Gc/e/3117/44ovjx4+fOHFi5MiRixcvnn322Y8//nj9+vVt27bNnDkzMjLy4IMP7t69e8eOHdOmTTt69Ojdd9995ZVX3n777W+++eaBAwe2bNnS1tZWV1ffcccdgwcP7t69+8Ybb5w9e/ajjz56/PHH3/nOd8aOHfvkk09u3rx57NixixcvfvDBB3/4wx+OHTv2jDPOaGtr+/DDD3fu3Llnz54rV67s2rVr/PjxU6dO/eY3v3n33XfX1taWlpYuXbr0wQcfLC8v79q1a3FxcXp6+uLFi6dPn56cnLx06dLrr79+9OjRRYsW7du379///sWLF6dPnz527NiQkJBnn312z549H3744XvvvfeZZ57Zu3fvzz//3LFjx/Tp0zt27DjzzDPffvvt7Ozsxx9/fP/99+fPn7d69Wpubu7YsWNjY2Pf/OY3n3322ccff3zx4sW9e/e2bdu2Z8+eO3fuHDly5MyZM1euXNm2bdvOnTtPnDhx4sSJCxcu3L59e2Vl5SeffHLr1q2LFy+ePn36f/7nf54+ffqNN96Ympq6du3ac889V1tb++Uvf3nlypXV1dU7dux4+OGH33777VOnTi0tLd2+fXt6evq5555r27Zt4sSJrVu3Hj9+/JtvvvnII4+8+uqrL1++vHfv3i1btnR0dNTU1Hz++eeHDx8+c+bMli1bdu3atW/fvn379g0ODr7yyitPPvnkqVOnZs6cefrpp5s2bVq+fPmrV6/OmDGjvb19xowZc+bM6dSp0zvvvHPTpk2tW7f+0Y9+tGDBgtHR0ddff/3AgQMlJSU7d+68++67lZWV4eHhW7ZsWb58+fTp0x999NGWLVvWrl07derUcePG7dq1a+7cucOHD+/YsWPHjh379u0bExNz9OjRjRs3Tp48ecCAAXfccYf+/fuXlpauXLny6quv5ubmPvnkk2XLll1//fV9+/bNnDlz8+bN6enpQ4cO3b1799ChQxMmTNiwYcPq1atbW1sDAwPr16/fvXt39OjR7du3t7W1f/nLX1ZXV0tLS1euXNm/f/+aNWsmTJiwY8eOW2655f333x86dOizzz57+PDhFStWjI2N/cY3vvHQQw+9/PLL33777fbt20+fPr1v3761tbWLFy9ubW19+umnL1y4sHHjxn/84x9Hjx59+eWX33777Zs3b96/f39xcXHbtm3z5s27cuXK+PHj+/fv37Jly5IlS5YvX77w4cPz58+fPXv2okWL7r333vr16z/88MPFxcVdunT5xS9+8eabb56ZmVm0aNGIESP+8Ic/fPvtt9u2bVuwYEFfX19TU9P8+fPf+c53Pv/888uXL69du/bMmTPr16/fu3dvdXV1eHh4zZo1v/rVr3bs2DFlypSqqqqDBw8uWbKktbU1MTHx+OOPf/7557/88ssffPDB2bNnly1b9oMf/OD111/fvXt3TEzMxo0bV61adfTo0f3792/durW4uPjTTz89c+bMpEmTzj777J49e3bs2LF79+6zZ8/ev39/bW1t9erV7du3v/rqq5cuXbp48eKRI0eGDh06ceLEe++99+KLL3bs2PHNN9/85Cc/6dWr17Zt2z744INdu3a9++67Dx48uH79+rq6upUrVy5atOjPf/7z3bt3j4yMnDlz5u233/7ee+/NmDFj165dP/nJT27fvr1x48aZM2eWLVv22muv7dix44knnnjvvfc+8cQTFy5cuHjx4vbt25cuXTp8+PCf/vSnrVu33nrrrR9++OEtt9zyzTffHDly5DPPPFO/fv0tW7a8+eabZ86cuf/++7/97W+XL18+fvz4rFmz4uPjlyxZcu7cuW3btj3++OM1NTXbt29fuHBhQ0PDhg0bkpOTu3fvXrdu3ezZs+vXr9+1a9fGjRtTU1M7duyYMWPGsmXLjh49+sUXX7z//vsbNmyYOnXqD37wg+eff/7gwYPr1q1btGjRtGnTtm7d+sc//vHgwYNPnDhx8uTJW7du3blz57Vr1+7cuXP06NH169f/4Q9/ePjhh3fu3Lly5cr7779/7dq1lZWVb7755p49e+68887t27evX79+zpw5BQUFPXr06Nmz5/333z99+vRdu3a9+OKL8+bNq6urv/zyyydPnjx69OjevXu7du26du3a3LlzT5w4cezYseHDh6dPn37ixIkPP/xw8eLFXbp0KSkp+e1vf3vlypWzZs3q2LFj3rx5c+bMufbaa5OTk9u3b5syZUrTpk0XLly4cuXKdu3aR44c+eCDD9566625c+f+/Oc/nz59esWKFbNmzbp+/frmzZu7d+9+9913mzdvXrFiRWpq6uTJk5cvXz5x4sTY2NjHH3+8Y8eOe+65Z2ho6P79+8ePH7/44ovNmzfXrVu3a9euS5cu7du3r6+vT548+fzzz2fOnJk1a9aDDz74zjvvXLBgQUNDAwAAAAAA4I/8D3n1P2h6QF3iAAAAAElFTkSuQmCC" alt="شعار ملاك الرحمة" /><div><h2 style="margin:0">ملاك الرحمة الطبي</h2><small>منصة خدمات مجمع العيادات الرقمية</small></div></div>
+        <p>منصة رقمية حديثة لمجمع ملاك الرحمة الطبي، صُممت لتكون الواجهة الرسمية للمجمع على الإنترنت، مع إبراز الخدمات الطبية، الأطباء، الحجز، التأمين، والخدمات النقدية ضمن تجربة استخدام احترافية ومتطورة.</p>
       </div>
       <div><h3>روابط</h3><p><a href="#services">العيادات</a></p><p><a href="#departments">التخصصات</a></p><p><a href="#doctors">الأطباء</a></p></div>
       <div><h3>الخدمات</h3><p><a href="#booking">الحجز</a></p><p><a href="#insurance">التأمين</a></p><p><a href="#labs">التحاليل</a></p></div>
@@ -646,6 +610,44 @@
     </div>
   </div>
 
+  <div class="doctor-modal" id="doctorModal">
+    <div class="doctor-page">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+        <div class="pill">صفحة الطبيب</div>
+        <button class="btn outline small" onclick="closeDoctorPage()">إغلاق</button>
+      </div>
+      <div id="doctorPageContent"></div>
+    </div>
+  </div>
+
+  <div class="invoice-modal" id="invoiceModal">
+    <div class="doctor-page" style="max-width:860px">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+        <div class="pill">فاتورة مراجعة</div>
+        <button class="btn outline small" onclick="closeInvoiceModal()">إغلاق</button>
+      </div>
+      <div class="invoice-preview" style="margin-top:0">
+        <div class="invoice-header">
+          <div>
+            <h2 style="margin:0 0 8px">مجمع ملاك الرحمة الطبي</h2>
+            <p style="margin:0;color:var(--muted);line-height:1.8">فاتورة عرض توضيحية للمراجعات النقدية أو التأمينية</p>
+          </div>
+          <div style="text-align:left">
+            <div style="color:var(--muted)">رقم الفاتورة</div>
+            <strong>#MR-2026-001</strong>
+          </div>
+        </div>
+        <div class="invoice-lines">
+          <div class="invoice-line"><span>كشف أولي</span><strong>150 ر.س</strong></div>
+          <div class="invoice-line"><span>رسوم ملف</span><strong>50 ر.س</strong></div>
+          <div class="invoice-line"><span>طريقة المراجعة</span><strong>نقدي / تأمين</strong></div>
+          <div class="invoice-line"><span>الخصم / التغطية</span><strong>حسب الجهة</strong></div>
+        </div>
+        <div class="invoice-total"><span>الإجمالي</span><strong>200 ر.س</strong></div>
+      </div>
+    </div>
+  </div>
+
   <button class="chat-toggle" id="chatToggle">💬</button>
   <div class="chatbot glass" id="chatbotBox">
     <div class="chat-head">
@@ -653,6 +655,12 @@
       <button class="btn outline small" onclick="toggleChat()">إغلاق</button>
     </div>
     <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-quick">
+      <button onclick="sendQuick('ما هي العيادة المناسبة لآلام الأسنان؟')">الأسنان</button>
+      <button onclick="sendQuick('هل يمكن المراجعة عبر التأمين؟')">التأمين</button>
+      <button onclick="sendQuick('كيف أحجز موعدًا؟')">الحجز</button>
+      <button onclick="sendQuick('ما هي الخدمات النقدية؟')">الخدمة النقدية</button>
+    </div>
     <div class="chat-input">
       <input class="input" id="chatInput" type="text" placeholder="اكتب رسالتك...">
       <button class="btn small" id="sendChatBtn">إرسال</button>
@@ -662,7 +670,7 @@
   <div class="dashboard" id="dashboard">
     <div class="dash-shell">
       <aside class="dash-side">
-        <div class="dash-brand"><div class="logo">✚</div><div><strong>لوحة التحكم</strong><br><small id="dashRoleLabel" style="color:var(--muted)"></small></div></div>
+        <div class="dash-brand"><img class="brand-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAF5CAYAAAD+qX9WAAEAAElEQVR42uz9WbAl15UliK19znH3e++b95x9q6prb6mA4gBIEAIk2woJQhQlUlTFiZIlW7ZkW7Isx7GjOM5xHMeZ4zjOcbxjHMfJsu3YsmXLkm3JsiVbsiVbrmRLlixLsiXbki1bsiVbsmTrMclW3O8m1f0frq7q6q5z71nOeV7zDgQU4IYQ2l9V9hX8t1/8G4+7v/4iAAAAAABQm8n8AwAAAAAAALB0AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAACg3AQAAAAAAAOgN9mNw8cKF6enp6d27d5f9rQAAAAAAAKC+4l9+8Yt79+7d4uLi0tLS0tLSL7/88l//+tdv3rx56tSpq1evfvzxx9vb2+fPn19eXn7vvffW1tYWFhZOmzbt0qVLJ06cWFlZeXh4+Mtf/vL8+fPnz5/fvHnzzJkzV65c+eCDDz7wwAPXr18fGxv7+Mc/vnXr1rVr106fPn3s2LEzZ8788MMPe/fuPf7442+++eYbb7zx2muvrV279vHHH3/yySc7duzYvXt3e3t7dXV1YWHh3Llz+/fv//zzzz/77LPbtm3bv39/TEzM1KlTP/vss3v27Hn11Vf37t1bW1v7wAMPfP3117/97W/fuHFjYGAgLy9v2rRpU6dO/fTTT58/f/7dd9/9wAMPfP7557t27Tp58uT1119/8skn79ixY2Vl5Q9/+MPp06c3bdq0a9eubdu2ffDBB8ePH3/wwQdf/epXb968+eijjz766KMTJ060t7dPnz69Y8eO6dOnj4yMvP/++8eOHfvcc89t3bp1cnKyf//+8fHxjRs3rly58sEHH3z//fefPn169+7dI0eOvPPOO7Nnz/bt23f58uVvvvlmTEzM888/v3Hjxn379m3btm3fvn0zZ8787Gc/e/3117/44ovjx4+fOHFi5MiRixcvnn322Y8//nj9+vVt27bNnDkzMjLy4IMP7t69e8eOHdOmTTt69Ojdd9995ZVX3n777W+++eaBAwe2bNnS1tZWV1ffcccdgwcP7t69+8Ybb5w9e/ajjz56/PHH3/nOd8aOHfvkk09u3rx57NixixcvfvDBB3/4wx+OHTv2jDPOaGtr+/DDD3fu3Llnz54rV67s2rVr/PjxU6dO/eY3v3n33XfX1taWlpYuXbr0wQcfLC8v79q1a3FxcXp6+uLFi6dPn56cnLx06dLrr79+9OjRRYsW7du379///sWLF6dPnz527NiQkJBnn312z549H3744XvvvfeZZ57Zu3fvzz//3LFjx/Tp0zt27DjzzDPffvvt7Ozsxx9/fP/99+fPn7d69Wpubu7YsWNjY2Pf/OY3n3322ccff3zx4sW9e/e2bdu2Z8+eO3fuHDly5MyZM1euXNm2bdvOnTtPnDhx4sSJCxcu3L59e2Vl5SeffHLr1q2LFy+ePn36f/7nf54+ffqNN96Ympq6du3ac889V1tb++Uvf3nlypXV1dU7dux4+OGH33777VOnTi0tLd2+fXt6evq5555r27Zt4sSJrVu3Hj9+/JtvvvnII4+8+uqrL1++vHfv3i1btnR0dNTU1Hz++eeHDx8+c+bMli1bdu3atW/fvn379g0ODr7yyitPPvnkqVOnZs6cefrpp5s2bVq+fPmrV6/OmDGjvb19xowZc+bM6dSp0zvvvHPTpk2tW7f+0Y9+tGDBgtHR0ddff/3AgQMlJSU7d+68++67lZWV4eHhW7ZsWb58+fTp0x999NGWLVvWrl07derUcePG7dq1a+7cucOHD+/YsWPHjh379u0bExNz9OjRjRs3Tp48ecCAAXfccYf+/fuXlpauXLny6quv5ubmPvnkk2XLll1//fV9+/bNnDlz8+bN6enpQ4cO3b1799ChQxMmTNiwYcPq1atbW1sDAwPr16/fvXt39OjR7du3t7W1f/nLX1ZXV0tLS1euXNm/f/+aNWsmTJiwY8eOW2655f333x86dOizzz57+PDhFStWjI2N/cY3vvHQQw+9/PLL33777fbt20+fPr1v3761tbWLFy9ubW19+umnL1y4sHHjxn/84x9Hjx59+eWX33777Zs3b96/f39xcXHbtm3z5s27cuXK+PHj+/fv37Jly5IlS5YvX77w4cPz58+fPXv2okWL7r333vr16z/88MPFxcVdunT5xS9+8eabb56ZmVm0aNGIESP+8Ic/fPvtt9u2bVuwYEFfX19TU9P8+fPf+c53Pv/888uXL69du/bMmTPr16/fu3dvdXV1eHh4zZo1v/rVr3bs2DFlypSqqqqDBw8uWbKktbU1MTHx+OOPf/7557/88ssffPDB2bNnly1b9oMf/OD111/fvXt3TEzMxo0bV61adfTo0f3792/durW4uPjTTz89c+bMpEmTzj777J49e3bs2LF79+6zZ8/ev39/bW1t9erV7du3v/rqq5cuXbp48eKRI0eGDh06ceLEe++99+KLL3bs2PHNN9/85Cc/6dWr17Zt2z744INdu3a9++67Dx48uH79+rq6upUrVy5atOjPf/7z3bt3j4yMnDlz5u233/7ee+/NmDFj165dP/nJT27fvr1x48aZM2eWLVv22muv7dix44knnnjvvfc+8cQTFy5cuHjx4vbt25cuXTp8+PCf/vSnrVu33nrrrR9++OEtt9zyzTffHDly5DPPPFO/fv0tW7a8+eabZ86cuf/++7/97W+XL18+fvz4rFmz4uPjlyxZcu7cuW3btj3++OM1NTXbt29fuHBhQ0PDhg0bkpOTu3fvXrdu3ezZs+vXr9+1a9fGjRtTU1M7duyYMWPGsmXLjh49+sUXX7z//vsbNmyYOnXqD37wg+eff/7gwYPr1q1btGjRtGnTtm7d+sc//vHgwYNPnDhx8uTJW7du3blz57Vr1+7cuXP06NH169f/4Q9/ePjhh3fu3Lly5cr7779/7dq1lZWVb7755p49e+68887t27evX79+zpw5BQUFPXr06Nmz5/333z99+vRdu3a9+OKL8+bNq6urv/zyyydPnjx69OjevXu7du26du3a3LlzT5w4cezYseHDh6dPn37ixIkPP/xw8eLFXbp0KSkp+e1vf3vlypWzZs3q2LFj3rx5c+bMufbaa5OTk9u3b5syZUrTpk0XLly4cuXKdu3aR44c+eCDD9566625c+f+/Oc/nz59esWKFbNmzbp+/frmzZu7d+9+9913mzdvXrFiRWpq6uTJk5cvXz5x4sTY2NjHH3+8Y8eOe+65Z2ho6P79+8ePH7/44ovNmzfXrVu3a9euS5cu7du3r6+vT548+fzzz2fOnJk1a9aDDz74zjvvXLBgQUNDAwAAAAAA4I/8D3n1P2h6QF3iAAAAAElFTkSuQmCC" alt="شعار ملاك الرحمة" /><div><strong>لوحة التحكم</strong><br><small id="dashRoleLabel" style="color:var(--muted)"></small></div></div>
         <div class="dash-menu" id="dashMenu"></div>
         <div style="margin-top:18px"><button class="btn outline" style="width:100%" onclick="closeDashboard()">إغلاق</button><button class="btn small" style="width:100%;margin-top:10px" onclick="logout()">تسجيل خروج</button></div>
       </aside>
@@ -710,14 +718,14 @@
     ];
 
     const defaultDoctors = [
-      {id:uid(),name:'د. أحمد السبيعي',spec:'الباطنية',exp:'12 سنة',about:'استشاري باطنية بخبرة كبيرة في الأمراض المزمنة ومتابعة الحالات العامة.',image:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1000&auto=format&fit=crop'},
-      {id:uid(),name:'د. ريم العتيبي',spec:'الأسنان',exp:'9 سنوات',about:'طبيبة أسنان متخصصة في التجميل والتنظيف والحشوات وعلاجات اللثة.',image:'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop'},
-      {id:uid(),name:'د. خالد المطيري',spec:'الأطفال',exp:'11 سنة',about:'أخصائي أطفال يهتم بالتطعيمات ومتابعة النمو والحالات العامة.',image:'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1000&auto=format&fit=crop'},
-      {id:uid(),name:'د. نوف القحطاني',spec:'الجلدية',exp:'8 سنوات',about:'أخصائية جلدية وتجميل بشرة وشعر وحساسية.',image:'https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1000&auto=format&fit=crop'},
-      {id:uid(),name:'د. محمد الشهري',spec:'العظام',exp:'14 سنة',about:'استشاري عظام ومفاصل وإصابات رياضية وآلام عمود فقري.',image:'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=1000&auto=format&fit=crop'},
-      {id:uid(),name:'د. سارة الدوسري',spec:'النساء والولادة',exp:'10 سنوات',about:'طبيبة نساء وولادة لمتابعة الحمل والاستشارات النسائية الدورية.',image:'https://images.unsplash.com/photo-1651008376581-b6a5a9f6cf66?q=80&w=1000&auto=format&fit=crop'},
-      {id:uid(),name:'د. فيصل الحربي',spec:'العيون',exp:'13 سنة',about:'استشاري عيون وفحص نظر ومتابعة العدسات والحالات المزمنة.',image:'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?q=80&w=1000&auto=format&fit=crop'},
-      {id:uid(),name:'د. لينا العنزي',spec:'الأعصاب',exp:'7 سنوات',about:'أخصائية أعصاب وصداع وحالات الأعصاب الطرفية.',image:'https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1000&auto=format&fit=crop'}
+      {id:uid(),name:'د. أحمد السبيعي',spec:'الباطنية',exp:'12 سنة',about:'استشاري باطنية بخبرة كبيرة في الأمراض المزمنة ومتابعة الحالات العامة.',image:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1000&auto=format&fit=crop',specials:['السكر والضغط','مشكلات الجهاز الهضمي','المتابعات العامة']},
+      {id:uid(),name:'د. ريم العتيبي',spec:'الأسنان',exp:'9 سنوات',about:'طبيبة أسنان متخصصة في التجميل والتنظيف والحشوات وعلاجات اللثة.',image:'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop',specials:['تنظيف الأسنان','حشوات تجميلية','تقييم شامل']},
+      {id:uid(),name:'د. خالد المطيري',spec:'الأطفال',exp:'11 سنة',about:'أخصائي أطفال يهتم بالتطعيمات ومتابعة النمو والحالات العامة.',image:'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1000&auto=format&fit=crop',specials:['متابعة النمو','تطعيمات','الكشف العام']},
+      {id:uid(),name:'د. نوف القحطاني',spec:'الجلدية',exp:'8 سنوات',about:'أخصائية جلدية وتجميل بشرة وشعر وحساسية.',image:'https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1000&auto=format&fit=crop',specials:['حساسية الجلد','مشكلات الشعر','خدمات البشرة']},
+      {id:uid(),name:'د. محمد الشهري',spec:'العظام',exp:'14 سنة',about:'استشاري عظام ومفاصل وإصابات رياضية وآلام عمود فقري.',image:'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=1000&auto=format&fit=crop',specials:['آلام المفاصل','إصابات رياضية','الظهر والعمود الفقري']},
+      {id:uid(),name:'د. سارة الدوسري',spec:'النساء والولادة',exp:'10 سنوات',about:'طبيبة نساء وولادة لمتابعة الحمل والاستشارات النسائية الدورية.',image:'https://images.unsplash.com/photo-1651008376581-b6a5a9f6cf66?q=80&w=1000&auto=format&fit=crop',specials:['متابعة الحمل','فحوصات دورية','استشارات نسائية']},
+      {id:uid(),name:'د. فيصل الحربي',spec:'العيون',exp:'13 سنة',about:'استشاري عيون وفحص نظر ومتابعة العدسات والحالات المزمنة.',image:'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?q=80&w=1000&auto=format&fit=crop',specials:['فحص نظر','عدسات طبية','متابعة الحالات المزمنة']},
+      {id:uid(),name:'د. لينا العنزي',spec:'الأعصاب',exp:'7 سنوات',about:'أخصائية أعصاب وصداع وحالات الأعصاب الطرفية.',image:'https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1000&auto=format&fit=crop',specials:['الصداع','الأعصاب الطرفية','المتابعات العصبية']}
     ];
 
     const insurancePartners = ['بوبا','التعاونية','ميدغلف','ملاذ','تكافل الراجحي','سلامة','أسيج','أمانة'];
@@ -745,22 +753,22 @@
     function readLS(key,fallback){try{return JSON.parse(localStorage.getItem(key)) ?? fallback}catch{return fallback}}
     function writeLS(key,val){localStorage.setItem(key, JSON.stringify(val))}
     function formatDateTime(v){return new Intl.DateTimeFormat('ar-EG',{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(v))}
-    function notify(text,type='success'){const div=document.createElement('div');div.textContent=text;div.style.cssText='position:fixed;top:18px;left:18px;z-index:5000;padding:14px 18px;border-radius:14px;color:#fff;font-weight:800;box-shadow:0 15px 30px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)';div.style.background=type==='error'?'linear-gradient(135deg,#ff5878,#ff81a1)':type==='warning'?'linear-gradient(135deg,#f09d1c,#ffc364)':'linear-gradient(135deg,#24d4c7,#2f8fff)';document.body.appendChild(div);setTimeout(()=>div.remove(),2600)}
-    function logActivity(action,description){const list=readLS('mr5_activity',[]);list.unshift({action,description,time:formatDateTime(new Date())});writeLS('mr5_activity',list.slice(0,25));const notes=readLS('mr5_notifications',[]);notes.unshift({title:action,desc:description,time:formatDateTime(new Date())});writeLS('mr5_notifications',notes.slice(0,20))}
+    function notify(text,type='success'){const div=document.createElement('div');div.textContent=text;div.style.cssText='position:fixed;top:18px;left:18px;z-index:5000;padding:14px 18px;border-radius:14px;color:#fff;font-weight:800;box-shadow:0 15px 30px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)';div.style.background=type==='error'?'linear-gradient(135deg,#ff5878,#ff81a1)':type==='warning'?'linear-gradient(135deg,#f09d1c,#ffc364)':'linear-gradient(135deg,#44c469,#2f7bff)';document.body.appendChild(div);setTimeout(()=>div.remove(),2600)}
+    function logActivity(action,description){const list=readLS('mr6_activity',[]);list.unshift({action,description,time:formatDateTime(new Date())});writeLS('mr6_activity',list.slice(0,25));const notes=readLS('mr6_notifications',[]);notes.unshift({title:action,desc:description,time:formatDateTime(new Date())});writeLS('mr6_notifications',notes.slice(0,20))}
     function badge(status){if(status==='confirmed') return '<span class="badge success">مؤكد</span>'; if(status==='cancelled') return '<span class="badge danger">ملغي</span>'; return '<span class="badge warning">مراجعة</span>'}
     function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
 
     function seed(){
-      const users=readLS('mr5_users',[]);
-      if(!users.some(u=>u.email===adminAccount.email)) writeLS('mr5_users',[adminAccount,...users]);
-      if(!localStorage.getItem('mr5_doctors')) writeLS('mr5_doctors',defaultDoctors);
-      if(!localStorage.getItem('mr5_appointments')) writeLS('mr5_appointments',[]);
-      if(!localStorage.getItem('mr5_activity')) writeLS('mr5_activity',[{action:'تهيئة النظام',description:'تم تشغيل منصة مجمع ملاك الرحمة بنجاح',time:formatDateTime(new Date())}]);
-      if(!localStorage.getItem('mr5_notifications')) writeLS('mr5_notifications',[{title:'مرحبًا',desc:'تم تجهيز منصة مجمع ملاك الرحمة بنجاح',time:formatDateTime(new Date())}]);
+      const users=readLS('mr6_users',[]);
+      if(!users.some(u=>u.email===adminAccount.email)) writeLS('mr6_users',[adminAccount,...users]);
+      if(!localStorage.getItem('mr6_doctors')) writeLS('mr6_doctors',defaultDoctors);
+      if(!localStorage.getItem('mr6_appointments')) writeLS('mr6_appointments',[]);
+      if(!localStorage.getItem('mr6_activity')) writeLS('mr6_activity',[{action:'تهيئة النظام',description:'تم تشغيل منصة مجمع ملاك الرحمة الطبي بنجاح',time:formatDateTime(new Date())}]);
+      if(!localStorage.getItem('mr6_notifications')) writeLS('mr6_notifications',[{title:'مرحبًا',desc:'تم تجهيز منصة مجمع ملاك الرحمة الطبي بنجاح',time:formatDateTime(new Date())}]);
     }
     seed();
 
-    let currentUser=readLS('mr5_current_user',null);
+    let currentUser=readLS('mr6_current_user',null);
 
     const servicesGrid=document.getElementById('servicesGrid');
     const departmentsGrid=document.getElementById('departmentsGrid');
@@ -775,33 +783,54 @@
     const chatInput=document.getElementById('chatInput');
     const apptDepartment=document.getElementById('apptDepartment');
     const apptDoctor=document.getElementById('apptDoctor');
+    const mobileDrawer=document.getElementById('mobileDrawer');
+    const drawerOverlay=document.getElementById('drawerOverlay');
+    const doctorModal=document.getElementById('doctorModal');
+    const doctorPageContent=document.getElementById('doctorPageContent');
+    const invoiceModal=document.getElementById('invoiceModal');
 
     function renderHome(){
       servicesGrid.innerHTML=services.map(s=>`<div class="card glass reveal"><div class="icon-box">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p><div class="service-flag"><span>نوع الخدمة</span><span class="pay-chip">${s.pay}</span></div></div>`).join('');
       departmentsGrid.innerHTML=departments.map(d=>`<div class="department glass reveal"><div class="icon-box" style="margin:0 auto 10px">🏥</div><strong>${d[0]}</strong><span>${d[1]}</span></div>`).join('');
-      const doctors=readLS('mr5_doctors',[]);
-      doctorsGrid.innerHTML=doctors.map(d=>`<div class="card glass doctor-card reveal"><img src="${d.image || 'https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=1000&auto=format&fit=crop'}" alt="${d.name}"><h3>${d.name}</h3><p>${d.spec}</p><div class="doctor-meta"><span class="pill">${d.exp} خبرة</span><div class="inline"><button class="btn small outline" onclick="showDoctor('${d.id}')">التفاصيل</button><button class="btn small" onclick="selectDoctor('${d.name}','${d.spec}')">احجز معه</button></div></div></div>`).join('');
+      const doctors=readLS('mr6_doctors',[]);
+      doctorsGrid.innerHTML=doctors.map(d=>`<div class="card glass doctor-card reveal"><img src="${d.image || 'https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=1000&auto=format&fit=crop'}" alt="${d.name}"><h3>${d.name}</h3><p>${d.spec}</p><div class="doctor-meta"><span class="pill">${d.exp} خبرة</span><div class="inline"><button class="btn small outline" onclick="showDoctor('${d.id}')">بطاقة الطبيب</button><button class="btn small outline" onclick="openDoctorPage('${d.id}')">صفحة الطبيب</button><button class="btn small" onclick="selectDoctor('${d.name}','${d.spec}')">احجز معه</button></div></div></div>`).join('');
       insuranceGrid.innerHTML=[
         ...insurancePartners.map(n=>`<div class="card glass reveal"><div class="icon-box">🛡️</div><h3>${n}</h3><p>إحدى جهات التأمين التي يمكن إبرازها ضمن شبكة التأمين المعتمدة في المجمع.</p></div>`),
         ...paymentHighlights.map(item=>`<div class="card glass reveal"><div class="icon-box">${item.icon}</div><h3>${item.title}</h3><p>${item.desc}</p></div>`)
       ].join('');
       extraGrid.innerHTML=extraServices.map(x=>`<div class="card glass reveal"><div class="icon-box">${x.icon}</div><h3>${x.title}</h3><p>${x.desc}</p></div>`).join('');
-      fillSelects();refreshReveal();
+      fillSelects(); refreshReveal();
     }
 
     function showDoctor(id){
-      const d=readLS('mr5_doctors',[]).find(x=>x.id===id); if(!d) return;
+      const d=readLS('mr6_doctors',[]).find(x=>x.id===id); if(!d) return;
       doctorProfile.classList.add('active');
-      doctorProfile.innerHTML=`<div class="doctor-profile-grid"><img src="${d.image}" alt="${d.name}"><div><div class="pill">ملف الطبيب</div><h2 style="margin:16px 0 10px">${d.name}</h2><p style="color:var(--muted);line-height:1.95">${d.about || 'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.'}</p><div class="doctor-badges"><span class="pill">${d.spec}</span><span class="pill">${d.exp}</span><span class="pill">متاح للحجز</span></div><div class="cards-3" style="grid-template-columns:repeat(3,1fr)"><div class="mini-panel">المؤهل<br><strong>استشاري</strong></div><div class="mini-panel">أيام العمل<br><strong>الأحد - الخميس</strong></div><div class="mini-panel">التقييم<br><strong>4.9 / 5</strong></div></div><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn" onclick="selectDoctor('${d.name}','${d.spec}')">احجز مع الطبيب</button><button class="btn outline" onclick="doctorProfile.classList.remove('active')">إغلاق</button></div></div></div>`;
+      doctorProfile.innerHTML=`<div class="doctor-profile-grid"><img src="${d.image}" alt="${d.name}"><div><div class="pill">بطاقة الطبيب</div><h2 style="margin:16px 0 10px">${d.name}</h2><p style="color:var(--muted);line-height:1.95">${d.about || 'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.'}</p><div class="doctor-badges"><span class="pill">${d.spec}</span><span class="pill">${d.exp}</span><span class="pill">متاح للحجز</span></div><div class="cards-3" style="grid-template-columns:repeat(3,1fr)"><div class="mini-panel">المؤهل<br><strong>استشاري</strong></div><div class="mini-panel">أيام العمل<br><strong>الأحد - الخميس</strong></div><div class="mini-panel">التقييم<br><strong>4.9 / 5</strong></div></div><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn" onclick="selectDoctor('${d.name}','${d.spec}')">احجز مع الطبيب</button><button class="btn outline" onclick="openDoctorPage('${d.id}')">فتح الصفحة الكاملة</button><button class="btn outline" onclick="doctorProfile.classList.remove('active')">إغلاق</button></div></div></div>`;
       doctorProfile.scrollIntoView({behavior:'smooth',block:'center'});
     }
 
+    function openDoctorPage(id){
+      const d=readLS('mr6_doctors',[]).find(x=>x.id===id); if(!d) return;
+      doctorPageContent.innerHTML=`<div class="doctor-page-grid"><img src="${d.image}" alt="${d.name}"><div><div class="pill">${d.spec}</div><h2 style="margin:16px 0 8px">${d.name}</h2><p style="color:var(--muted);line-height:1.95">${d.about}</p><div class="doctor-badges"><span class="pill">${d.exp} خبرة</span><span class="pill">متاح للحجز</span><span class="pill">خدمات نقدية وتأمينية</span></div><div class="doctor-timeline"><div class="mini-panel"><strong>نبذة عن الطبيب</strong><div style="color:var(--muted);margin-top:8px">خبرة عملية في تقديم الرعاية الطبية ضمن بيئة تنظيمية حديثة داخل المجمع.</div></div><div class="mini-panel"><strong>الخدمات التي يمكن الاستفادة منها</strong><div style="color:var(--muted);margin-top:8px">${(d.specials||[]).join(' • ')}</div></div><div class="mini-panel"><strong>تنظيم الحجز</strong><div style="color:var(--muted);margin-top:8px">يمكن الحجز مباشرة مع الطبيب وتحديد نوع الزيارة وطريقة المراجعة بكل سهولة.</div></div></div><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn" onclick="selectDoctor('${d.name}','${d.spec}'); closeDoctorPage();">احجز الآن</button><button class="btn outline" onclick="closeDoctorPage()">إغلاق الصفحة</button></div></div></div>`;
+      doctorModal.classList.add('show');
+    }
+    function closeDoctorPage(){doctorModal.classList.remove('show')}
+    function openInvoiceModal(){invoiceModal.classList.add('show')}
+    function closeInvoiceModal(){invoiceModal.classList.remove('show')}
+
     function fillSelects(){
-      apptDepartment.innerHTML='<option value="">اختر العيادة</option>'+[...new Set(readLS('mr5_doctors',[]).map(d=>d.spec))].map(dep=>`<option value="${dep}">${dep}</option>`).join('');
-      apptDoctor.innerHTML='<option value="">اختر الطبيب</option>'+readLS('mr5_doctors',[]).map(doc=>`<option value="${doc.name}">${doc.name} - ${doc.spec}</option>`).join('');
+      apptDepartment.innerHTML='<option value="">اختر العيادة</option>'+[...new Set(readLS('mr6_doctors',[]).map(d=>d.spec))].map(dep=>`<option value="${dep}">${dep}</option>`).join('');
+      apptDoctor.innerHTML='<option value="">اختر الطبيب</option>'+readLS('mr6_doctors',[]).map(doc=>`<option value="${doc.name}">${doc.name} - ${doc.spec}</option>`).join('');
     }
     function selectDoctor(name,spec){scrollToSection('booking');setTimeout(()=>{apptDepartment.value=spec;apptDoctor.value=name},250)}
     function fakeDownload(name){notify(`تم تجهيز ${name} للتنزيل`)}
+
+    function toggleMobileMenu(force){
+      const show = typeof force === 'boolean' ? force : !mobileDrawer.classList.contains('show');
+      mobileDrawer.classList.toggle('show', show);
+      drawerOverlay.classList.toggle('show', show);
+    }
+    document.querySelectorAll('.drawer-links a').forEach(a=>a.addEventListener('click',()=>toggleMobileMenu(false)));
 
     function openAuthModal(tab='login'){authModal.classList.add('show');setAuthTab(tab==='register'?'registerPane':'loginPane')}
     function closeAuthModal(){authModal.classList.remove('show')}
@@ -812,19 +841,19 @@
     document.getElementById('registerForm').addEventListener('submit',e=>{
       e.preventDefault();
       const email=regEmail.value.trim().toLowerCase();
-      const users=readLS('mr5_users',[]);
+      const users=readLS('mr6_users',[]);
       if(users.some(u=>u.email===email)){notify('هذا البريد مسجل بالفعل','error');return}
       const user={id:uid(),role:'patient',name:regName.value.trim(),email,phone:regPhone.value.trim(),password:regPassword.value.trim(),gender:regGender.value,age:regAge.value||'-',insurance:regInsurance.value.trim()||'-'};
-      users.push(user); writeLS('mr5_users',users); currentUser=user; writeLS('mr5_current_user',user); logActivity('مستخدم جديد',`تم إنشاء حساب جديد باسم ${user.name}`); closeAuthModal(); notify('تم إنشاء الحساب بنجاح'); prefillPatient(); openDashboard(); e.target.reset();
+      users.push(user); writeLS('mr6_users',users); currentUser=user; writeLS('mr6_current_user',user); logActivity('مستخدم جديد',`تم إنشاء حساب جديد باسم ${user.name}`); closeAuthModal(); notify('تم إنشاء الحساب بنجاح'); prefillPatient(); openDashboard(); e.target.reset();
     });
 
     document.getElementById('loginForm').addEventListener('submit',e=>{
       e.preventDefault();
       const email=loginEmail.value.trim().toLowerCase();
       const password=loginPassword.value.trim();
-      const user=readLS('mr5_users',[]).find(u=>u.email===email&&u.password===password);
+      const user=readLS('mr6_users',[]).find(u=>u.email===email&&u.password===password);
       if(!user){notify('البريد أو كلمة المرور غير صحيحة','error');return}
-      currentUser=user; writeLS('mr5_current_user',user); closeAuthModal(); notify(`مرحبًا ${user.name}`); prefillPatient(); openDashboard();
+      currentUser=user; writeLS('mr6_current_user',user); closeAuthModal(); notify(`مرحبًا ${user.name}`); prefillPatient(); openDashboard();
     });
 
     document.getElementById('appointmentForm').addEventListener('submit',e=>{
@@ -837,7 +866,7 @@
         priority:apptPriority.value, visitType:apptVisitType.value, amount:apptAmount.value||'0', notes:apptNotes.value.trim(), status:'pending', createdAt:new Date().toISOString()
       };
       if(!appointment.department||!appointment.doctor){notify('اختر العيادة والطبيب أولاً','warning');return}
-      const list=readLS('mr5_appointments',[]); list.unshift(appointment); writeLS('mr5_appointments',list); logActivity('حجز موعد',`تم تسجيل موعد باسم ${appointment.name} في عيادة ${appointment.department}`); e.target.reset(); prefillPatient(); notify('تم تسجيل الموعد بنجاح'); renderDashboard();
+      const list=readLS('mr6_appointments',[]); list.unshift(appointment); writeLS('mr6_appointments',list); logActivity('حجز موعد',`تم تسجيل موعد باسم ${appointment.name} في عيادة ${appointment.department}`); e.target.reset(); prefillPatient(); notify('تم تسجيل الموعد بنجاح'); renderDashboard();
     });
 
     function prefillPatient(){if(currentUser?.role==='patient'){apptName.value=currentUser.name||'';apptPhone.value=currentUser.phone||'';apptInsurance.value=currentUser.insurance&&currentUser.insurance!=='-'?currentUser.insurance:''}}
@@ -845,7 +874,7 @@
     function openDashboardEntry(){if(!currentUser) openAuthModal('login'); else openDashboard()}
     function openDashboard(){if(!currentUser){openAuthModal('login');return}dashboard.classList.add('show');renderDashboard()}
     function closeDashboard(){dashboard.classList.remove('show')}
-    function logout(){currentUser=null;localStorage.removeItem('mr5_current_user');closeDashboard();notify('تم تسجيل الخروج','warning')}
+    function logout(){currentUser=null;localStorage.removeItem('mr6_current_user');closeDashboard();notify('تم تسجيل الخروج','warning')}
     function menuByRole(role){return role==='admin'?[{id:'overview',label:'نظرة عامة'},{id:'appointments',label:'المواعيد'},{id:'doctors',label:'الأطباء'},{id:'users',label:'المستخدمون'},{id:'reports',label:'التقارير'},{id:'bills',label:'الفواتير'},{id:'notifications',label:'الإشعارات'}]:[{id:'overview',label:'الرئيسية'},{id:'profile',label:'الملف الشخصي'},{id:'myappointments',label:'مواعيدي'},{id:'medical',label:'ملفي الطبي'},{id:'help',label:'المساعدة الذكية'}]}
     function openPanel(id){document.querySelectorAll('.dash-panel').forEach(p=>p.classList.toggle('active',p.id===`panel-${id}`));document.querySelectorAll('.dash-link').forEach(l=>l.classList.toggle('active',l.dataset.panel===id))}
 
@@ -861,7 +890,7 @@
     }
 
     function renderOverview(){
-      const appointments=readLS('mr5_appointments',[]), doctors=readLS('mr5_doctors',[]), users=readLS('mr5_users',[]).filter(u=>u.role==='patient');
+      const appointments=readLS('mr6_appointments',[]), doctors=readLS('mr6_doctors',[]), users=readLS('mr6_users',[]).filter(u=>u.role==='patient');
       let cards=[];
       if(currentUser.role==='admin'){
         cards=[{icon:'📅',label:'إجمالي المواعيد',value:appointments.length},{icon:'🩺',label:'عدد الأطباء',value:doctors.length},{icon:'👥',label:'عدد المراجعين',value:users.length},{icon:'⏳',label:'مواعيد معلقة',value:appointments.filter(a=>a.status==='pending').length}];
@@ -871,27 +900,38 @@
       }
       overviewCards.innerHTML=cards.map(c=>`<div class="dash-card"><div style="font-size:1.55rem">${c.icon}</div><strong>${c.value}</strong><span style="color:var(--muted)">${c.label}</span></div>`).join('');
     }
-    function renderActivity(){const rows=readLS('mr5_activity',[]).slice(0,10).map(a=>`<tr><td>${a.action}</td><td>${a.description}</td><td>${a.time}</td></tr>`).join('');activityTable.innerHTML=rows||`<tr><td colspan="3"><div class="empty">لا توجد أنشطة</div></td></tr>`}
-    function renderAppointments(){const body=appointmentsTable;if(!body) return;let list=readLS('mr5_appointments',[]);if(currentUser?.role==='patient') list=list.filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.phone}</td><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${currentUser?.role==='admin'?`<div class="inline"><button class="btn small" onclick="setAppointmentStatus('${a.id}','confirmed')">تأكيد</button><button class="btn small outline" onclick="setAppointmentStatus('${a.id}','pending')">مراجعة</button><button class="btn small outline" onclick="setAppointmentStatus('${a.id}','cancelled')">إلغاء</button><button class="btn small outline" onclick="deleteAppointment('${a.id}')">حذف</button></div>`:`<span style="color:var(--muted)">متابعة فقط</span>`}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="12"><div class="empty">لا توجد مواعيد</div></td></tr>`}
-    function setAppointmentStatus(id,status){let list=readLS('mr5_appointments',[]);list=list.map(a=>a.id===id?{...a,status}:a);writeLS('mr5_appointments',list);logActivity('تحديث موعد',`تم تحديث حالة موعد إلى ${status}`);renderDashboard();notify('تم تحديث الحالة')}
-    function deleteAppointment(id){let list=readLS('mr5_appointments',[]).filter(a=>a.id!==id);writeLS('mr5_appointments',list);logActivity('حذف موعد','تم حذف موعد من النظام');renderDashboard();notify('تم حذف الموعد','warning')}
-    function renderDoctorsAdmin(){const body=doctorsAdminTable;if(!body) return;const list=readLS('mr5_doctors',[]);body.innerHTML=list.map(d=>`<tr><td>${d.name}</td><td>${d.spec}</td><td>${d.exp}</td><td><button class="btn small outline" onclick="deleteDoctor('${d.id}')">حذف</button></td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="4"><div class="empty">لا يوجد أطباء</div></td></tr>`}
-    doctorForm.addEventListener('submit',e=>{e.preventDefault();const doctor={id:uid(),name:doctorName.value.trim(),spec:doctorSpec.value.trim(),exp:doctorExp.value.trim(),about:'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.',image:doctorImage.value.trim()||'https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=1200&auto=format&fit=crop'};const list=readLS('mr5_doctors',[]);list.unshift(doctor);writeLS('mr5_doctors',list);logActivity('إضافة طبيب',`تمت إضافة الطبيب ${doctor.name}`);e.target.reset();renderHome();renderDashboard();notify('تمت إضافة الطبيب')});
-    function deleteDoctor(id){let list=readLS('mr5_doctors',[]).filter(d=>d.id!==id);writeLS('mr5_doctors',list);logActivity('حذف طبيب','تم حذف طبيب من النظام');renderHome();renderDashboard();notify('تم حذف الطبيب','warning')}
-    function renderUsers(){const body=usersTable;if(!body) return;const users=readLS('mr5_users',[]);body.innerHTML=users.map(u=>`<tr><td>${u.name}</td><td>${u.email}</td><td>${u.phone}</td><td>${u.age||'-'}</td><td>${u.insurance||'-'}</td><td>${u.role==='admin'?'إدارة':'مراجع'}</td></tr>`).join('')}
-    function renderReports(){const appointments=readLS('mr5_appointments',[]);const reportCards=[{label:'المواعيد المؤكدة',value:appointments.filter(a=>a.status==='confirmed').length},{label:'المواعيد الملغية',value:appointments.filter(a=>a.status==='cancelled').length},{label:'مراجعات التأمين',value:appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length},{label:'حالات طارئة',value:appointments.filter(a=>a.priority==='طارئ').length}];document.getElementById('reportCards').innerHTML=reportCards.map(c=>`<div class="dash-card"><strong>${c.value}</strong><span style="color:var(--muted)">${c.label}</span></div>`).join('');reportsTable.innerHTML=`<tr><td>إجمالي المواعيد</td><td>${appointments.length}</td><td>كل المواعيد المسجلة داخل النظام</td></tr><tr><td>المواعيد المؤكدة</td><td>${appointments.filter(a=>a.status==='confirmed').length}</td><td>تمت مراجعتها واعتمادها</td></tr><tr><td>المواعيد المعلقة</td><td>${appointments.filter(a=>a.status==='pending').length}</td><td>بانتظار متابعة الإدارة</td></tr><tr><td>المراجعات التأمينية</td><td>${appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length}</td><td>مراجعون عبر شركات التأمين</td></tr><tr><td>المراجعات النقدية</td><td>${appointments.filter(a=>!a.insurance||a.insurance==='نقدي'||a.insurance==='-').length}</td><td>مراجعون بخدمة نقدية</td></tr>`}
-    function renderBills(){const body=billsTable;if(!body) return;const list=readLS('mr5_appointments',[]).slice(0,12);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.department}</td><td>${a.amount||0}</td><td>${a.insurance&&a.insurance!=='-'?a.insurance:'نقدي'}</td><td>${a.status==='confirmed'?'مؤكد':'بانتظار الإجراء'}</td></tr>`).join('')||`<tr><td colspan="5"><div class="empty">لا توجد فواتير بعد</div></td></tr>`}
-    function renderNotifications(){const box=notificationsBox;if(!box) return;const notes=readLS('mr5_notifications',[]);box.innerHTML=notes.map(n=>`<div class="mini-panel" style="margin-bottom:12px"><strong>${n.title}</strong><div style="color:var(--muted);line-height:1.8;margin-top:8px">${n.desc}</div><div style="color:var(--muted);font-size:.88rem;margin-top:8px">${n.time}</div></div>`).join('')||'<div class="empty">لا توجد إشعارات</div>'}
+    function renderActivity(){const rows=readLS('mr6_activity',[]).slice(0,10).map(a=>`<tr><td>${a.action}</td><td>${a.description}</td><td>${a.time}</td></tr>`).join('');activityTable.innerHTML=rows||`<tr><td colspan="3"><div class="empty">لا توجد أنشطة</div></td></tr>`}
+    function renderAppointments(){const body=appointmentsTable;if(!body) return;let list=readLS('mr6_appointments',[]);if(currentUser?.role==='patient') list=list.filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.phone}</td><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${currentUser?.role==='admin'?`<div class="inline"><button class="btn small" onclick="setAppointmentStatus('${a.id}','confirmed')">تأكيد</button><button class="btn small outline" onclick="setAppointmentStatus('${a.id}','pending')">مراجعة</button><button class="btn small outline" onclick="setAppointmentStatus('${a.id}','cancelled')">إلغاء</button><button class="btn small outline" onclick="deleteAppointment('${a.id}')">حذف</button></div>`:`<span style="color:var(--muted)">متابعة فقط</span>`}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="12"><div class="empty">لا توجد مواعيد</div></td></tr>`}
+    function setAppointmentStatus(id,status){let list=readLS('mr6_appointments',[]);list=list.map(a=>a.id===id?{...a,status}:a);writeLS('mr6_appointments',list);logActivity('تحديث موعد',`تم تحديث حالة موعد إلى ${status}`);renderDashboard();notify('تم تحديث الحالة')}
+    function deleteAppointment(id){let list=readLS('mr6_appointments',[]).filter(a=>a.id!==id);writeLS('mr6_appointments',list);logActivity('حذف موعد','تم حذف موعد من النظام');renderDashboard();notify('تم حذف الموعد','warning')}
+    function renderDoctorsAdmin(){const body=doctorsAdminTable;if(!body) return;const list=readLS('mr6_doctors',[]);body.innerHTML=list.map(d=>`<tr><td>${d.name}</td><td>${d.spec}</td><td>${d.exp}</td><td><button class="btn small outline" onclick="deleteDoctor('${d.id}')">حذف</button></td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="4"><div class="empty">لا يوجد أطباء</div></td></tr>`}
+    doctorForm.addEventListener('submit',e=>{e.preventDefault();const doctor={id:uid(),name:doctorName.value.trim(),spec:doctorSpec.value.trim(),exp:doctorExp.value.trim(),about:'طبيب متميز داخل مجمع ملاك الرحمة بخبرة عملية قوية.',image:doctorImage.value.trim()||'https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=1200&auto=format&fit=crop',specials:['خدمة عامة','متابعة','استشارات']};const list=readLS('mr6_doctors',[]);list.unshift(doctor);writeLS('mr6_doctors',list);logActivity('إضافة طبيب',`تمت إضافة الطبيب ${doctor.name}`);e.target.reset();renderHome();renderDashboard();notify('تمت إضافة الطبيب')});
+    function deleteDoctor(id){let list=readLS('mr6_doctors',[]).filter(d=>d.id!==id);writeLS('mr6_doctors',list);logActivity('حذف طبيب','تم حذف طبيب من النظام');renderHome();renderDashboard();notify('تم حذف الطبيب','warning')}
+    function renderUsers(){const body=usersTable;if(!body) return;const users=readLS('mr6_users',[]);body.innerHTML=users.map(u=>`<tr><td>${u.name}</td><td>${u.email}</td><td>${u.phone}</td><td>${u.age||'-'}</td><td>${u.insurance||'-'}</td><td>${u.role==='admin'?'إدارة':'مراجع'}</td></tr>`).join('')}
+    function renderReports(){const appointments=readLS('mr6_appointments',[]);const reportCards=[{label:'المواعيد المؤكدة',value:appointments.filter(a=>a.status==='confirmed').length},{label:'المواعيد الملغية',value:appointments.filter(a=>a.status==='cancelled').length},{label:'مراجعات التأمين',value:appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length},{label:'حالات طارئة',value:appointments.filter(a=>a.priority==='طارئ').length}];document.getElementById('reportCards').innerHTML=reportCards.map(c=>`<div class="dash-card"><strong>${c.value}</strong><span style="color:var(--muted)">${c.label}</span></div>`).join('');reportsTable.innerHTML=`<tr><td>إجمالي المواعيد</td><td>${appointments.length}</td><td>كل المواعيد المسجلة داخل النظام</td></tr><tr><td>المواعيد المؤكدة</td><td>${appointments.filter(a=>a.status==='confirmed').length}</td><td>تمت مراجعتها واعتمادها</td></tr><tr><td>المواعيد المعلقة</td><td>${appointments.filter(a=>a.status==='pending').length}</td><td>بانتظار متابعة الإدارة</td></tr><tr><td>المراجعات التأمينية</td><td>${appointments.filter(a=>a.insurance&&a.insurance!=='نقدي'&&a.insurance!=='-').length}</td><td>مراجعون عبر شركات التأمين</td></tr><tr><td>المراجعات النقدية</td><td>${appointments.filter(a=>!a.insurance||a.insurance==='نقدي'||a.insurance==='-').length}</td><td>مراجعون بخدمة نقدية</td></tr>`}
+    function renderBills(){const body=billsTable;if(!body) return;const list=readLS('mr6_appointments',[]).slice(0,12);body.innerHTML=list.map(a=>`<tr><td>${a.name}</td><td>${a.department}</td><td>${a.amount||0}</td><td>${a.insurance&&a.insurance!=='-'?a.insurance:'نقدي'}</td><td><button class="btn small outline" onclick="openInvoiceModal()">عرض</button></td></tr>`).join('')||`<tr><td colspan="5"><div class="empty">لا توجد فواتير بعد</div></td></tr>`}
+    function renderNotifications(){const box=notificationsBox;if(!box) return;const notes=readLS('mr6_notifications',[]);box.innerHTML=notes.map(n=>`<div class="mini-panel" style="margin-bottom:12px"><strong>${n.title}</strong><div style="color:var(--muted);line-height:1.8;margin-top:8px">${n.desc}</div><div style="color:var(--muted);font-size:.88rem;margin-top:8px">${n.time}</div></div>`).join('')||'<div class="empty">لا توجد إشعارات</div>'}
     function renderProfile(){const box=patientProfile;if(!box||!currentUser) return;box.innerHTML=`<div class="cards-3"><div class="mini-panel">الاسم<br><strong>${currentUser.name}</strong></div><div class="mini-panel">البريد<br><strong>${currentUser.email}</strong></div><div class="mini-panel">الجوال<br><strong>${currentUser.phone}</strong></div><div class="mini-panel">العمر<br><strong>${currentUser.age||'-'}</strong></div><div class="mini-panel">النوع<br><strong>${currentUser.gender||'-'}</strong></div><div class="mini-panel">التأمين<br><strong>${currentUser.insurance||'-'}</strong></div></div>`}
-    function renderMyAppointments(){const body=myAppointmentsTable;if(!body||!currentUser) return;const list=readLS('mr5_appointments',[]).filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${a.notes||'-'}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="10"><div class="empty">لا توجد مواعيد مرتبطة بحسابك</div></td></tr>`}
-    function renderMedical(){const box=medicalProfile;if(!box||!currentUser) return;const mine=readLS('mr5_appointments',[]).filter(a=>a.userId===currentUser.id);const last=mine[0];box.innerHTML=`<div class="cards-3"><div class="mini-panel">عدد الزيارات<br><strong>${mine.length}</strong></div><div class="mini-panel">آخر عيادة<br><strong>${last?.department||'-'}</strong></div><div class="mini-panel">آخر طبيب<br><strong>${last?.doctor||'-'}</strong></div></div><div class="mini-panel" style="margin-top:16px;line-height:1.9;color:var(--muted)">يمكن استخدام هذه المساحة لعرض ملخص طبي منظم يشمل الزيارات السابقة، التقارير، والمعلومات الأساسية للمراجع.</div><div style="margin-top:16px"><button class="btn outline" onclick="fakeDownload('التقرير الطبي')">تنزيل التقرير</button></div>`}
+    function renderMyAppointments(){const body=myAppointmentsTable;if(!body||!currentUser) return;const list=readLS('mr6_appointments',[]).filter(a=>a.userId===currentUser.id);body.innerHTML=list.map(a=>`<tr><td>${a.department}</td><td>${a.doctor}</td><td>${a.date}</td><td>${a.time}</td><td>${a.insurance||'-'}</td><td>${a.priority||'-'}</td><td>${a.visitType||'-'}</td><td>${a.amount||0}</td><td>${badge(a.status)}</td><td>${a.notes||'-'}</td></tr>`).join('');if(!list.length) body.innerHTML=`<tr><td colspan="10"><div class="empty">لا توجد مواعيد مرتبطة بحسابك</div></td></tr>`}
+    function renderMedical(){const box=medicalProfile;if(!box||!currentUser) return;const mine=readLS('mr6_appointments',[]).filter(a=>a.userId===currentUser.id);const last=mine[0];box.innerHTML=`<div class="cards-3"><div class="mini-panel">عدد الزيارات<br><strong>${mine.length}</strong></div><div class="mini-panel">آخر عيادة<br><strong>${last?.department||'-'}</strong></div><div class="mini-panel">آخر طبيب<br><strong>${last?.doctor||'-'}</strong></div></div><div class="mini-panel" style="margin-top:16px;line-height:1.9;color:var(--muted)">يمكن استخدام هذه المساحة لعرض ملخص طبي منظم يشمل الزيارات السابقة، التقارير، والمعلومات الأساسية للمراجع.</div><div style="margin-top:16px"><button class="btn outline" onclick="fakeDownload('التقرير الطبي')">تنزيل التقرير</button></div>`}
 
-    function toggleChat(){chatbotBox.classList.toggle('show');if(chatbotBox.classList.contains('show')&&!chatMessages.dataset.init){chatMessages.dataset.init='1';addBot('مرحبًا بك 👋 أنا مساعد ملاك الرحمة الذكي. اسألني عن العيادات المناسبة، الحجز، التأمين، أو الخدمات النقدية داخل المجمع.')}}
-    document.getElementById('chatToggle').onclick=toggleChat;document.getElementById('sendChatBtn').onclick=sendChat;chatInput.addEventListener('keydown',e=>{if(e.key==='Enter') sendChat()});
+    function toggleChat(){
+      chatbotBox.classList.toggle('show');
+      if(chatbotBox.classList.contains('show')&&!chatMessages.dataset.init){
+        chatMessages.dataset.init='1';
+        addBot('مرحبًا بك 👋 أنا مساعد ملاك الرحمة الذكي. اسألني عن العيادات المناسبة، الحجز، التأمين، أو الخدمات النقدية داخل المجمع.');
+      }
+    }
+    document.getElementById('chatToggle').onclick=toggleChat;
+    document.getElementById('sendChatBtn').onclick=sendChat;
+    chatInput.addEventListener('keydown',e=>{if(e.key==='Enter') sendChat()});
+    function sendQuick(text){chatInput.value=text;sendChat()}
     function addUser(text){const d=document.createElement('div');d.className='msg user';d.textContent=text;chatMessages.appendChild(d);chatMessages.scrollTop=chatMessages.scrollHeight}
     function addBot(html){const d=document.createElement('div');d.className='msg bot';d.innerHTML=html;chatMessages.appendChild(d);chatMessages.scrollTop=chatMessages.scrollHeight}
-    function reply(msg){msg=msg.toLowerCase();if(msg.includes('حجز')||msg.includes('موعد')) return 'يمكنك الحجز من قسم <b>احجز موعدك</b> أو من خلال حساب المراجع لربط الموعد بحسابك مباشرة.';if(msg.includes('اسنان')||msg.includes('الأسنان')) return 'عيادات الأسنان مناسبة للفحص، التنظيف، الحشوات، والتقييم العلاجي والتجميلي.';if(msg.includes('جلدية')) return 'عيادات الجلدية مناسبة لمشكلات البشرة والشعر والحساسية وبعض الإجراءات التجميلية.';if(msg.includes('اطفال')||msg.includes('الأطفال')) return 'عيادات الأطفال مخصصة للكشف العام، التطعيمات، ومتابعة نمو الطفل.';if(msg.includes('نساء')||msg.includes('ولادة')) return 'عيادات النساء والولادة تقدم متابعة الحمل والاستشارات النسائية والفحوصات الدورية.';if(msg.includes('عظام')) return 'عيادات العظام مناسبة للإصابات وآلام المفاصل والظهر والمتابعة العلاجية.';if(msg.includes('تأمين')||msg.includes('شركة')) return 'يتيح مجمع ملاك الرحمة خدمة المراجعة عبر شركات التأمين المعتمدة، كما تتوفر الخدمات النقدية للمراجعين وفق تنظيم واضح.';if(msg.includes('نقدي')||msg.includes('كاش')) return 'تتوفر الخدمات النقدية داخل المجمع، ويمكن توضيح طريقة المراجعة أثناء الحجز بسهولة.';if(msg.includes('اداره')||msg.includes('admin')||msg.includes('داش')) return 'يمكن لفريق الإدارة استخدام بيانات الدخول المخصصة للوصول إلى لوحة التحكم وإدارة العيادات والمواعيد والخدمات النقدية والتأمينية.';if(msg.includes('تحاليل')) return 'يوجد قسم خاص بخدمات المختبر والتحاليل يوضح الاستعلام عن النتائج وإمكانية تنزيل التقرير.';if(msg.includes('شكرا')||msg.includes('شكرًا')) return 'تحت أمرك دائمًا 💙';return 'أقدر أساعدك في اختيار العيادة المناسبة، الحجز، خدمات التأمين، والخدمات النقدية داخل المجمع. اكتب سؤالك بشكل أوضح وسأساعدك.'}
-    function sendChat(){const text=chatInput.value.trim();if(!text) return;addUser(text);chatInput.value='';setTimeout(()=>addBot(reply(text)),400)}
+    function addTyping(){const d=document.createElement('div');d.className='msg bot';d.id='typingBubble';d.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';chatMessages.appendChild(d);chatMessages.scrollTop=chatMessages.scrollHeight}
+    function removeTyping(){document.getElementById('typingBubble')?.remove()}
+    function reply(msg){msg=msg.toLowerCase();if(msg.includes('حجز')||msg.includes('موعد')) return 'يمكنك الحجز من قسم <b>احجز موعدك</b> أو من خلال حساب المراجع لربط الموعد بحسابك مباشرة. يفضّل تحديد العيادة والطبيب ونوع الزيارة وطريقة المراجعة.';if(msg.includes('اسنان')||msg.includes('الأسنان')) return 'عيادات الأسنان مناسبة للفحص، التنظيف، الحشوات، والتقييم العلاجي والتجميلي. ويمكنك الحجز مع <b>د. ريم العتيبي</b> مباشرة من قسم الأطباء.';if(msg.includes('جلدية')) return 'عيادات الجلدية مناسبة لمشكلات البشرة والشعر والحساسية وبعض الإجراءات التجميلية. يمكنك الاطلاع على بطاقة الطبيب أو الصفحة الكاملة للطبيب.';if(msg.includes('اطفال')||msg.includes('الأطفال')) return 'عيادات الأطفال مخصصة للكشف العام، التطعيمات، ومتابعة نمو الطفل. هذه الزيارة متاحة نقدًا أو تأمينًا وفق الجهة المعتمدة.';if(msg.includes('نساء')||msg.includes('ولادة')) return 'عيادات النساء والولادة تقدم متابعة الحمل والاستشارات النسائية والفحوصات الدورية داخل بيئة منظمة ومريحة.';if(msg.includes('عظام')) return 'عيادات العظام مناسبة للإصابات وآلام المفاصل والظهر والمتابعة العلاجية. ويمكن تحديد أولوية الحالة أثناء الحجز.';if(msg.includes('تأمين')||msg.includes('شركة')) return 'يتيح مجمع ملاك الرحمة خدمة المراجعة عبر شركات التأمين المعتمدة، كما تتوفر الخدمات النقدية للمراجعين وفق تنظيم واضح. يمكن كتابة شركة التأمين أثناء الحجز ليتم تصنيف الموعد.';if(msg.includes('نقدي')||msg.includes('كاش')) return 'تتوفر الخدمات النقدية داخل المجمع، ويمكن توضيح طريقة المراجعة أثناء الحجز. كما يمكن عرض الفاتورة التجريبية من نموذج الفواتير أو قسم الفواتير في لوحة التحكم.';if(msg.includes('اداره')||msg.includes('admin')||msg.includes('داش')) return 'يمكن لفريق الإدارة استخدام بيانات الدخول المخصصة للوصول إلى لوحة التحكم وإدارة العيادات والمواعيد والخدمات النقدية والتأمينية.';if(msg.includes('تحاليل')) return 'يوجد قسم خاص بخدمات المختبر والتحاليل يوضح الاستعلام عن النتائج وإمكانية تنزيل التقرير، كما يمكن عرض آخر النتائج داخل الواجهة.';if(msg.includes('دكتور')||msg.includes('طبيب')) return 'يمكنك فتح <b>بطاقة الطبيب</b> أو <b>صفحة الطبيب</b> من قسم الأطباء للتعرّف على النبذة والخدمات المتاحة قبل الحجز.';if(msg.includes('شكرا')||msg.includes('شكرًا')) return 'تحت أمرك دائمًا 💙';return 'أقدر أساعدك في اختيار العيادة المناسبة، الحجز، خدمات التأمين، والخدمات النقدية داخل المجمع. اكتب سؤالك بشكل أوضح وسأساعدك.'}
+    function sendChat(){const text=chatInput.value.trim();if(!text) return;addUser(text);chatInput.value='';addTyping();setTimeout(()=>{removeTyping();addBot(reply(text))},650)}
 
     const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');if(entry.target.dataset.count&&!entry.target.dataset.done){entry.target.dataset.done='1';countUp(entry.target)}}})},{threshold:.12});
     function refreshReveal(){document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));document.querySelectorAll('[data-count]').forEach(el=>observer.observe(el))}
@@ -907,9 +947,11 @@
     window.addEventListener('scroll',()=>{let current='home';document.querySelectorAll('main section[id]').forEach(sec=>{if(scrollY>=sec.offsetTop-120) current=sec.id});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current))});
     authModal.addEventListener('click',e=>{if(e.target===authModal) closeAuthModal()});
     dashboard.addEventListener('click',e=>{if(e.target===dashboard) closeDashboard()});
+    doctorModal.addEventListener('click',e=>{if(e.target===doctorModal) closeDoctorPage()});
+    invoiceModal.addEventListener('click',e=>{if(e.target===invoiceModal) closeInvoiceModal()});
 
     renderHome(); refreshReveal(); prefillPatient(); if(currentUser) renderDashboard();
-    window.openAuthModal=openAuthModal; window.closeAuthModal=closeAuthModal; window.toggleChat=toggleChat; window.openDashboardEntry=openDashboardEntry; window.closeDashboard=closeDashboard; window.logout=logout; window.openPanel=openPanel; window.setAppointmentStatus=setAppointmentStatus; window.deleteAppointment=deleteAppointment; window.deleteDoctor=deleteDoctor; window.scrollToSection=scrollToSection; window.selectDoctor=selectDoctor; window.showDoctor=showDoctor; window.goSlide=goSlide; window.fakeDownload=fakeDownload;
+    window.openAuthModal=openAuthModal; window.closeAuthModal=closeAuthModal; window.toggleChat=toggleChat; window.openDashboardEntry=openDashboardEntry; window.closeDashboard=closeDashboard; window.logout=logout; window.openPanel=openPanel; window.setAppointmentStatus=setAppointmentStatus; window.deleteAppointment=deleteAppointment; window.deleteDoctor=deleteDoctor; window.scrollToSection=scrollToSection; window.selectDoctor=selectDoctor; window.showDoctor=showDoctor; window.openDoctorPage=openDoctorPage; window.closeDoctorPage=closeDoctorPage; window.goSlide=goSlide; window.fakeDownload=fakeDownload; window.toggleMobileMenu=toggleMobileMenu; window.openInvoiceModal=openInvoiceModal; window.closeInvoiceModal=closeInvoiceModal; window.sendQuick=sendQuick;
   </script>
 </body>
 </html>
