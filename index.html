@@ -74,89 +74,102 @@ button{padding:12px 20px;border:none;border-radius:10px;background:#22c55e;color
 </div>
 
 <script>
-// Users
 const users = {
-  admin:{pass:"1234",role:"admin"},
-  user:{pass:"1234",role:"user"}
-}
+  admin: { pass: "1234", role: "admin" },
+  user: { pass: "1234", role: "user" }
+};
 
-let currentUser = null
+let currentUser = null;
 
-function login(){
-  let u=document.getElementById("user").value
-  let p=document.getElementById("pass").value
+function login() {
+  let u = document.getElementById("user").value.trim().toLowerCase();
+  let p = document.getElementById("pass").value.trim();
 
-  if(users[u] && users[u].pass==p){
-    currentUser = users[u]
-    document.getElementById("login").classList.remove("active")
-    document.getElementById("dashboard").classList.add("active")
-    loadData()
-  }else{
-    alert("خطأ في البيانات")
+  if (!u || !p) {
+    alert("من فضلك اكتب اسم المستخدم وكلمة المرور");
+    return;
+  }
+
+  if (users[u] && users[u].pass === p) {
+    currentUser = users[u];
+    document.getElementById("login").classList.remove("active");
+    document.getElementById("dashboard").classList.add("active");
+    loadData();
+  } else {
+    alert("خطأ في البيانات");
   }
 }
 
-function logout(){
-  location.reload()
+function logout() {
+  currentUser = null;
+  document.getElementById("dashboard").classList.remove("active");
+  document.getElementById("login").classList.add("active");
+  document.getElementById("user").value = "";
+  document.getElementById("pass").value = "";
 }
 
-// Navigation
-function show(page){
-  document.querySelectorAll(".page").forEach(p=>p.style.display="none")
-  document.getElementById(page).style.display="block"
+function show(page) {
+  document.querySelectorAll(".page").forEach(p => p.style.display = "none");
+  document.getElementById(page).style.display = "block";
 }
 
-// Storage
-let doctors = JSON.parse(localStorage.getItem("doctors")) || []
-let apps = JSON.parse(localStorage.getItem("apps")) || []
+let doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+let apps = JSON.parse(localStorage.getItem("apps")) || [];
 
-function save(){
-  localStorage.setItem("doctors",JSON.stringify(doctors))
-  localStorage.setItem("apps",JSON.stringify(apps))
-  loadData()
+function save() {
+  localStorage.setItem("doctors", JSON.stringify(doctors));
+  localStorage.setItem("apps", JSON.stringify(apps));
+  loadData();
 }
 
-// Doctors
-function addDoctor(){
-  let name=document.getElementById("docName").value
-  doctors.push(name)
-  save()
+function addDoctor() {
+  let name = document.getElementById("docName").value.trim();
+  if (!name) return;
+  doctors.push(name);
+  document.getElementById("docName").value = "";
+  save();
 }
 
-function deleteDoctor(i){
-  doctors.splice(i,1)
-  save()
+function deleteDoctor(i) {
+  doctors.splice(i, 1);
+  save();
 }
 
-// Appointments
-function addApp(){
-  let name=document.getElementById("appName").value
-  apps.push(name)
-  save()
+function addApp() {
+  let name = document.getElementById("appName").value.trim();
+  if (!name) return;
+  apps.push(name);
+  document.getElementById("appName").value = "";
+  save();
 }
 
-function deleteApp(i){
-  apps.splice(i,1)
-  save()
+function deleteApp(i) {
+  apps.splice(i, 1);
+  save();
 }
 
-// Load
-function loadData(){
-  document.getElementById("docCount").innerText = doctors.length
-  document.getElementById("appCount").innerText = apps.length
+function loadData() {
+  document.getElementById("docCount").innerText = doctors.length;
+  document.getElementById("appCount").innerText = apps.length;
 
-  let docHTML=""
-  doctors.forEach((d,i)=>{
-    docHTML += `<div class="card">${d} <button onclick="deleteDoctor(${i})">حذف</button></div>`
-  })
-  document.getElementById("docList").innerHTML = docHTML
+  let docHTML = "";
+  doctors.forEach((d, i) => {
+    docHTML += `<div class="card">${d} <button onclick="deleteDoctor(${i})">حذف</button></div>`;
+  });
+  document.getElementById("docList").innerHTML = docHTML;
 
-  let appHTML=""
-  apps.forEach((a,i)=>{
-    appHTML += `<div class="card">${a} <button onclick="deleteApp(${i})">حذف</button></div>`
-  })
-  document.getElementById("appList").innerHTML = appHTML
+  let appHTML = "";
+  apps.forEach((a, i) => {
+    appHTML += `<div class="card">${a} <button onclick="deleteApp(${i})">حذف</button></div>`;
+  });
+  document.getElementById("appList").innerHTML = appHTML;
 }
+
+document.getElementById("pass").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    login();
+  }
+});
 </script>
 
 </body>
