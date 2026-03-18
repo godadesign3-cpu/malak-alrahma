@@ -81,6 +81,11 @@
       background:linear-gradient(135deg,var(--primary),var(--primary2));font-size:1.5rem;font-weight:900;
       box-shadow:0 14px 28px rgba(25,211,197,.25)
     }
+    .logo img {
+  width: 40px;   /* حجم اللوجو */
+  height: 40px;
+  object-fit: contain;
+}
     .brand h2{margin:0;font-size:1.08rem}
     .brand small{color:var(--muted)}
     .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
@@ -254,7 +259,9 @@
   <header class="navbar">
     <div class="container nav-wrap">
       <div class="brand">
-        <div class="logo">✚</div>
+        <div class="logo">
+  <img src="logo.png" alt="لوجو ملاك الرحمة">
+</div>
         <div>
           <h2>ملاك الرحمة</h2>
           <small>مجمع عيادات متكامل</small>
